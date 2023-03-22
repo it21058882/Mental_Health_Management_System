@@ -23,8 +23,8 @@ app.get("/",(req,res,next)=>{
 
 
 
-
-
+const questionTitleRouter = require("./api/routers/quiz.js");
+app.use("/quiz",questionTitleRouter);
 
 
 
