@@ -1,13 +1,39 @@
+import React from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-import './App.css';
+import AddQuizTitle from './QuizManagement/addQuizTitle';
+import AddQuestions from "./QuizManagement/addQuestion";
+
+const page = createBrowserRouter([ 
+  { path: "/addquiztitle", element: <AddQuizTitle/>,  },
+  { path: "/addquestions/:quiztitleid", element: <AddQuestions/>,  },
+
+
+]);
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Mental Health Management System</h1>
-      </header>
-    </div>
+
+    <React.StrictMode>
+
+
+    <RouterProvider router={page} />
+   
+
+
+
+
+  </React.StrictMode>
+
+
+
+
+
   );
 }
 
