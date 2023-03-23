@@ -19,7 +19,7 @@ const addQuizTitle = async (req, res, next) => {
 
           newTitle.save().then((status)=>{
                     console.log(status._id);
-                    res.send("record added " + status._id);
+                    res.send(status._id);
           }).catch((err)=>{
                     console.log(err);
           })
