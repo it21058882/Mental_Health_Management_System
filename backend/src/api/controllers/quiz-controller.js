@@ -1,5 +1,6 @@
 const QuizTitle = require("../model/quizTitleModel");
 const Question = require("../model/questionsModel");
+const { findOneAndDelete } = require("../model/quizTitleModel");
 
 
 
@@ -63,6 +64,83 @@ const addQuizTitle = async (req, res, next) => {
 
 }
 
+const titleViewAdmin = async (req, res, next) => {
+
+                  try {
+                    const titles = await QuizTitle.find({ });
+                    res.send(titles);
+                  } catch (err) {
+                    console.log(err);
+                  }
+}
+
+const ViewQuestionsAdmin = async (req, res, next) => {
+          
+          const titleID = req.params.titleID;
+          console.log(titleID);
+
+          try{
+                    const questions = await Question.find({"quizTitleId" : titleID});
+                    res.send(questions);
+          } catch(err){
+                    console.log(err);
+          }
+}
+
+ const deleteQuestionAdmin = async (req, res, next) => {
+          const titleID = req.params.titleID;
+          const questionID = req.params.questionID;
+
+          console.log(titleID);
+          console.log(questionID);
+
+          try{
+                    const data = await Question.findOneAndDelete({"_id" :questionID, "quizTitleId" :  titleID})
+                    res.send(data + " Deleted");
+          }catch(err){
+                    res.send(err);
+          }
+
+ }
+
+ const questionUpdateView = async (req, res, next) => {
+          const titleID = req.params.titleID;
+          const questionID = req.params.questionID;
+
+          console.log(titleID);
+          console.log(questionID);
+          console.log(req.body);
+
+          const updateDate = {
+                    question : req.body.question,
+                    answer1 : req.body.answer1,
+                    answer1Mark :req.body.answer1Mark,
+                    answer2 :req.body.answer2,
+                    answer2Mark : req.body.answer2Mark,
+                    answer3 : req.body.answer3,
+                    answer3Mark : req.body.answer3Mark,
+                    answer4 : req.body.answer4,
+                    answer4Mark : req.body.answer4Mark,
+                    
+          }
+
+          try{
+                    const result = await Question.updateOne({_id:questionID,"quizTitleId" :titleID },{$set : updateDate})
+                    res.send(result +   "   ----------    Updated")
+                    console.log(result)
+          }catch(err){
+                    res.send(err)
+          }
+
+
+}
+
+
+
 // exports.Register = Register;
  exports.addQuizTitle = addQuizTitle;
  exports.addQuestions = addQuestions;
+ exports.titleViewAdmin = titleViewAdmin;
+ exports.ViewQuestionsAdmin = ViewQuestionsAdmin;
+ exports.deleteQuestionAdmin = deleteQuestionAdmin;
+ exports.questionUpdateView = questionUpdateView;
