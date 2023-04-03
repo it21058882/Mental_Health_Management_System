@@ -23,6 +23,9 @@ app.get("/",(req,res,next)=>{
 
 
 
+const doctorRouter = require("./api/routers/doctor.js");
+app.use("/doctor",doctorRouter);
+
 const questionTitleRouter = require("./api/routers/quiz.js");
 app.use("/quiz",questionTitleRouter);
 
