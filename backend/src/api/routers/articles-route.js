@@ -1,8 +1,8 @@
 const express = require ("express");
 const router = express.Router();
 
-const {} = require("../controllers/articlescontroller");
+const {addArticle} = require("../controllers/articlescontroller");
 
-router.post("/quizTile", addQuizTitle);
+router.post("/addArticle", addArticle);
 
 module.exports = router;

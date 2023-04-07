@@ -31,3 +31,6 @@ app.use("/doctor",doctorRouter);
 
 const questionTitleRouter = require("./api/routers/quiz.js");
 app.use("/quiz",questionTitleRouter);
+
+const ArticleRouter = require("./api/routers/articles-route.js");
+app.use("/article", ArticleRouter);
