@@ -30,6 +30,10 @@ const questionTitleRouter = require("./api/routers/quiz.js");
 app.use("/quiz",questionTitleRouter);
 
 
+const clientRouter = require("./api/routers/client.js");
+app.use("/client",clientRouter);
+
+
 
 app.listen(PORT, ()=>{
          console.log(`Server running on PORT ${PORT} 🚀🚀🚀`);
