@@ -14,10 +14,6 @@ const ArticleShema = new Schema({
         type : String,
         required: true
     },
-    articleImage : {
-        type : String,
-        required: true,
-    },
     postDate : {
         type : String,
         required: true,
@@ -26,3 +22,8 @@ const ArticleShema = new Schema({
 
 
 module.exports = mongoose.model("Articles", ArticleShema);
+
+/*articleImage : {
+        type : String,
+        required: true,
+    },*/
