@@ -1,0 +1,39 @@
+body{
+          background-color: rgb(229, 255, 222);
+}
+.row1{
+          text-align:center;
+          margin:0 auto;
+      }
+      
+.row1 .col-md-3{
+    display:inline-block;
+      vertical-align: middle;
+         float: none;
+         margin: 20px;
+      }
+      .row1 .col-md-5{
+          display:inline-block;
+            vertical-align: middle;
+               float: none;
+               margin: 20px;
+            }
+.addquizbtn{
+          width: 15em;
+          height:3em ;
+         
+}
+
+.editbox{
+          width: 50%;
+          border: 5px red;
+          margin: auto;
+          padding: 60px;
+}
+
+.inputcss{
+   margin-top: 30px;
+   margin-bottom: 50px;
+  
+  
+}
