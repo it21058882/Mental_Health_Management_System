@@ -262,11 +262,12 @@ console.log(getQuestions);
                                 <div class="mt-4 pt-2">
                                   <input class="btn btn-success btn-lg" type="submit" value="Add Question" />
                                  
-                                  <button className='btn btn-warning btn-lg' onClick={publishquiz}>Publish  Quiz</button>
+                                  <input className='btn btn-warning btn-lg' type="button" onClick={publishquiz} value="Publish  Quiz"/>
                                   
                                 </div>
 
                               </form>
+                             
                             </div>
                           </div>
                         </div>
