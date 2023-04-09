@@ -9,6 +9,7 @@ import AddQuestions from "./QuizManagement/addQuestion";
 
 //Articles
 import AddArticles from "./ArticleManagement/addArticle";
+import ViewArticles from "./ArticleManagement/viewArtical";
 
 const page = createBrowserRouter([ 
   { path: "/addquiztitle", element: <AddQuizTitle/>,  },
@@ -17,6 +18,7 @@ const page = createBrowserRouter([
 
   ////Article////////////////
   { path: "/addarticle", element: <AddArticles/>,  },
+  { path: "/viewarticle", element: <ViewArticles/>,  },
 
 
 ]);

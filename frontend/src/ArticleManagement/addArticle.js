@@ -1,10 +1,11 @@
 import React, { useState,useEffect } from 'react'
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import { Button } from "@mui/material";
 
 export default function AddArticles() {
 
-  //place Order
+  //Add Article
   const [title, setTitle] = useState("");
   const [article, setArticle] = useState("");
   const [authorName, setAuthorName] = useState("");
@@ -40,16 +41,19 @@ export default function AddArticles() {
 
       <div className="DashBG" style={{ zIndex: 98 }}>
 
+      <Button to="/viewarticle" LinkComponent={Link}  sx={{ marginLeft: 1, marginTop: 5 }} variant="contained">View Article</Button>
+
         <div className='border' style={{ backgroundColor: '#fffc' }}>
           <h1 className='h3 mb-3 font-weight-normal'><center><u>Add Articles</u></center></h1>
           <form noValidate onSubmit={sendData}>
 
             <div class="form-group" className='login_form'>
-              <label for="exampleInputEmail1">Title: *(Kg)</label>
+              <label for="exampleInputEmail1">Title: *</label>
               <input type="text" class="form-control" placeholder="Enter title :-" onChange={(event) => {
                 setTitle(event.target.value);
               }} required/>
             </div>
+            <br></br>
             
             <div class="form-group" className='login_form'>
               <label for="exampleInputEmail1">Article:</label>
@@ -57,6 +61,7 @@ export default function AddArticles() {
                 setArticle(event.target.value);
               }} ></textarea>
             </div>
+            <br></br>
 
             <div class="form-group" className='login_form'>
               <label for="exampleInputEmail1">Author :</label>
@@ -64,6 +69,7 @@ export default function AddArticles() {
                 setAuthorName(event.target.value);
               }} />
             </div>
+            <br></br>
             
             <div class="form-group" className='login_form'>
               <label for="exampleInputEmail1">PostDate: *</label>
@@ -71,6 +77,7 @@ export default function AddArticles() {
                 setPostDate(event.target.value);
               }} required/>
             </div>
+            <br></br>
 
             <button type="submit" class="btn btn-success">Confirm</button>
             <button type="button" class="mx-4 my-4 btn btn-danger">Cancel </button>
