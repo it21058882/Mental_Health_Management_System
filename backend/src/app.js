@@ -12,23 +12,31 @@ app.use(bodyParser.json());
 app.use(express.json({limit:"10mb"}));
 
 
-
-
-
 app.get("/",(req,res,next)=>{
           res.send("<h1>Mental health management system</h1>");
           next();
 })
 
-
-
-
-const questionTitleRouter = require("./api/routers/quiz.js");
-app.use("/quiz",questionTitleRouter);
-
-
-
 app.listen(PORT, ()=>{
          console.log(`Server running on PORT ${PORT} 🚀🚀🚀`);
          connect();
 })
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+const doctorRouter = require("./api/routers/doctor.js");
+app.use("/doctor",doctorRouter);
+
+const questionTitleRouter = require("./api/routers/quiz.js");
+app.use("/quiz",questionTitleRouter);
+
+const ArticleRouter = require("./api/routers/articles-route.js");
+app.use("/article", ArticleRouter);
+
+const clientRouter = require("./api/routers/client.js");
+app.use("/client",clientRouter);
+
+
+
