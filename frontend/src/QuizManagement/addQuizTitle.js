@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from "axios";
 
 
@@ -21,7 +21,7 @@ function AddQuizTitle (){
                                         
                                   //alert(res.data);
                                   localStorage.setItem('newTitleID',res.data);
-                                  window.location.href = '/addquestions/' +res.data ;
+                                  window.location.href = '/addquestions/' +res.data+"/"+getTitle ;
                   
                                  
                                 
@@ -37,13 +37,31 @@ function AddQuizTitle (){
           return(
                    <div>
 
-                              <h1>Add Quiz</h1>
-                              <h3>Quiz Name</h3>
-                              <input onChange={titleinsert}/>
-                              <button onClick={submitTitle}>Create a Quiz</button>
+                              <h1 class="text-center">Add Quiz</h1>
 
 
+                    <section class="vh-50 gradient-custom">
+                    <div class="container py-5 h-20">
+                      <div class="row justify-content-center align-items-center h-100">
+                        <div class=" col-xl-8">
+                          <div class="card shadow-2-strong card-registration" style={{borderRadius: 15+"px"}}>
+                            <div class="card-body p-4 p-md-5">
+                              <div className='row1'> 
+                              <div class=" col-md-5 card-body">
+                              <h3 class="card-title">Quiz Name</h3>
+                              <input  class="form-control inputcss" placeholder='Quiz Title' onChange={titleinsert}/>
+                              <hr></hr>
+                              <button class="btn btn-success mt-4" onClick={submitTitle}>Create a Quiz</button>
+                              </div>
+                              </div>
 
+                              </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                    
+                  </section>
                    </div>
                               
                     
