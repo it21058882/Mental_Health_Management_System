@@ -32,7 +32,7 @@ app.use("/doctor",doctorRouter);
 const questionTitleRouter = require("./api/routers/quiz.js");
 app.use("/quiz",questionTitleRouter);
 
-const ArticleRouter = require("./api/routers/articles-route.js");
+const ArticleRouter = require("./api/controllers/articlescontroller.js");
 app.use("/article", ArticleRouter);
 
 const clientRouter = require("./api/routers/client.js");

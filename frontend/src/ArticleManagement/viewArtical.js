@@ -16,7 +16,7 @@ export default function Articles() {
     const [Article, setArtical] = useState([]);
     useEffect(() => {
         function getArticles() {
-            axios.get("http://localhost:8050/article/viewArticle").then((res) => {
+            axios.get("http://localhost:8050/article/get").then((res) => {
                 console.log(res.data);
                 setArtical(res.data)
             }).catch((err) => {
@@ -25,7 +25,7 @@ export default function Articles() {
         }
         getArticles();
 
-    }, [])
+    }, [Article])
 
 
      //delete article
@@ -89,12 +89,14 @@ export default function Articles() {
                     <br></br>
                     <br></br>
 
-
+                   
                     <table class="table" style={{ width: "800px"}}>
                         <thead class="thead-dark">
                             <tr>
                                 <th >Title</th>
-                                <th >Article</th>
+                                <th >Category</th>
+                                <th >Description</th>
+                                <th >Image</th>
                                 <th >Author Name</th>
                                 <th >Post Date</th>
                              
@@ -109,7 +111,10 @@ export default function Articles() {
                             ).map(e => (
                                 <tr>
                                     <td>{e.title}</td>
-                                    <td>{e.article}</td>
+                                    <td>{e.category}</td>
+                                    <td>{e.description}</td>
+                                    <img src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/IMG${e.articalImg}`)} width={50}></img>
+                                    <td>{e.articalImg}</td>
                                     <td>{e.authorName}</td>
                                     <td>{e.postDate}</td>
                                     <td></td>

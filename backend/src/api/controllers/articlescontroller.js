@@ -1,96 +1,75 @@
 const Articles = require('../model/articles-model');
-//const multer = require('multer');
+const router = require("express").Router();
+const multer = require('multer');
+const path = require("path");
+const sharp = require('sharp'); 
 
-//Article Image
-// const store = multer.diskStorage({
-//     destination: (req, file, callback) => {
-//         callback(null,"./Uploads");
-//     },
-//     filename:(req,file,callback) => {
-//         callback(null,file.originalname);
-//     }
-// })
-// const upload = multer({storage: store});
+// Create storage for file uploads
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC');
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    cb(null, `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`);
+  },
+});
 
-//Add article
-const AddArticles = async(req, res, next) => {
+// Create storage for image uploads
+const imageStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/IMG');
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    cb(null, `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`);
+  },
+});
+
+// Create upload instances
+const uploadFile = multer({ storage: fileStorage }).any('article');
+const uploadImage = multer({ storage: imageStorage }).array('articleImg');
+
+router.post('/add', (req, res) => {
     
-    const {title, article, authorName, postDate} = req.body;
-   // const {articalImg} = req.file.originalname;
-
-    const newarticle = new Articles({
-        title,
-        article,
-       // articalImg,
-        authorName,
-        postDate
+    uploadFile(req, res, async (err) => {
+      if (err) {
+        console.error(err);
+        //return res.status(500).send('Server error happeneeeeeooooooooo');
+      }
+      console.log('Uploaded file:');
+      
+      uploadImage(req, res, async (err) => {
+        if (err) {
+          console.error(err);
+          // handle the error here and respond to the client appropriately
+          return res.status(500).send('Server error ENOOOOO');
+        }
+        console.log('Uploaded image:', req.file.path);
+  
+        try {
+          // Create a new upload object
+          const newArticle = new Articles({
+            title: req.body.title,
+            category: req.body.category,
+            description: req.body.description,
+            article: req.file.path,
+            articleImg: req.file.path,
+            authorName: req.body.authorName,
+            postDate: req.body.postDate,
+          });
+  
+          // Save the upload object to the database
+          await newArticle.save();
+  
+          res.status(200).send('Upload successful');
+        } catch (err) {
+          console.error(err);
+          res.status(500).send('Server error');
+        }
+      });
     });
+  });
+  
 
-    try {
-        //save document in database
-        await newarticle.save();
-    } catch (err) {
-        console.log(err);
-    }
-
-    return res.status(201).json({message: "New Article added !!", newarticle})
-
-}
-
-
-//view article
-const ViewArticle = async (req, res, next) => {
-
-    Articles.find().then((Articles) => {
-        res.json(Articles)
-    }).catch((err) => {
-        console.log(err)
-    })
-
-}
-
-
-//Delete article
-const DeleteArticle = async (req, res, next) => {
-
-    let articleID = req.params.id;
-
-    await Articles.findByIdAndDelete(articleID).then(() => {
-        res.status(200).send({ status: "Article deleted !!" });
-    }).catch((err) => {
-        
-        res.status(500).send({ status: "Error with delete article !!" });
-    })
-
-}
-
-
-//update article
-const UpdateArticle = async (req, res, next) => {
-
-    let articleId = req.params.id;
-
-    const { title, article, authorName, postDate } = req.body;
-
-    const updatearticle = {
-        title,
-        article,
-        authorName,
-        postDate
-    };
-
-    try {
-        const update = await Articles.findByIdAndUpdate(articleId, updatearticle);
-        res.status(200).json({ message: "Update Successful !!", update })
-    } catch (err) {
-        res.status(500).send({ status: "Error with updating details !!" });
-    }
-
-}
-
-
-
-exports.AddArticles = AddArticles;
-exports.ViewArticle = ViewArticle;
-exports.DeleteArticle = DeleteArticle;
-exports.UpdateArticle = UpdateArticle;
+module.exports = router;
