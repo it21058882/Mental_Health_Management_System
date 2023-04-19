@@ -7,21 +7,29 @@ export default function AddArticles() {
 
   //Add Article
   const [title, setTitle] = useState("");
-  const [article, setArticle] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [fileName, setFileName] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [postDate, setPostDate] = useState("");
+
+  const onChangeFile = e => {
+    setFileName(e.target.files[0]);
+  }
 
   function sendData(e) {
     e.preventDefault();
 
-    const Add_Article = {
-      title,
-      article,
-      authorName,
-      postDate
-    }
+    const Add_Article = new FormData();
 
-    axios.post("http://localhost:8050/article/addArticle", Add_Article, {
+    Add_Article.append("title",title);
+    Add_Article.append("category",category);
+    Add_Article.append("description", description);
+    Add_Article.append("articalImg",fileName);
+    Add_Article.append("authorName", authorName);
+    Add_Article.append("postDate",postDate);
+
+    axios.post("http://localhost:8050/article/add", Add_Article, {
 
     }).then(() => {
       alert("New Article Post", refreshPage())
@@ -54,12 +62,29 @@ export default function AddArticles() {
               }} required/>
             </div>
             <br></br>
+
+            <div class="form-group" className='login_form'>
+              <label for="exampleInputEmail1">Category: *</label>
+              <select onChange={(event) => {setCategory(event.target.value);}}>
+                <option value="aaaa">aaaa</option>
+                <option value="bbb">bbbb</option>
+                <option value="cccc">cccc</option>
+                <option value="dddd">dddd</option>
+              </select>
+            </div>
+            <br></br>
             
             <div class="form-group" className='login_form'>
-              <label for="exampleInputEmail1">Article:</label>
+              <label for="exampleInputEmail1">Description:</label>
               <textarea class="form-control" placeholder="Enter article :-" onChange={(event) => {
-                setArticle(event.target.value);
+                setDescription(event.target.value);
               }} ></textarea>
+            </div>
+            <br></br>
+
+            <div class="form-group" className='login_form'>
+              <label for="exampleInputEmail1">Article Image :</label>
+              <input type="file" class="form-control"  onChange={onChangeFile}/>
             </div>
             <br></br>
 
