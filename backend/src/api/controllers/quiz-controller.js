@@ -56,7 +56,7 @@ const addQuizTitle = async (req, res, next) => {
           });
 
           newquestion.save().then(()=>{
-                    res.send("adding successfully")
+                    res.send("Successfully Added..")
           }).catch((err)=>{
                     res.send(err);
           })
@@ -96,7 +96,8 @@ const ViewQuestionsAdmin = async (req, res, next) => {
 
           try{
                     const data = await Question.findOneAndDelete({"_id" :questionID, "quizTitleId" :  titleID})
-                    res.send(data + " Deleted");
+                    //res.send(data + " Deleted");
+                    res.send("Deleted");
           }catch(err){
                     res.send(err);
           }
@@ -135,6 +136,28 @@ const ViewQuestionsAdmin = async (req, res, next) => {
 
 }
 
+ const deleteQuize = async (req, res, next) => {
+     const titleID = req.params.titleID;
+     console.log(titleID);
+
+    
+
+     try{
+      const data = await QuizTitle.deleteOne({"_id":titleID})
+
+      const questionData = await Question.deleteMany({"quizTitleId" :titleID })
+          console.log(questionData);
+          res.send("Quiz Deleted");
+        
+       
+     }catch(err){
+      res.send(err)
+}
+    
+
+
+ }
+
 
 
 // exports.Register = Register;
@@ -144,3 +167,4 @@ const ViewQuestionsAdmin = async (req, res, next) => {
  exports.ViewQuestionsAdmin = ViewQuestionsAdmin;
  exports.deleteQuestionAdmin = deleteQuestionAdmin;
  exports.questionUpdateView = questionUpdateView;
+ exports.deleteQuize = deleteQuize;
