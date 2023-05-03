@@ -18,10 +18,6 @@ const ArticleShema = new Schema({
         type : String,
         required: true
     },
-    articleImg : {
-        type : String,
-        required: true
-    },
     authorName : {
         type : String,
         required: true

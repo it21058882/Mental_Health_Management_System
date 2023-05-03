@@ -16,7 +16,7 @@ export default function Articles() {
     const [Article, setArtical] = useState([]);
     useEffect(() => {
         function getArticles() {
-            axios.get("http://localhost:8050/article/get").then((res) => {
+            axios.get("http://localhost:8050/article/viewArticle").then((res) => {
                 console.log(res.data);
                 setArtical(res.data)
             }).catch((err) => {
@@ -28,8 +28,8 @@ export default function Articles() {
     }, [Article])
 
 
-     //delete article
-     const deleteArticle = (e) => {
+    //delete article
+    const deleteArticle = (e) => {
 
         var result = window.confirm("Are you sure?");
 
@@ -51,88 +51,84 @@ export default function Articles() {
 
     }
 
-      //refreash
-  function refreshPage() {
-    window.location.reload(false);
-  }
+    //refreash
+    function refreshPage() {
+        window.location.reload(false);
+    }
 
-   
+
 
     return (
         <div>
 
             <div className="order_bground" style={{ zIndex: 98 }} >
 
- <Button to="/addarticle" LinkComponent={Link} sx={{ marginLeft: 1, marginTop: 5 }} variant="contained">Add Article</Button>
+                <div className='viewarticleBtn'>
+                    <Button to="/addarticle" LinkComponent={Link} sx={{ marginLeft: 1, marginTop: 5 }} variant="contained">Add Article</Button>
+                </div>
+
+                <input
+                    onChange={searchItem}
+                    className='form-control searchbararticle'
+                    type='search'
+                    placeholder='Search....'
+                    name='searchQuery'>
+                </input>
 
                 <div className='all_container'>
-                    <div className='row'>
-                        <div className='col-lg-9 mt-2 mb-2'>
-                            <h2 class="B_heading"><center><u>Articles</u></center></h2>
-                            <br></br><br></br>
-                        </div>
+
+                    <h1 className='article_topic'>Add Articles</h1>
+                    <hr className='article_hr'></hr>
+                    <div class="addArticle_div">
+
+
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+
+
+                        <table class="table" style={{ width: "800px" }}>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th >Title</th>
+                                    <th >Category</th>
+                                    <th >Description</th>
+                                    <th >Article</th>
+                                    <th >Author Name</th>
+                                    <th >Post Date</th>
+
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {Article.filter(e =>
+                                    e.title.toLowerCase().includes(search) ||
+                                    e.authorName.includes(search)
+                                ).map(e => (
+                                    <tr>
+                                        <td>{e.title}</td>
+                                        <td>{e.category}</td>
+                                        <td>{e.description}</td>
+                                        <img src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC${e.article}`)} width={50}></img>
+                                        <td>{e.article}</td>
+                                        <td>{e.authorName}</td>
+                                        <td>{e.postDate}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><Button color="error" onClick={() => { deleteArticle(e) }} variant="contained" >
+                                            Delete
+                                        </Button></td>
+
+                                    </tr>
+                                ))
+                                }
+
+                            </tbody>
+                        </table>
 
                     </div>
-
-                   
-
-
-
-                    <input
-                        onChange={searchItem}
-                        className='form-control'
-                        type='search'
-                        placeholder='Search....'
-                        name='searchQuery'>
-                    </input>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-
-                   
-                    <table class="table" style={{ width: "800px"}}>
-                        <thead class="thead-dark">
-                            <tr>
-                                <th >Title</th>
-                                <th >Category</th>
-                                <th >Description</th>
-                                <th >Image</th>
-                                <th >Author Name</th>
-                                <th >Post Date</th>
-                             
-                              
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {Article.filter(e =>
-                                e.title.toLowerCase().includes(search) ||
-                                e.authorName.includes(search)
-                            ).map(e => (
-                                <tr>
-                                    <td>{e.title}</td>
-                                    <td>{e.category}</td>
-                                    <td>{e.description}</td>
-                                    <img src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/IMG${e.articalImg}`)} width={50}></img>
-                                    <td>{e.articalImg}</td>
-                                    <td>{e.authorName}</td>
-                                    <td>{e.postDate}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><Button color="error" onClick={() => { deleteArticle(e) }} variant="contained" >
-                                        Delete
-                                    </Button></td>
-                                    
-                                </tr>
-                            ))
-                            }
-
-                        </tbody>
-                    </table>
-
-
-
-
                 </div>
             </div>
         </div>
