@@ -1,96 +1,88 @@
 const Articles = require('../model/articles-model');
-//const multer = require('multer');
+const router = require("express").Router();
+const multer = require('multer');
+const path = require("path");
 
-//Article Image
-// const store = multer.diskStorage({
-//     destination: (req, file, callback) => {
-//         callback(null,"./Uploads");
-//     },
-//     filename:(req,file,callback) => {
-//         callback(null,file.originalname);
-//     }
-// })
-// const upload = multer({storage: store});
+
+// Create storage for file uploads
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC');
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    cb(null, `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`);
+  },
+});
+
+
+// Create upload instances
+const uploadFile = multer({ storage: fileStorage });
 
 //Add article
-const AddArticles = async(req, res, next) => {
-    
-    const {title, article, authorName, postDate} = req.body;
-   // const {articalImg} = req.file.originalname;
-
+router.post("/add", uploadFile.single('article') ,(req,res) => {
+  
     const newarticle = new Articles({
-        title,
-        article,
-       // articalImg,
-        authorName,
-        postDate
+        title : req.body.title,
+        category : req.body.category,
+        description : req.body.description,
+        article : req.file.originalname,
+        authorName : req.body.authorName,
+        postDate : req.body.postDate
     });
 
-    try {
-        //save document in database
-        await newarticle.save();
-    } catch (err) {
+    newarticle.save().then(()=>{
+        res.json("Added")
+    }).catch((err) => {
         console.log(err);
-    }
-
-    return res.status(201).json({message: "New Article added !!", newarticle})
-
-}
+    })
+})
 
 
-//view article
-const ViewArticle = async (req, res, next) => {
-
+//Get article
+router.route("/viewArticle").get((req,res) => {
     Articles.find().then((Articles) => {
         res.json(Articles)
     }).catch((err) => {
         console.log(err)
     })
-
-}
+});
 
 
 //Delete article
-const DeleteArticle = async (req, res, next) => {
+router.delete("/delete/:id", uploadFile.single("article"), (req,res) => {
 
     let articleID = req.params.id;
 
-    await Articles.findByIdAndDelete(articleID).then(() => {
+     Articles.findByIdAndDelete(articleID).then(() => {
         res.status(200).send({ status: "Article deleted !!" });
     }).catch((err) => {
         
         res.status(500).send({ status: "Error with delete article !!" });
     })
 
-}
+});
+
 
 
 //update article
-const UpdateArticle = async (req, res, next) => {
+router.patch("/updateArticle/:id", uploadFile.single("article"), (req,res) => {
 
-    let articleId = req.params.id;
+    Articles.findById(req.params.id)
+    .then((post) => {
+        post.title = req.body.title,
+        post.category = req.body.category,
+        post.description = req.body.description,
+        post.article = req.file.originalname,
+        post.authorName = req.body.authorName,
+        post.postDate = req.body.postDate
 
-    const { title, article, authorName, postDate } = req.body;
-
-    const updatearticle = {
-        title,
-        article,
-        authorName,
-        postDate
-    };
-
-    try {
-        const update = await Articles.findByIdAndUpdate(articleId, updatearticle);
-        res.status(200).json({ message: "Update Successful !!", update })
-    } catch (err) {
-        res.status(500).send({ status: "Error with updating details !!" });
-    }
-
-}
+        post.save()
+        .then(()=> res.json('Post Updated'))
+        .catch((err) => res.status(400).json(`Error:${err}`));
+    }).catch((err) => res.status(400).json(`Error:${err}`));
+});
 
 
 
-exports.AddArticles = AddArticles;
-exports.ViewArticle = ViewArticle;
-exports.DeleteArticle = DeleteArticle;
-exports.UpdateArticle = UpdateArticle;
+module.exports = router;
