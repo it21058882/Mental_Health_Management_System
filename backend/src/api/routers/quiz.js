@@ -1,5 +1,7 @@
-const express = require ("express");
+const express = require ("express"); 
 const router = express.Router();
+const auth =require("../middleware/auth.js");
+
 
 const {addQuizTitle,addQuestions,titleViewAdmin,ViewQuestionsAdmin,deleteQuestionAdmin,questionUpdateView,deleteQuize} = require("../controllers/quiz-controller");
 

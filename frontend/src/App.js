@@ -14,6 +14,9 @@ import AdmminViewQuestions from "./QuizManagement/adminQuestionsViewPage";
 import AddArticles from "./ArticleManagement/addArticle";
 import ViewArticles from "./ArticleManagement/viewArtical";
 
+//User
+import Login from "./user/login";
+
 const page = createBrowserRouter([ 
   { path: "/", element: <AdminHomePage/>,  },
   { path: "/addquiztitle", element: <AddQuizTitle/>,  },
@@ -26,6 +29,9 @@ const page = createBrowserRouter([
   { path: "/addarticle", element: <AddArticles/>,  },
   { path: "/viewarticle", element: <ViewArticles/>,  },
 
+
+  ///////     User   ////////
+  { path: "/login", element: <Login/>,  },
 
 ]);
 
