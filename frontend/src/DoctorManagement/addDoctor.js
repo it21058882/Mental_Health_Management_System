@@ -11,9 +11,29 @@ import axios from "axios";
     const [gender, setGender] = useState('');
     const [email, setEmail] = useState('');
     const [specialization, setSpecialization] = useState('');
-    const [image, setImage] = useState('');
+   const [image, setImage] = useState('');
+    
+
+    
+    function inputvalue(e){
 
 
+
+       var reader = new FileReader();
+      
+      reader.readAsDataURL(e.target.files[0]);
+      
+    
+      
+       reader.onload = () =>{
+      
+      // console.log(reader.result);
+      
+     setImage(reader.result);
+      
+       }
+      
+     }
 
     return (
         <div className='#'>
@@ -31,7 +51,8 @@ import axios from "axios";
                          gender, 
                         email, 
                         specialization, 
-                         image, 
+                        image, 
+
                     }
 
                     axios.post("http://localhost:8050/doctor/doctor", newDoctor)
@@ -77,11 +98,8 @@ import axios from "axios";
                   <input type="email" className="form-control"pattern="[a-z0-9]+@+[a-z]+.com" placeholder="Enter Email" onChange={(e) => {setEmail(e.target.value)}} required/>
                 </div>
                 <br />
-                <div className="form-group">
-                  <label className="#">Enter Image </label>
-                  <input type="text" className="form-control" placeholder="Enter Last  Name" onChange={(e) => {setImage(e.target.value)}} required/>
-                </div>
-                <br />
+                <lable id="input">Image : </lable>
+              <br/><input id="input" type="file" name="avatar" accept="image/png, image/jpeg" onChange={inputvalue}/>
 
                     <br />
                     <button type="submit" className="submitbtn">Submit</button><br /><br />

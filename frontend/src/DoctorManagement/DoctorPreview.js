@@ -18,7 +18,7 @@ function Doctor() {
       });
   }
   const deleteDoctor = (id) => {
-    axios.delete(`http://localhost:8050/doctor/deletedoctor/${id}`)  //Activates Package deleting function
+    axios.delete(`http://localhost:8050/doctor/deletedoctor/${id}`)  //Activates Thrapist deleting function
         .then((res) => {
             alert("Packages Content Deleted");
             getDoctor();
@@ -33,26 +33,33 @@ function Doctor() {
   useEffect(() => { getDoctor() } );  //Shows changes of the page
 
   return (
+
+    
     <div className='container text-center'>
+       <Link to={'/addDoctor/'}>
+            <div>
+                <button className='btnPkg'>Add A Thrapist </button>
+            </div>
+   </Link> 
       <h1 className='text-center'>Therapist</h1>
 
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {Doctor.map((data) => {
           return (
             <Card style={{ width: '25rem', margin: '2rem', padding: '1rem'}}>
-              <Card.Img src={data.firstName}/>
+              <Card.Img src={data.image}/>
               <Card.Body>
                 <Card.Title>{data.firstName}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.VehiclesId}</Card.Subtitle>
                 <Card.Text>
    
-                type = {data.firstName}<br/>
-                vehicleType = {data.lastName}<br/>
-                driverName      = {data.type}<br/>
-                ownerName        = {data.gender}<br/>
-                email    = {data.email}<br/>
-                phoneNo            ={data.specialization}<br/>
-                fee              = {data.image}<br/>
+                First Name = {data.firstName}<br/>
+                Last Name = {data.lastName}<br/>
+                Type      = {data.type}<br/>
+                Gender   = {data.gender}<br/>
+                Email    = {data.email}<br/>
+                Specialization  ={data.specialization}<br/>
+            
                 
               
                 </Card.Text>
@@ -67,11 +74,7 @@ function Doctor() {
           )        
         })}
         <hr></hr>
-        <Link to={'/addDoctor/'}>
-            <div>
-                <button className='btnPkg'>Reserve a Package</button>
-            </div>
-   </Link> 
+       
       </div>
     </div>
   )
