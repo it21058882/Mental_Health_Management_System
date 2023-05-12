@@ -11,8 +11,12 @@ import AdminQuizzesPage from "./QuizManagement/adminQuizzesPage";
 import AdmminViewQuestions from "./QuizManagement/adminQuestionsViewPage";
 
 //Articles
-import AddArticles from "./ArticleManagement/addArticle";
-import ViewArticles from "./ArticleManagement/viewArtical";
+//import AddArticles from "./ArticleManagement/addArticle";
+//import ViewArticles from "./ArticleManagement/viewArtical";
+
+//User
+import Login from "./user/login";
+
 
 const page = createBrowserRouter([ 
   { path: "/", element: <AdminHomePage/>,  },
@@ -23,9 +27,12 @@ const page = createBrowserRouter([
 
 
   ////Article////////////////
-  { path: "/addarticle", element: <AddArticles/>,  },
-  { path: "/viewarticle", element: <ViewArticles/>,  },
+ // { path: "/addarticle", element: <AddArticles/>,  },
+ // { path: "/viewarticle", element: <ViewArticles/>,  },
 
+
+  ///////     User   ////////
+  { path: "/login", element: <Login/>,  },
 
 ]);
 
