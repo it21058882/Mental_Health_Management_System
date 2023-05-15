@@ -38,5 +38,6 @@ app.use("/article", ArticleRouter);
 const clientRouter = require("./api/routers/client.js");
 app.use("/client",clientRouter);
 
-
+const userRouter = require("./api/routers/user");
+app.use("/user",userRouter);
 
