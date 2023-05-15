@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from "@mui/material";
 import axios from 'axios';
+import { Document, Page, pdfjs } from 'react-pdf';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
 
 
 export default function Articles() {
@@ -12,12 +15,23 @@ export default function Articles() {
         setSerch(event.target.value);
     }
 
-    //view all pending orders
+    //view all article
     const [Article, setArtical] = useState([]);
+    const [pdfUrl, setPdfUrl] = useState('');
+    const [Article1_1, setArtical1_1] = useState([]);
     useEffect(() => {
         function getArticles() {
             axios.get("http://localhost:8050/article/viewArticle").then((res) => {
-                console.log(res.data);
+
+                const articlesWithPdfUrl = res.data.map(article => {
+                    return {
+                        ...article,
+                        pdfUrl: `C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${article.article}`
+                    };
+                });
+
+                console.log(res.articlesWithPdfUrl);
+                setArtical1_1(articlesWithPdfUrl);
                 setArtical(res.data)
             }).catch((err) => {
                 alert(err.message)
@@ -26,6 +40,7 @@ export default function Articles() {
         getArticles();
 
     }, [Article])
+
 
 
     //delete article
@@ -71,13 +86,13 @@ export default function Articles() {
                     onChange={searchItem}
                     className='form-control searchbararticle'
                     type='search'
-                    placeholder='Search....'
+                    placeholder='Search ....'
                     name='searchQuery'>
                 </input>
 
                 <div className='all_container'>
 
-                    <h1 className='article_topic'>Add Articles</h1>
+                    <h1 className='article_topic'>Articles</h1>
                     <hr className='article_hr'></hr>
                     <div class="addArticle_div">
 
@@ -111,8 +126,23 @@ export default function Articles() {
                                         <td>{e.title}</td>
                                         <td>{e.category}</td>
                                         <td>{e.description}</td>
-                                        <img src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC${e.article}`)} width={50}></img>
-                                        <td>{e.article}</td>
+
+                                        <td>
+                                            <a href={e.pdfUrl} target="_blank">
+                                                {e.article}
+                                            </a>
+                                            {/* <Button
+                                                color="primary"
+                                                onClick={() => {
+                                                    window.open(e.article, "_blank");
+                                                }}
+                                                variant="contained"
+                                            >
+                                                Open PDF
+                                            </Button> */}
+                                            <embed src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${e.article}`)} type="application/pdf" width="100%" height="400px" />
+                                        </td>
+
                                         <td>{e.authorName}</td>
                                         <td>{e.postDate}</td>
                                         <td></td>
@@ -120,6 +150,7 @@ export default function Articles() {
                                         <td><Button color="error" onClick={() => { deleteArticle(e) }} variant="contained" >
                                             Delete
                                         </Button></td>
+                                        <td><Link to = "updatearticle"><button type="button" class="btn btn-warning btn-lg" >Update </button></Link></td>
 
                                     </tr>
                                 ))
