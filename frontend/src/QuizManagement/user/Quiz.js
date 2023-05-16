@@ -30,6 +30,11 @@ function Quiz(){
                      console.log(e.target.value)
                      serSerQuery(e.target.value);
            }
+
+           function selectQuiz(e){
+                console.log(e._id);
+                window.location.href = '/questions/'+e._id+"/"+e.title ;
+           }
            
           return(<div>
 
@@ -51,7 +56,7 @@ function Quiz(){
                                                      <div class="card col-md-3">
                                                             <div class="card-body">
                                                             {/* <h4 class="card-title"  onClick={e=>selectQuiz(item)}>{item.title}</h4> */}
-                                                            <h4 class="card-title">{item.title}</h4>
+                                                            <h4 class="card-title" onClick={e=>selectQuiz(item)}>{item.title}</h4>
                                                                 
                                                              </div>
                                                             

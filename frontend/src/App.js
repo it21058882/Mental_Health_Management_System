@@ -10,6 +10,7 @@ import AddQuestions from "./QuizManagement/admin/addQuestion";
 import AdminQuizzesPage from "./QuizManagement/admin/adminQuizzesPage";
 import AdmminViewQuestions from "./QuizManagement/admin/adminQuestionsViewPage";
 import Quiz from "./QuizManagement/user/Quiz";
+import Questions from "./QuizManagement/user/Questions";
 import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 import Home from "./Ui/Home";
@@ -30,7 +31,7 @@ const page = createBrowserRouter([
   { path: "/amminview/:quizid/:quiztitle", element: <AdmminViewQuestions/>,  },
 
   { path: "/quiz", element: <Quiz/>,  },
-
+  { path: "/questions/:quizid/:quiztitle", element: <Questions/>,  },
 
   ////Article////////////////
  // { path: "/addarticle", element: <AddArticles/>,  },
