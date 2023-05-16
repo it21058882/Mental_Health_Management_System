@@ -4,7 +4,7 @@ const multer = require('multer');
 const path = require("path");
 
 
-// Create storage for file uploads
+//Create storage for file uploads
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC');
@@ -83,6 +83,58 @@ router.put("/updateArticle/:id", uploadFile.single("article"), (req, res) => {
                 .catch((err) => res.status(400).json(`Error:${err}`));
         }).catch((err) => res.status(400).json(`Error:${err}`));
 });
+
+
+// // Set up multer upload instance for handling multiple file uploads
+// const upload = multer({
+//     storage: multer.diskStorage({
+//         destination: (req, file, cb) => {
+//             if (file.fieldname === 'article') {
+//                 cb(null, 'C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC'); // Destination folder for PDF files
+//             } else if (file.fieldname === 'articleIMG') {
+//                 cb(null, 'C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/IMG'); // Destination folder for image files
+//             }
+//         },
+//         filename: (req, file, callback) => {
+//             callback(null, file.originalname);
+//         },
+//     })
+// });
+
+// // Route for uploading PDF and image
+// router.post('/upload', upload.fields([
+//     { name: 'article', maxCount: 1 },
+//     { name: 'articleIMG', maxCount: 1 }
+
+
+
+// ]), (req, res) => {
+//     const article = req.files['article'][0];
+//     const articleIMG = req.files['articleIMG'][0];
+
+//     const { title, category, description, authorName, postDate } = req.body;
+
+//     const newFile = new Articles({
+//         title: title,
+//         category: category,
+//         description: description,
+//         article: article.path,
+//         articleIMG: articleIMG.path,
+//         authorName: authorName,
+//         postDate: postDate
+//     });
+
+//     // Save the new file record to the database
+
+
+//     newFile.save().then(() => {
+//         res.json("Added")
+//     }).catch((err) => {
+//         console.log(err);
+//     })
+// });
+
+// ...
 
 
 

@@ -40,15 +40,23 @@
 
 //     }, [Article])
 
-    
 
 
 
+
+<<<<<<< HEAD
+    return (
+        <div>
+
+            <div className="order_bground" style={{ zIndex: 98 }} >
+                <div className="container">
+=======
 //     return (
 //         <div>
         
 //             <div className="order_bground" style={{ zIndex: 98 }} >
 //                 <div className="container">
+>>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 //                     <div className='border' style={{ backgroundColor: "#ffff" }} >
 //                         <div className='col-md-8 mt-4 mx-auto'>

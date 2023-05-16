@@ -30,8 +30,3 @@ const ArticleShema = new Schema({
 
 
 module.exports = mongoose.model("Articles", ArticleShema);
-
-/*articleImage : {
-        type : String,
-        required: true,
-    },*/
