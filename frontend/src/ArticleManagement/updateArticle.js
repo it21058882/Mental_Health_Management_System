@@ -40,13 +40,13 @@ function ArticleUpdate() {
 
     }, [Article])
 
-    
+
 
 
 
     return (
         <div>
-        
+
             <div className="order_bground" style={{ zIndex: 98 }} >
                 <div className="container">
 

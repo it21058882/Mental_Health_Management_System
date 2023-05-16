@@ -13,18 +13,14 @@ import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 
 //Articles
-<<<<<<< HEAD
 import AddArticles from "./ArticleManagement/addArticle";
 import ViewArticles from "./ArticleManagement/viewArtical";
 import UpdateArticles from "./ArticleManagement/updateArticle";
-=======
-//import AddArticles from "./ArticleManagement/addArticle";
-//import ViewArticles from "./ArticleManagement/viewArtical";
+
 
 //User
 import Login from "./user/login";
 
->>>>>>> 4c13c539237064c056f499f83f00dfbd076a0348
 
 const page = createBrowserRouter([ 
   { path: "/", element: <AdminHomePage/>,  },
@@ -35,14 +31,10 @@ const page = createBrowserRouter([
 
 
   ////Article////////////////
-<<<<<<< HEAD
   { path: "/addarticle", element: <AddArticles/>,  },
   { path: "/viewarticle", element: <ViewArticles/>,  },
   { path: "/updatearticle", element: <UpdateArticles/>,  },
-=======
- // { path: "/addarticle", element: <AddArticles/>,  },
- // { path: "/viewarticle", element: <ViewArticles/>,  },
->>>>>>> 4c13c539237064c056f499f83f00dfbd076a0348
+
 
 
   ///////     User   ////////

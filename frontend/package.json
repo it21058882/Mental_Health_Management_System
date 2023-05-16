@@ -13,6 +13,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-3-card": "^0.2.0",
     "bootstrap-buttons": "^0.0.25",
+    "mdb-react-ui-kit": "^6.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
