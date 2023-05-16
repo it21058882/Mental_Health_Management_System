@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import AddDoctor from './addDoctor';
+//import AddDoctor from './addDoctor';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
@@ -65,7 +65,7 @@ function Doctor() {
                 </Card.Text>
                 
                 
-                <Link key={`${data._id} + 4`} to={"/editorDash/DoctorUpdateForm/"+data._id}> 
+                <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
                 <Button key={`${data._id} + 1`}variant="warning">Update</Button>
                 </Link>
                 <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
