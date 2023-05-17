@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-
+import "./DoctorPreview.css";
 function Doctor() { 
   const [Doctor, setDoctor] = useState([]);
 
@@ -24,7 +24,7 @@ function Doctor() {
 
   return (
 
-    
+    <div className='main'>
     <div className='container text-center'>
       
             
@@ -34,11 +34,11 @@ function Doctor() {
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {Doctor.map((data) => {
           return (
-            <Card style={{ width: '25rem', margin: '2rem', padding: '1rem'}}>
+            <Card style={{ width: '25rem', margin: '3rem', padding: '1rem'}}>
               <Card.Img src={data.image}/>
-              <Card.Body>
-                <Card.Title>{data.firstName}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{data.VehiclesId}</Card.Subtitle>
+              <Card.Body >
+                <Card.Title>Ms. {data.firstName +'' +data.lastName}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{data.DoctorId}</Card.Subtitle>
                 <Card.Text>
    
                 First Name = {data.firstName}<br/>
@@ -64,6 +64,7 @@ function Doctor() {
         <hr></hr>
        
       </div>
+    </div>
     </div>
   )
 }

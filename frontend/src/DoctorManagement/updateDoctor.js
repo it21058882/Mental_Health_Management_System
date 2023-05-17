@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-
+import "./DoctorPreview.css";
 
   
 function Updatedoctor() {
@@ -39,9 +39,10 @@ function Updatedoctor() {
     useEffect(() => { newDoctor() },[]);
 
     return (
+        <div className='main2'>
         <div className='#'>
             <h1>Update Package Details </h1>
-        <div className="#">
+            <div className="form">
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -76,14 +77,14 @@ function Updatedoctor() {
             }}>
 
                 <div className="form-group">
-                    <label className="form-label">Name</label>
+                    <label className="form-label">Enter First Name</label>
                     <input type="text" className="form-control" value={firstName}
                     onChange={(e) => {
                         setFirstName(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Destination</label>
+                    <label className="form-label">Enter Last Name</label>
                     <input type="text" className="form-control" value={lastName}
                     onChange={(e) => {
                         setLastName(e.target.value);
@@ -91,51 +92,43 @@ function Updatedoctor() {
                 </div>
                 
                 <div className="form-group">
-                    <label className="form-label">Hotel</label>
+                    <label className="form-label">Type</label>
                     <input type="text" className="form-control" value={type}
                     onChange={(e) => {
                         setType(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Room Type</label>
+                    <label className="form-label">Gender</label>
                     <input type="text" className="form-control" value={gender}
                     onChange={(e) => {
                         setGender(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Vehicle</label>
+                    <label className="form-label">Email</label>
                     <input type="text" className="form-control" value={email}
                     onChange={(e) => {
                         setEmail(e.target.value);
                     }} />
                 </div>
  
-                 <div className="form-group">
-            <label className="form-label">Guide</label>
-            <select
-              className="form-control"
-              onChange={(e) => {
-                setSpecialization(e.target.value);
-              }}
-              required
-            >
-
-              
-              
-              
-            </select>
-          </div>
-               
+                <div className="form-group">
+                    <label className="form-label">Specialization For</label>
+                    <input type="text" className="form-control" value={specialization}
+                    onChange={(e) => {
+                        setSpecialization(e.target.value);
+                    }} />
+                </div>
                   
-                
+                <br></br>
                 <button type="submit" className="submitbtn">
                   Update
                 </button><br /><br />
             </form>
         </div>
         </div>
+       </div> 
     )
 }
 

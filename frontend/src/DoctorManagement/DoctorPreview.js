@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import "./DoctorPreview.css";
 
 function Doctor() { 
   const [Doctor, setDoctor] = useState([]);
@@ -33,11 +34,11 @@ function Doctor() {
 
   return (
 
-    
+    <div className='main'>
     <div className='container text-center'>
        <Link to={'/addDoctor/'}>
             <div>
-                <button className='btnPkg'>Add A Thrapist </button>
+                <button className='addbtn'>Add A Thrapist </button>
             </div>
    </Link> 
       <h1 className='text-center'>Therapist</h1>
@@ -45,11 +46,11 @@ function Doctor() {
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {Doctor.map((data) => {
           return (
-            <Card style={{ width: '25rem', margin: '2rem', padding: '1rem'}}>
+            <Card style={{ width: '25rem', margin: '3rem', padding: '2rem'}} className=''>
               <Card.Img src={data.image}/>
-              <Card.Body>
-                <Card.Title>{data.firstName}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{data.VehiclesId}</Card.Subtitle>
+              <Card.Body >
+                <Card.Title>Ms. {data.firstName +'' +data.lastName}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{data.DoctorId}</Card.Subtitle>
                 <Card.Text>
    
                 First Name = {data.firstName}<br/>
@@ -65,7 +66,7 @@ function Doctor() {
                 
                 
                 <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
-                <Button key={`${data._id} + 1`}variant="warning">Update</Button>
+                <Button key={`${data._id} + 1`}variant="warning" className='btn1'>Update</Button>
                 </Link>
                 <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
               </Card.Body>
@@ -75,6 +76,7 @@ function Doctor() {
         <hr></hr>
        
       </div>
+    </div>
     </div>
   )
 }
