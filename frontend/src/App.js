@@ -15,6 +15,9 @@ import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 import Home from "./Ui/Home";
 import Updatedoctor from "./DoctorManagement/updateDoctor";
+import DoctorPreviewUser from "./DoctorManagement/DoctorPreviewUser";
+import channelForm from "./DoctorManagement/channelForm";
+
 
 //Articles
 import AddArticles from "./ArticleManagement/addArticle";
@@ -54,10 +57,11 @@ const page = createBrowserRouter([
   //doctor.//
   {path: "/addDoctor", element: <AddDoctor/>,},
   {path: "/DoctorPreview", element: <Doctor/>,},
-
   {path: "/updatedoctor/:id", element: <Updatedoctor/>,},
+  {path: "/doctorpreviewuser/", element: <DoctorPreviewUser/>,},
   ////// Ui ////////
   { path: "/home", element: <Home/>,  },
+  {path: "/channelForm/", element: <channelForm/>,},
 
 ]);
 
