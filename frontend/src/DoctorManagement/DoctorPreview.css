@@ -1,0 +1,59 @@
+.addbtn{
+    background-color: rgba(49, 248, 49, 0.099);
+    border-radius: 50px;
+    padding: 10px 20px;
+    bottom: 10%;
+    float: right;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.main{
+    padding-top: 3pc;
+} 
+
+
+.main2{
+    padding-top: 3pc;
+padding-left: 3pc;
+padding-right: 11pc;
+
+}
+
+
+
+.form{
+
+    box-sizing: border-box;
+    font-size: 20px;
+  padding: 1rem;
+  padding-left: 3rem;
+  padding-right: 10rem;
+  border-radius: 1rem;
+  background-color: hsl(146, 44%, 86%);
+  border: transparent;
+  font-weight:500;
+  grid-template-columns: 1fr 1fr;
+ 
+}
+
+.submitbtn
+{
+
+      border-radius: 50px;
+        padding: 10px 20px;
+        background-color:rgba(185, 202, 185, 0.733);
+        border: 1px solid rgb(14, 1, 1);
+        color: rgb(0, 0, 0);
+        transition: 200ms;
+        font-size: 26px;
+}
+
+.card{
+    background-color :rgba(124, 217, 191, 0.162) 
+}
+
+.btn1{
+   
+    background-color: rgb(103, 169, 153);
+}

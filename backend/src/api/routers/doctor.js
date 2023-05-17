@@ -15,7 +15,7 @@ const router = express.Router(); //set routers
 router.post("/doctor", addDoctor);
 router.get("/getdoctor", getAllDoctors);
 router.get("/:id", getDoctors);
-router.put("/updatedoctor/:id", updateDoctors);
+router.patch("/updatedoctor/:id", updateDoctors);
 router.delete("/deletedoctor/:id", deleteDoctors);
 
 
