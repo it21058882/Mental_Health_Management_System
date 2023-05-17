@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react'
+/*import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from "@mui/material";
 import axios from 'axios';
@@ -13,14 +12,12 @@ import {
     MDBCol,
     MDBCardFooter
 } from 'mdb-react-ui-kit';
-=======
 // import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 // import { Button } from "@mui/material";
 // import axios from 'axios';
 // import { Document, Page, pdfjs } from 'react-pdf';
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -33,7 +30,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //         setSerch(event.target.value);
 //     }
 
-<<<<<<< HEAD
     const [selectedCategory, setSelectedCategory] = useState("");
     const handleCategorySelection = (event) => {
         setSelectedCategory(event.target.value);
@@ -48,7 +44,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
     useEffect(() => {
         function getArticles() {
             axios.get("http://localhost:8050/article/viewArticle").then((res) => {
-=======
 //     //view all article
 //     const [Article, setArtical] = useState([]);
 //     const [pdfUrl, setPdfUrl] = useState('');
@@ -56,7 +51,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //     useEffect(() => {
 //         function getArticles() {
 //             axios.get("http://localhost:8050/article/viewArticle").then((res) => {
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 //                 const articlesWithPdfUrl = res.data.map(article => {
 //                     return {
@@ -65,7 +59,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //                     };
 //                 });
 
-<<<<<<< HEAD
               
                 setArtical1_1(articlesWithPdfUrl);
                 setArtical(res.data)
@@ -74,7 +67,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
             })
         }
         getArticles();
-=======
 //                 console.log(res.articlesWithPdfUrl);
 //                 setArtical1_1(articlesWithPdfUrl);
 //                 setArtical(res.data)
@@ -83,12 +75,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //             })
 //         }
 //         getArticles();
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 //     }, [Article])
 
 
-<<<<<<< HEAD
     //delete article
     const deleteArticle = (e) => {
 
@@ -102,7 +92,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
             e.preventDefault();
         }
     }
-=======
 
 //     //delete article
 //     const deleteArticle = (e) => {
@@ -126,7 +115,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //         }
 
 //     }
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 //     //refreash
 //     function refreshPage() {
@@ -134,14 +122,11 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //     }
 
 
-<<<<<<< HEAD
     return (
         <div style={{ width: "100%" }}>
-=======
 
 //     return (
 //         <div>
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 //             <div className="order_bground" style={{ zIndex: 98 }} >
 
@@ -157,7 +142,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //                     name='searchQuery'>
 //                 </input>
 
-<<<<<<< HEAD
                 <select value={selectedCategory} onChange={handleCategorySelection}>
                     <option value="">Select category</option>
                     <option value="aaaa">aaaa</option>
@@ -169,23 +153,17 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 
                 <div className='all_container'>
-=======
-//                 <div className='all_container'>
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 //                     <h1 className='article_topic'>Articles</h1>
 //                     <hr className='article_hr'></hr>
 //                     <div class="addArticle_div">
 
-<<<<<<< HEAD
                         <br></br>
-=======
 
 
 //                         <br></br>
 //                         <br></br>
 //                         <br></br>
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
                         <MDBRow className='row-cols-1 row-cols-md-2 g-4'>
                             {Article.filter(e =>
@@ -193,7 +171,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
                                 e.title.toLowerCase().includes(search) ||
                                 e.authorName.includes(search) 
 
-<<<<<<< HEAD
                             ).map(e => (
                                 <MDBCol>
                                     <MDBCard >
@@ -217,7 +194,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
                                                 <Button color="error" onClick={() => { deleteArticle(e) }} variant="contained" >
                                                     Delete
                                                 </Button>
-=======
 //                         <table class="table" style={{ width: "800px" }}>
 //                             <thead class="thead-dark">
 //                                 <tr>
@@ -227,16 +203,13 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //                                     <th >Article</th>
 //                                     <th >Author Name</th>
 //                                     <th >Post Date</th>
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
                                             </center>  </MDBCardBody>
                                     </MDBCard>
                                 </MDBCol>
                             ))}
 
-<<<<<<< HEAD
                         </MDBRow>
-=======
 //                                 </tr>
 //                             </thead>
 
@@ -262,7 +235,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //                                                 variant="contained"
 //                                             >
 //                                                 Open PDF
-//                                             </Button> */}
+//                                             </Button> *}
 //                                             <embed src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${e.article}`)} type="application/pdf" width="100%" height="400px" />
 //                                         </td>
 
@@ -281,7 +254,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 //                             </tbody>
 //                         </table>
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 //                     </div>
 //                 </div>
@@ -290,3 +262,4 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 //     )
 
 // }
+*/

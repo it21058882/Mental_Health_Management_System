@@ -13,17 +13,15 @@ import Quiz from "./QuizManagement/user/Quiz";
 import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 import Home from "./Ui/Home";
+import Updatedoctor from "./DoctorManagement/updateDoctor";
 
 //Articles
-<<<<<<< HEAD
 import AddArticles from "./ArticleManagement/addArticle";
 import ViewArticles from "./ArticleManagement/viewArtical";
 import UpdateArticles from "./ArticleManagement/updateArticle";
 
-=======
 //import AddArticles from "./ArticleManagement/addArticle";
 //import ViewArticles from "./ArticleManagement/viewArtical";
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 //User
 import Login from "./user/login";
@@ -40,15 +38,12 @@ const page = createBrowserRouter([
 
 
   ////Article////////////////
-<<<<<<< HEAD
   { path: "/addarticle", element: <AddArticles/>,  },
   { path: "/viewarticle", element: <ViewArticles/>,  },
   { path: "/updatearticle", element: <UpdateArticles/>,  },
 
-=======
  // { path: "/addarticle", element: <AddArticles/>,  },
  // { path: "/viewarticle", element: <ViewArticles/>,  },
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 
   ///////     User   ////////
@@ -59,7 +54,7 @@ const page = createBrowserRouter([
   {path: "/addDoctor", element: <AddDoctor/>,},
   {path: "/DoctorPreview", element: <Doctor/>,},
 
-
+  {path: "/updatedoctor", element: <Updatedoctor/>,},
   ////// Ui ////////
   { path: "/home", element: <Home/>,  },
 
