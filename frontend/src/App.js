@@ -13,6 +13,7 @@ import Quiz from "./QuizManagement/user/Quiz";
 import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 import Home from "./Ui/Home";
+import Updatedoctor from "./DoctorManagement/updateDoctor";
 
 //Articles
 import AddArticles from "./ArticleManagement/addArticle";
@@ -53,7 +54,7 @@ const page = createBrowserRouter([
   {path: "/addDoctor", element: <AddDoctor/>,},
   {path: "/DoctorPreview", element: <Doctor/>,},
 
-
+  {path: "/updatedoctor", element: <Updatedoctor/>,},
   ////// Ui ////////
   { path: "/home", element: <Home/>,  },
 

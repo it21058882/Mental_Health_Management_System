@@ -64,7 +64,7 @@ function Doctor() {
                 </Card.Text>
                 
                 
-                <Link key={`${data._id} + 4`} to={"/editorDash/DoctorUpdateForm/"+data._id}> 
+                <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
                 <Button key={`${data._id} + 1`}variant="warning">Update</Button>
                 </Link>
                 <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
