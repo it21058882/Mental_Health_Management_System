@@ -153,14 +153,19 @@ const ViewQuestionsAdmin = async (req, res, next) => {
      }catch(err){
       res.send(err)
 }
-    
-
-
  }
 
 
 
-// exports.Register = Register;
+const storeResults = async (req, res, next) => {
+        res.send(req);
+        console.log("Hiii");
+        
+}
+
+
+
+  
  exports.addQuizTitle = addQuizTitle;
  exports.addQuestions = addQuestions;
  exports.titleViewAdmin = titleViewAdmin;
@@ -168,3 +173,5 @@ const ViewQuestionsAdmin = async (req, res, next) => {
  exports.deleteQuestionAdmin = deleteQuestionAdmin;
  exports.questionUpdateView = questionUpdateView;
  exports.deleteQuize = deleteQuize;
+
+ exports.storeResults = storeResults;

@@ -114,7 +114,7 @@ function AdminQuizzesPage(){
 
                     
 
-                    </table> */}
+                    </table> */} 
                    
                     <div  class="row1">
                     {
