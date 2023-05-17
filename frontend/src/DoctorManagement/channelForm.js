@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import axios from "axios";
+import { useParams } from 'react-router-dom';
+
 
 
 
 function ChannelForm({}) {
   
- // const {id} = useParams();
+ const {id} = useParams();
+
 
  // const[doctor,setdoctor]= useState('');
   const [name, setName] = useState('');
@@ -32,11 +35,12 @@ function ChannelForm({}) {
 
       useEffect(()=> getDoctor(),[]);*/
 
-  return (
+  return (<div>
+   
     <div id="rentalform" className="#">
      
       <h1 ></h1>
-      <h1>Package Reservation </h1><h1>Booking Details</h1>
+      <h1>Channel  </h1>
    
       <div className="rentaleinnercontainer">
         <div className="rentalformcont">
@@ -55,9 +59,8 @@ function ChannelForm({}) {
   
              
               };
-              console.log(newChannel);
 
-              await axios.post("http://localhost:8050/channel/channel", newChannel)
+               axios.post("http://localhost:8050/channel/channel", newChannel)
               .then(() => {
                 alert("Package Booked Successfully");
                
@@ -88,7 +91,7 @@ function ChannelForm({}) {
               <br />
   <div className="form-group">
                 <label className="#">phoneNo</label>
-                <input type="Number" className="form-control"  min="100000000" max="9999999999" placeholder="Enter phone No" onChange={(e) => {setphoneNo(e.target.value)}} required/>
+                <input type="Number" className="form-control"   placeholder="Enter phone No" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
           <br />
 <br />
@@ -108,8 +111,8 @@ function ChannelForm({}) {
       <br />
       <br />
       
-    </div>
-  );
+    </div> 
+        </div> );
 }
 
 export default ChannelForm;

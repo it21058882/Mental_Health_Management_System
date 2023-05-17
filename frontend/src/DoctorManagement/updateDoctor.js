@@ -38,43 +38,40 @@ function Updatedoctor() {
     
     useEffect(() => { newDoctor() },[]);
 
+    function formSubmit(e){
+        e.preventDefault();
+
+          
+     
+                     const newDoctor = {
+                         firstName, 
+                         lastName, 
+                         type, 
+                          gender, 
+                         email, 
+                         specialization, 
+                         image, 
+                     }
+     console.log(newDoctor);
+
+     axios.patch("http://localhost:8050/doctor/updatedoctor/"+id,newDoctor).then((res)=>{
+        if(res){
+            
+            alert("Updated");
+        }
+     }).catch((err)=>{
+        console.log(err);
+     })
+     
+    }
+
     return (
+
         <div className='main2'>
         <div className='#'>
             <h1>Update Package Details </h1>
             <div className="form">
-            <form onSubmit={async (e) => {
-                e.preventDefault();
-
-       //         const imageRef = ref(storage, `images/packages/${name + image.name}`);
-        
-               
-
-               (() => {
-                        
-                   
-
-                const newDoctor = {
-                    firstName, 
-                    lastName, 
-                    type, 
-                     gender, 
-                    email, 
-                    specialization, 
-                    image, 
-                }
-
-                axios.put("http://localhost:8050/doctor/updatedoctor/"+id, newDoctor)
-                    .then(() => {
-                        alert("Package updated successfully");
-
-                    }).catch((err) => {
-                        alert(err);
-                    })
-                }).catch((err) => {
-                    console.log(err);
-                });
-            }}>
+            <form onSubmit={formSubmit}>
 
                 <div className="form-group">
                     <label className="form-label">Enter First Name</label>
