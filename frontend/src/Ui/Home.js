@@ -8,7 +8,7 @@ function Home(){
               <h1>Home</h1>
 
                     <a href="/quiz">Quiz Management</a><br/>
-                    <a href="/">Doctor Management</a><br/>
+                    <a href="/doctorpreview">Doctor Management</a><br/>
                     <a href="/">Post Management</a><br/>
                     <a href="/">Article Management</a><br/> 
 
