@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-//import AddDoctor from './addDoctor';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 

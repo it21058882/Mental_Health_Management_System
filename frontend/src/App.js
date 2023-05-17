@@ -14,8 +14,13 @@ import Questions from "./QuizManagement/user/Questions";
 import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 import Home from "./Ui/Home";
+import Updatedoctor from "./DoctorManagement/updateDoctor";
 
 //Articles
+import AddArticles from "./ArticleManagement/addArticle";
+import ViewArticles from "./ArticleManagement/viewArtical";
+import UpdateArticles from "./ArticleManagement/updateArticle";
+
 //import AddArticles from "./ArticleManagement/addArticle";
 //import ViewArticles from "./ArticleManagement/viewArtical";
 
@@ -34,6 +39,10 @@ const page = createBrowserRouter([
   { path: "/questions/:quizid/:quiztitle", element: <Questions/>,  },
 
   ////Article////////////////
+  { path: "/addarticle", element: <AddArticles/>,  },
+  { path: "/viewarticle", element: <ViewArticles/>,  },
+  { path: "/updatearticle", element: <UpdateArticles/>,  },
+
  // { path: "/addarticle", element: <AddArticles/>,  },
  // { path: "/viewarticle", element: <ViewArticles/>,  },
 
@@ -46,7 +55,7 @@ const page = createBrowserRouter([
   {path: "/addDoctor", element: <AddDoctor/>,},
   {path: "/DoctorPreview", element: <Doctor/>,},
 
-
+  {path: "/updatedoctor", element: <Updatedoctor/>,},
   ////// Ui ////////
   { path: "/home", element: <Home/>,  },
 
