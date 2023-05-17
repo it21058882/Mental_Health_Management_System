@@ -1,5 +1,7 @@
 const QuizTitle = require("../model/quizTitleModel");
 const Question = require("../model/questionsModel");
+const User =  require("../model/user");
+const QuizResults = require("../model/quizResults");
 const { findOneAndDelete } = require("../model/quizTitleModel");
 
 
@@ -157,11 +159,75 @@ const ViewQuestionsAdmin = async (req, res, next) => {
 
 
 
-const storeResults = async (req, res, next) => {
-        res.send(req);
-        console.log("Hiii");
-        
+const addResults = async (req, res, next) => {
+  console.log(req.userDetails.id);
+  console.log(req.userDetails.userName);
+  console.log(req.body);
+
+    try{
+      const details = await User.find({"_id" : req.userDetails.id});
+     
+
+      const newResult = new QuizResults ({
+        userId:details[0].id,
+        userName:details[0].userName,
+        email:details[0].email,
+        contactNo:details[0].contactNo,
+        results:req.body.results,
+        nameOfClosest:details[0].nameOfClosest,
+        closestContactNo:details[0].closestContactNo,
+        closestEmail : details[0].closestEmail,
+        quizId: req.body.quizId,
+        quizName:req.body.quizName
+      } )
+    
+      newResult.save().then(()=>{
+        res.send("Successfully Added..")
+      }).catch((err)=>{
+              res.send(err);
+      })
+
+
+    } catch(err){
+        console.log(err);
+    }
+   
 }
+
+const getResultsAdmin = async (req, res, next) => {
+  
+  try {
+    const allResults = await QuizResults.find({ });
+    res.send(allResults);
+  } catch (err) {
+    console.log(err);
+  }
+   
+}
+
+const viewResults = async (req, res, next) => {
+  
+  try {
+    const allResults = await QuizResults.find({userId: req.userDetails.id});
+    
+    var size = Object.keys(allResults).length;
+    const resArr = [];
+
+    for(var i =0; i<size; i++){
+      resArr.push({
+        quizId:allResults[i].quizId,
+        quizName:allResults[i].quizName,
+        results:allResults[i].results
+      }) 
+    }
+    res.send(resArr);
+    
+  } catch (err) {
+    console.log(err);
+  }
+   
+}
+
 
 
 
@@ -173,5 +239,8 @@ const storeResults = async (req, res, next) => {
  exports.deleteQuestionAdmin = deleteQuestionAdmin;
  exports.questionUpdateView = questionUpdateView;
  exports.deleteQuize = deleteQuize;
+ exports.addResults = addResults;
+ exports.getResultsAdmin = getResultsAdmin;
+ exports.viewResults = viewResults;
 
- exports.storeResults = storeResults;
+ 
