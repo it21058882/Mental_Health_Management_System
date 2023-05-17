@@ -16,9 +16,10 @@ function Updatedoctor() {
     
 
     const {id} = useParams();
+    console.log(id);
   
     const newDoctor = () => {   
-        axios.get("http://localhost:8050/doctor/getdoctor"+id) //get id
+        axios.get("http://localhost:8050/doctor/"+id) //get id
             .then((res) => {
              
                 setFirstName(res.data.firstName);
