@@ -11,11 +11,11 @@ const quizResultsSchema = new Schema({
                     required : true
           },
           email: {
-                    type : Number,
+                    type : String,
                     required : true
           },
           contactNo:{
-                    type : String,
+                    type : Number,
                     required : true
           },
           results: {
@@ -28,6 +28,10 @@ const quizResultsSchema = new Schema({
           },
           closestContactNo: {
                     type : Number,
+                    required : true
+          },
+          closestEmail:{
+                    type : String,
                     required : true
           },
           quizId:{

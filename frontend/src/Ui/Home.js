@@ -2,7 +2,7 @@
 function Home(){
 
           return(<div>
-                
+                {localStorage.getItem('acctoken')}
               <h1>Mental Health Management System User Side</h1>
 
               <h1>Home</h1>
