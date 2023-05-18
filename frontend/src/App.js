@@ -29,6 +29,7 @@ import UpdateArticles from "./ArticleManagement/updateArticle";
 
 //User
 import Login from "./user/login";
+import RegisterUser from "./user/registerUser";
 
 
 const page = createBrowserRouter([ 
@@ -52,6 +53,7 @@ const page = createBrowserRouter([
 
   ///////     User   ////////
   { path: "/", element: <Login/>,  },
+  { path: "/registerUser", element: <RegisterUser/>,  },
 
 
   //doctor.//
