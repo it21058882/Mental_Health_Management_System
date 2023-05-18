@@ -53,8 +53,9 @@ function Questions(){
                       const marks = (getmarks.reduce((a,v) =>  a = a + v.mark , 0 ))
                       
 
-                      const fullmark = (marks /(allqus*10))*100;
+                      const fullmark = Math.floor((marks /(allqus*10))*100);
                       alert(fullmark);
+                      window.location.href = '/resultsview/'+quizid+'/'+quiztitle+'/'+fullmark ;
                 
                     }else{
                       alert("You have complete");
