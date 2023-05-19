@@ -4,7 +4,7 @@ function Footer() {
             <footer className="text-center text-lg-start bg-dark text-light bg-dark">
                 <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                     <div className="me-5 d-none d-lg-block">
-                        <span>Get connected with us on social networks:</span>
+                        <span>Welcome to "HAPPYlife" Your Path to Inner Peace!</span>
                     </div>
                     <div>
                         <a href="" className="me-4 text-reset">
@@ -29,10 +29,11 @@ function Footer() {
                         <div className="row mt-3">
                             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                 <h6 className="text-uppercase fw-bold mb-4">
-                                    <i className="fas fa-gem"></i>Box Movies
+                                    <i className="fas fa-gem"></i>HAPPYlife
                                 </h6>
                                 <p>
-                                    Box movies are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                                    
+                                    At HAPPYlife, we're dedicated to nurturing your mental health and inspiring inner peace. Our online sanctuary offers a safe space where you can find support, resources, and guidance for your well-being journey. With a team of compassionate professionals and a community of individuals sharing their experiences, we provide insightful articles, practical tools, and evidence-based practices to enhance your mental well-being. Join us in creating a supportive environment that fosters healing, resilience, and personal growth. Begin your transformative journey with HAPPYlife.
                                 </p>
                             </div>
                             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -40,16 +41,16 @@ function Footer() {
                                     Search Term
                                 </h6>
                                 <p>
-                                    <a href="#!" className="text-reset">Quality:</a>
+                                    <a href="#!" className="text-reset">Home</a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">Genre:</a>
+                                    <a href="#!" className="text-reset">Doctor</a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">Rating:</a>
+                                    <a href="#!" className="text-reset">Article</a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">Year:</a>
+                                    <a href="#!" className="text-reset">Quiz</a>
                                 </p>
                             </div>
                             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -60,10 +61,10 @@ function Footer() {
                                     <a href="#!" className="text-reset">English</a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">Korean</a>
+                                    <a href="#!" className="text-reset">Sinhala</a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">Japanese</a>
+                                    <a href="#!" className="text-reset">Tamil</a>
                                 </p>
                                 <p>
                                     <a href="#!" className="text-reset">French</a>
@@ -76,7 +77,7 @@ function Footer() {
                                 <p><i className="bi bi-whatsapp"></i> +94 11 241 3901</p>
                                 <p><i className="bi bi-telephone-fill"></i> +94 11 754 4801</p>
                                 <p>
-                                    <i className="bi bi-envelope-fill"></i> info@boxmovies.lk
+                                    <i className="bi bi-envelope-fill"></i> info@happylife.lk
                                 </p>
                                 <p><i className="bi bi-geo-alt-fill"></i> SLIIT Malabe Campus, Malabe 10115</p>
                             </div>
