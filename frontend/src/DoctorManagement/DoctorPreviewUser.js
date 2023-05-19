@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import "./DoctorPreview.css";
-
 function Doctor() { 
   const [Doctor, setDoctor] = useState([]);
 
@@ -17,16 +16,7 @@ function Doctor() {
         alert(err);
       });
   }
-  const deleteDoctor = (id) => {
-    axios.delete(`http://localhost:8050/doctor/deletedoctor/${id}`)  //Activates Thrapist deleting function
-        .then((res) => {
-            alert("Packages Content Deleted");
-            getDoctor();
-        })
-        .catch((err) => {
-            alert(err);
-        });
-    }
+
   
 
 
@@ -36,17 +26,15 @@ function Doctor() {
 
     <div className='main'>
     <div className='container text-center'>
-       <Link to={'/addDoctor/'}>
-            <div>
-                <button className='addbtn'>Add A Thrapist </button>
-            </div>
-   </Link> 
+      
+            
+  
       <h1 className='text-center'>Therapist</h1>
 
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {Doctor.map((data) => {
           return (
-            <Card style={{ width: '25rem', margin: '3rem', padding: '2rem'}} className=''>
+            <Card style={{ width: '25rem', margin: '3rem', padding: '1rem'}}>
               <Card.Img src={data.image}/>
               <Card.Body >
                 <Card.Title>Ms. {data.firstName +'' +data.lastName}</Card.Title>
@@ -65,10 +53,10 @@ function Doctor() {
                 </Card.Text>
                 
                 
-                <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
-                <Button key={`${data._id} + 1`}variant="warning" className='btn1'>Update</Button>
+                <Link key={`${data._id} + 4`} to={"/channelForm/"+data._id}> 
+                <Button key={`${data._id} + 1`}variant="warning">Channel</Button>
                 </Link>
-                <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
+                
               </Card.Body>
             </Card>
           )        

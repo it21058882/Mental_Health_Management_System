@@ -12,11 +12,15 @@ import AdmminViewQuestions from "./QuizManagement/admin/adminQuestionsViewPage";
 import Quiz from "./QuizManagement/user/Quiz";
 import Questions from "./QuizManagement/user/Questions";
 import ResultsView from "./QuizManagement/user/resulsView";
+import UserProgress from "./QuizManagement/admin/userProgress";
 
 import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 import Home from "./Ui/Home";
 import Updatedoctor from "./DoctorManagement/updateDoctor";
+import DoctorPreviewUser from "./DoctorManagement/DoctorPreviewUser";
+import ChannelForm from "./DoctorManagement/channelForm";
+
 
 //Articles
 import AddArticles from "./ArticleManagement/addArticle";
@@ -32,6 +36,7 @@ import Login from "./user/login";
 
 const page = createBrowserRouter([ 
   { path: "/admin", element: <AdminHomePage/>,  },
+  { path: "/userprogress", element: <UserProgress/>,  },
   { path: "/addquiztitle", element: <AddQuizTitle/>,  },
   { path: "/addquestions/:quiztitleid/:quiztitle", element: <AddQuestions/>,  },
   { path: "/adminviewquiz", element: <AdminQuizzesPage/>,  },
@@ -39,7 +44,7 @@ const page = createBrowserRouter([
 
   { path: "/quiz", element: <Quiz/>,  },
   { path: "/questions/:quizid/:quiztitle", element: <Questions/>,  },
-  { path: "/resultsview/:quizid/:quiztitle/:results", element: <ResultsView/>,  },
+  { path: "/resultsview/:username/:quiztitle/:results", element: <ResultsView/>,  },
 
   ////Article////////////////
   { path: "/addarticle", element: <AddArticles/>,  },
@@ -57,10 +62,11 @@ const page = createBrowserRouter([
   //doctor.//
   {path: "/addDoctor", element: <AddDoctor/>,},
   {path: "/DoctorPreview", element: <Doctor/>,},
-
   {path: "/updatedoctor/:id", element: <Updatedoctor/>,},
+  {path: "/doctorpreviewuser/", element: <DoctorPreviewUser/>,},
   ////// Ui ////////
   { path: "/home", element: <Home/>,  },
+  {path: "/channelForm/:id", element: <ChannelForm/>,},
 
 ]);
 

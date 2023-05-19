@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 
 function ResultsView(){
-          const {quizid,quiztitle,results} = useParams();
+          const {username,quiztitle,results} = useParams();
           console.log(results)
           return(<div>
-          {quizid}<br/>
+          {username}<br/>
           {quiztitle}<br/>
           {results}
                     <h1>Hi results</h1>
