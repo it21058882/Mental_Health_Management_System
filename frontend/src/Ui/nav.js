@@ -16,7 +16,7 @@ function Nav() {
                                 <a class="nav-link" href="/quiz">Quiz</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Doctor Channel</a>
+                                <a class="nav-link" href="/doctorpreviewUser">Doctor Channel</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Fun Games</a>
@@ -24,16 +24,7 @@ function Nav() {
                             <li class="nav-item">
                                 <a class="nav-link" href="/article&book">Articles & Books</a>
                             </li>
-                            {/* <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    FeedBack
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Add Feedbacks</a></li>
-                                    <li><a class="dropdown-item" href="#">Read Feedbacks</a></li>
-
-                                </ul>
-                            </li> */}
+                            
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Profile</a>
                             </li>
