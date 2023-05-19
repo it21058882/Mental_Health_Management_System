@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
@@ -6,6 +7,11 @@ import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Articles from './viewArtical';
+=======
+/*// import React, { useState, useEffect } from 'react'
+// import axios from 'axios';
+// import { useParams } from "react-router-dom";
+>>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
 
 function ArticleUpdate() {
     const { id } = useParams();
@@ -183,4 +189,56 @@ function ArticleUpdate() {
     );
 }
 
+<<<<<<< HEAD
 export default ArticleUpdate;
+=======
+//                                         }} />
+//                                 </div>
+
+//                                 <div className='form-group' style={{ marginBottom: '15px' }}>
+//                                     <label style={{ marginBottom: '5px' }} className="lable">Description</label>
+//                                     <input type="text" className="form-control" name='amount' placeholder='Enter Quantity' value={description}
+
+//                                         onChange={(e) => {
+//                                             setDescription(e.target.value);
+
+//                                         }} />
+//                                 </div>
+
+//                                 <div className='form-group' style={{ marginBottom: '15px' }}>
+//                                     <label style={{ marginBottom: '5px' }} className="lable">Author Name</label>
+//                                     <input type="number" className="form-control" name='amount' placeholder='Enter Cost Price' value={authorName}
+
+//                                         onChange={(e) => {
+//                                             setAuthorName(e.target.value);
+
+//                                         }} />
+//                                 </div>
+
+//                                 <div className='form-group' style={{ marginBottom: '15px' }}>
+//                                     <label style={{ marginBottom: '5px' }} className="lable">Post Date</label>
+//                                     <input type="number" className="form-control" name='amount' placeholder='Enter Cost Price' value={postDate}
+
+//                                         onChange={(e) => {
+//                                             setPostDate(e.target.value);
+
+//                                         }} />
+//                                 </div>
+
+
+
+//                                 <button className='btn btn-success' type='submit' href="/inventory" style={{ marginTop: '15px' }}>Confirm</button>
+
+//                                 <a className='btn btn-danger' href="/inventory" style={{ marginTop: '15px', marginLeft: "9px" }} > Back</a>
+//                             </form>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+
+//     );
+// };
+
+// export default ArticleUpdate;*/
+>>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c

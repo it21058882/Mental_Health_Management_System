@@ -41,3 +41,6 @@ app.use("/client",clientRouter);
 const userRouter = require("./api/routers/user");
 app.use("/user",userRouter);
 
+const channelRouter = require("./api/routers/channel.js");
+app.use("/channel",channelRouter);
+

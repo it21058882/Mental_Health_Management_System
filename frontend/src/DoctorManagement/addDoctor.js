@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios";
-
+import "./DoctorPreview.css";
 
 
   
@@ -36,9 +36,10 @@ import axios from "axios";
      }
 
     return (
+      <div className='main2'>
         <div className='#'>
             <h1>Enter Therapist Details</h1>
-            <div className="#">
+            <div className="form">
                 <br />
                 <form onSubmit={async(e) => {
                     e.preventDefault();
@@ -69,29 +70,74 @@ import axios from "axios";
 
                    
                 <div className="form-group">
-                  <label className="#">Full Name</label>
+                  <label className="">Enter First Name</label>
                   <input type="text" className="form-control" placeholder="Enter Full Name" onChange={(e) => {setFirstName(e.target.value)}} required/>
                 </div>
                 <br />
                 <div className="form-group">
-                  <label className="#">Last Name</label>
+                  <label className="#">Enter Last Name</label>
                   <input type="text" className="form-control" placeholder="Enter Last  Name" onChange={(e) => {setLastName(e.target.value)}} required/>
                 </div>
                 <br />
-                <div className="form-group">
-                  <label className="#">Enter Type</label>
-                  <input type="text" className="form-control" placeholder="Enter Last  Name" onChange={(e) => {setType(e.target.value)}} required/>
-                </div>
+           <div className="form-group">
+            <label className="form-label"> Type</label>
+            <select
+              className="form-control"
+              pattern="[a-z,A-Z,0-9 ]{3,}"
+              onChange={(e) => {
+                setType(e.target.value);
+              }}
+              required
+            >
+              <option value="Psychologist" selected="selected">
+              Psychologist
+              </option>
+              <option value="Counselor ">Counselor </option>
+              <option value="Other">Other</option>
+            </select>
+             </div>
                 <br />
-                <div className="form-group">
-                  <label className="#">Enter Gender</label>
-                  <input type="text" className="form-control" placeholder="Enter Last  Name" onChange={(e) => {setGender(e.target.value)}} required/>
-                </div>
+         
+
+          <div className="form-group">
+            <label className="form-label"> Gender</label>
+            <select
+              className="form-control"
+              pattern="[a-z,A-Z,0-9 ]{2,}"
+              onChange={(e) => {
+                setGender(e.target.value);
+              }}
+              required
+            >
+              <option value="Female" selected="selected">
+              Female
+              </option>
+              <option value="Male ">Male </option>
+              
+            </select>
+             </div>
                 <br />
-                <div className="form-group">
-                  <label className="#">Enter specialization</label>
-                  <input type="text" className="form-control" placeholder="Enter Last  Name" onChange={(e) => {setSpecialization(e.target.value)}} required/>
-                </div>
+             
+
+           <div className="form-group">
+            <label className="form-label"> Specialization For </label>
+            <select
+              className="form-control"
+              pattern="[a-z,A-Z,0-9 ]{2,}"
+              onChange={(e) => {
+                setSpecialization(e.target.value);
+              }}
+              required
+            >
+              <option value="Kids" selected="selected">
+              Kids
+              </option>
+              <option value="Teenagers ">Teenagers </option>
+              <option value="Adults ">Adults </option>
+              
+            </select>
+             </div>
+
                 <br />
                 <div className="form-group">
                   <label className="#">Email</label>
@@ -102,9 +148,12 @@ import axios from "axios";
               <br/><input id="input" type="file" name="avatar" accept="image/png, image/jpeg" onChange={inputvalue}/>
 
                     <br />
+                    <br>
+                    </br>
                     <button type="submit" className="submitbtn">Submit</button><br /><br />
                 </form>
             </div>
+        </div>
         </div>
     )
 }

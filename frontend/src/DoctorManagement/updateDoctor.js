@@ -1,11 +1,11 @@
-/*import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-
+import "./DoctorPreview.css";
 
   
-function updatedoctor() {
+function Updatedoctor() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [type, setType] = useState('');
@@ -16,9 +16,10 @@ function updatedoctor() {
     
 
     const {id} = useParams();
+    console.log(id);
   
     const newDoctor = () => {   
-        axios.get("http://localhost:8050/doctor/getdoctor"+id) //get id
+        axios.get("http://localhost:8050/doctor/"+id) //get id
             .then((res) => {
              
                 setFirstName(res.data.firstName);
@@ -37,120 +38,96 @@ function updatedoctor() {
     
     useEffect(() => { newDoctor() },[]);
 
+    function formSubmit(e){
+        e.preventDefault();
+
+          
+     
+                     const newDoctor = {
+                         firstName, 
+                         lastName, 
+                         type, 
+                          gender, 
+                         email, 
+                         specialization, 
+                         image, 
+                     }
+     console.log(newDoctor);
+
+     axios.patch("http://localhost:8050/doctor/updatedoctor/"+id,newDoctor).then((res)=>{
+        if(res){
+            
+            alert("Updated");
+        }
+     }).catch((err)=>{
+        console.log(err);
+     })
+     
+    }
+
     return (
+
+        <div className='main2'>
         <div className='#'>
             <h1>Update Package Details </h1>
-        <div className="#">
-            <form onSubmit={async (e) => {
-                e.preventDefault();
-
-       //         const imageRef = ref(storage, `images/packages/${name + image.name}`);
-        
-                uploadBytes(imageRef, image)
-                    .then(() => {
-                        console.log('Uploaded image');
-                    }).catch((err) => {
-                        console.log(err);
-                    });
-
-                await getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
-                    .then((url) => {
-                        console.log(url);
-                        setImage(url);
-                   
-
-                const newDoctor = {
-                    firstName, 
-                    lastName, 
-                    type, 
-                     gender, 
-                    email, 
-                    specialization, 
-                    image, 
-                }
-
-                axios.put("http://localhost:8050/doctor/updatedoctor/"+id, newPackage)
-                    .then(() => {
-                        alert("Package updated successfully");
-
-                    }).catch((err) => {
-                        alert(err);
-                    })
-                }).catch((err) => {
-                    console.log(err);
-                });
-            }}>
+            <div className="form">
+            <form onSubmit={formSubmit}>
 
                 <div className="form-group">
-                    <label className="form-label">Name</label>
-                    <input type="text" className="form-control" value={name}
+                    <label className="form-label">Enter First Name</label>
+                    <input type="text" className="form-control" value={firstName}
                     onChange={(e) => {
                         setFirstName(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Destination</label>
-                    <input type="text" className="form-control" value={destination}
+                    <label className="form-label">Enter Last Name</label>
+                    <input type="text" className="form-control" value={lastName}
                     onChange={(e) => {
                         setLastName(e.target.value);
                     }} required/>
                 </div>
+                
                 <div className="form-group">
-                    <label className="form-label">Members</label>
-                    <input type="text" className="form-control" value={members}
-                    onChange={(e) => {
-                        setMembers(e.target.value);
-                    }} required/>
-                </div>
-                <div className="form-group">
-                    <label className="form-label">Hotel</label>
-                    <input type="text" className="form-control" value={hotel}
+                    <label className="form-label">Type</label>
+                    <input type="text" className="form-control" value={type}
                     onChange={(e) => {
                         setType(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Room Type</label>
-                    <input type="text" className="form-control" value={roomType}
+                    <label className="form-label">Gender</label>
+                    <input type="text" className="form-control" value={gender}
                     onChange={(e) => {
                         setGender(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Vehicle</label>
-                    <input type="text" className="form-control" value={vehicle}
+                    <label className="form-label">Email</label>
+                    <input type="text" className="form-control" value={email}
                     onChange={(e) => {
                         setEmail(e.target.value);
                     }} />
                 </div>
  
-                 <div className="form-group">
-            <label className="form-label">Guide</label>
-            <select
-              className="form-control"
-              onChange={(e) => {
-                setSpecialization(e.target.value);
-              }}
-              required
-            >
-
-              
-              
-              
-            </select>
-          </div>
-               
+                <div className="form-group">
+                    <label className="form-label">Specialization For</label>
+                    <input type="text" className="form-control" value={specialization}
+                    onChange={(e) => {
+                        setSpecialization(e.target.value);
+                    }} />
+                </div>
                   
-                
+                <br></br>
                 <button type="submit" className="submitbtn">
                   Update
                 </button><br /><br />
             </form>
         </div>
         </div>
+       </div> 
     )
 }
 
 
-export default updatedoctor;
-*/
+export default Updatedoctor;
