@@ -154,7 +154,15 @@ import "dotenv/config";
   
 
 
+ const UpdateUser = async (req, res, next) => {
+    res.send("dfhgfh")
+    
+
+ }
+  
+
 
 
   exports.Register = Register;
   exports.Login = Login;
+  exports.UpdateUser = UpdateUser;

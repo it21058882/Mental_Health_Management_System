@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+// import Card from 'react-bootstrap/Card';
+// import axios from 'axios';
+// import { useEffect, useState } from 'react';
+// //import AddDoctor from './addDoctor';
+// import { Link } from 'react-router-dom';
+// import Button from 'react-bootstrap/Button';
+=======
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import "./DoctorPreview.css";
+>>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
 
 function Doctor() { 
   const [Doctor, setDoctor] = useState([]);
@@ -65,6 +74,17 @@ function Doctor() {
                 </Card.Text>
                 
                 
+<<<<<<< HEAD
+        //         <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
+        //         <Button key={`${data._id} + 1`}variant="warning">Update</Button>
+        //         </Link>
+        //         <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
+        //       </Card.Body>
+        //     </Card>
+        //   )        
+        // })}
+        // <hr></hr>
+=======
                 <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
                 <Button key={`${data._id} + 1`}variant="warning" className='btn1'>Update</Button>
                 </Link>
@@ -74,6 +94,7 @@ function Doctor() {
           )        
         })}
         <hr></hr>
+>>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
        
       </div>
     </div>
