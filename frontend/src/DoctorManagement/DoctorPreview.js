@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 // import Card from 'react-bootstrap/Card';
 // import axios from 'axios';
 // import { useEffect, useState } from 'react';
-// import AddDoctor from './addDoctor';
+// //import AddDoctor from './addDoctor';
 // import { Link } from 'react-router-dom';
 // import Button from 'react-bootstrap/Button';
-=======
-import Card from 'react-bootstrap/Card';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-//import AddDoctor from './addDoctor';
-import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
 
 // function Doctor() { 
 //   const [Doctor, setDoctor] = useState([]);
@@ -74,27 +65,15 @@ import Button from 'react-bootstrap/Button';
 //                 </Card.Text>
                 
                 
-<<<<<<< HEAD
-//                 <Link key={`${data._id} + 4`} to={"/editorDash/DoctorUpdateForm/"+data._id}> 
-//                 <Button key={`${data._id} + 1`}variant="warning">Update</Button>
-//                 </Link>
-//                 <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
-//               </Card.Body>
-//             </Card>
-//           )        
-//         })}
-//         <hr></hr>
-=======
-                <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
-                <Button key={`${data._id} + 1`}variant="warning">Update</Button>
-                </Link>
-                <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
-              </Card.Body>
-            </Card>
-          )        
-        })}
-        <hr></hr>
->>>>>>> 18fe20f46e331c162e34e68da6efb4e5f224b364
+        //         <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
+        //         <Button key={`${data._id} + 1`}variant="warning">Update</Button>
+        //         </Link>
+        //         <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
+        //       </Card.Body>
+        //     </Card>
+        //   )        
+        // })}
+        // <hr></hr>
        
 //       </div>
 //     </div>

@@ -1,4 +1,5 @@
 const Articles = require('../model/articles-model');
+const User = require("../model/user");
 const router = require("express").Router();
 const multer = require('multer');
 const path = require("path");
@@ -24,6 +25,7 @@ router.post("/add", uploadFile.single('article'), (req, res) => {
 
     const newarticle = new Articles({
         title: req.body.title,
+        type: req.body.type,
         category: req.body.category,
         description: req.body.description,
         article: req.file.originalname,
@@ -47,6 +49,24 @@ router.route("/viewArticle").get((req, res) => {
         console.log(err)
     })
 });
+
+
+//Get article by ID
+router.route("/view/:id").get((req, res) => {
+    let articleID = req.params.id;
+    Articles.findById(articleID)
+        .then((article) => {
+            if (article) {
+                res.status(200).json(article);
+            } else {
+                res.status(404).send({ status: "Article not found" });
+            }
+        })
+        .catch((err) => {
+            res.status(500).send({ status: "Error with data retrieval", error: err.message });
+        });
+});
+
 
 
 //Delete article
@@ -73,6 +93,7 @@ router.put("/updateArticle/:id", uploadFile.single("article"), (req, res) => {
 
             post.article = req.file.originalname;
             post.title = req.body.title;
+            post.type = req.body.type;
             post.category = req.body.category;
             post.description = req.body.description;
             post.authorName = req.body.authorName;
@@ -83,6 +104,21 @@ router.put("/updateArticle/:id", uploadFile.single("article"), (req, res) => {
                 .catch((err) => res.status(400).json(`Error:${err}`));
         }).catch((err) => res.status(400).json(`Error:${err}`));
 });
+
+
+router.post('/user/bucket/add', (req, res) => {
+    const userId = req.user.id;
+    const articleId = req.body.id;
+  
+ 
+    User.findByIdAndUpdate(userId, { $addToSet: { bucket: articleId } }, (err, user) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Failed to add article to bucket.' });
+      }
+      return res.json({ message: 'Article added to bucket successfully.' });
+    });
+  });
 
 
 // // Set up multer upload instance for handling multiple file uploads
@@ -134,7 +170,7 @@ router.put("/updateArticle/:id", uploadFile.single("article"), (req, res) => {
 //     })
 // });
 
-// ...
+
 
 
 

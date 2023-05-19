@@ -1,15 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom'
 import { Button } from "@mui/material";
 import Swal from 'sweetalert2'
 import '../ArticleManagement/articleManagement.css'
-import AddArticleGIF from '../Assets/Images/AddArticle.gif'
+import Radio from '@mui/material/Radio';
+import FormControl from '@mui/material/FormControl';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import AddArticleGIF from '../Assets/Images/155129411_l-1.jpg'
+import AddArticleGIF_1 from '../Assets/Images/download.jpeg'
+// import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 
 export default function AddArticles() {
 
+  const [slideIndex, setSlideIndex] = useState(1);
+
+  const plusDivs = (n) => {
+    setSlideIndex((prevIndex) => prevIndex + n);
+  };
+
+  const showDivs = (n) => {
+    const slides = document.getElementsByClassName('mySlides');
+    if (n > slides.length) setSlideIndex(1);
+    if (n < 1) setSlideIndex(slides.length);
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+    slides[slideIndex - 1].style.display = 'block';
+  };
+
+  // Call showDivs when the component mounts to display the initial slide
+  useEffect(() => {
+    showDivs(slideIndex);
+  }, []);
+  //////////////////////////////////////
+
+
   //Add Article
   const [title, setTitle] = useState("");
+  const [type, setType] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [article, setFileName] = useState("");
@@ -26,6 +56,7 @@ export default function AddArticles() {
     const Add_Article = new FormData();
 
     Add_Article.append("title", title);
+    Add_Article.append("type", type);
     Add_Article.append("category", category);
     Add_Article.append("description", description);
     Add_Article.append("article", article);
@@ -52,24 +83,26 @@ export default function AddArticles() {
     window.location.reload(false);
   }
 
+
   return (
     <div>
 
       <div className="DashBG" style={{ zIndex: 98 }}>
 
         <div className='viewarticleBtn'>
-          <Button to="/viewarticle" LinkComponent={Link} sx={{ marginLeft: 1, marginTop: 5 }} variant="contained">View Article</Button>
+          <Button to="/viewarticle" LinkComponent={Link} sx={{ marginLeft: 13, marginBottom: -10 }} variant="contained">View Article</Button>
         </div>
 
-        <h1 className='article_topic'>Add Articles</h1>
-        <hr className='article_hr'></hr>
+        <h1 className='article_topic'><b>Add Articles & Books</b></h1>
+        <center>  <hr className='article_hr'></hr></center>
+
 
         <div class="addArticle_div">
 
           <form noValidate onSubmit={sendData}>
 
             <div class="form-group" >
-              <label for="exampleInputEmail1" className='article_title'>Title: *</label><br></br>
+              <label for="exampleInputEmail1" className='article_title'><b>Title : *</b></label><br></br>
               <input type="text" class="form-control article_EnterTitle" placeholder="Enter title :-" onChange={(event) => {
                 setTitle(event.target.value);
               }} required />
@@ -77,52 +110,83 @@ export default function AddArticles() {
             <br></br>
 
             <div class="form-group" >
-              <label for="exampleInputEmail1" className='article_title'>Category: *</label>
-              <select class="form-control article_EnterTitle" onChange={(event) => { setCategory(event.target.value); }}>
-                <option value="aaaa">aaaa</option>
-                <option value="bbb">bbbb</option>
-                <option value="cccc">cccc</option>
-                <option value="dddd">dddd</option>
+              <label for="exampleInputEmail1" className='article_title'><b>Type : *</b></label><br></br>
+              <div className='radiobtn'>
+                <RadioGroup className='radiobtn'
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  name="controlled-radio-buttons-group "
+                  onChange={(event) => { setType(event.target.value); }}
+                >
+                  <FormControlLabel value="Book" control={<Radio />} label="Book" />
+                  <FormControlLabel value="Article" control={<Radio />} label="Article" />
+                </RadioGroup></div>
+            </div>
+            <br></br><br></br>
+
+
+            <div class="form-group" >
+              <label for="exampleInputEmail1" className='article_title'><b>Category : *</b></label>
+              <select class="form-control article_EnterTitle" onChange={(event) => { setCategory(event.target.value); }} required>
+                <option value="Depression">Depression</option>
+                <option value="Self-Care and Well-being">Self-Care and Well-being</option>
+                <option value="Relationship and Communication">Relationship and Communication</option>
+                <option value="Stress Management">Stress Management</option>
+                <option value="Mindfulness and Meditation">Mindfulness and Meditation</option>
+                <option value="Anxiety">Anxiety</option>
+
               </select>
             </div>
             <br></br>
 
             <div class="form-group" >
-              <label for="exampleInputEmail1" className='article_title'>Description:</label>
+              <label for="exampleInputEmail1" className='article_title'><b>Description : *</b></label>
               <textarea class="form-control article_EnterTitle" placeholder="Enter article :-" onChange={(event) => {
                 setDescription(event.target.value);
-              }} ></textarea>
+              }} required></textarea>
             </div>
             <br></br>
 
             <div class="form-group" >
-              <label for="exampleInputEmail1" className='article_title'>Author :</label>
+              <label for="exampleInputEmail1" className='article_title'><b>Author : *</b></label>
               <input type="text" class="form-control article_EnterTitle" placeholder="Enter Author name :-" onChange={(event) => {
                 setAuthorName(event.target.value);
-              }} />
+              }} required />
             </div>
             <br></br>
 
             <div class="form-group" >
-              <label for="exampleInputEmail1" className='article_title'>PostDate: *</label>
+              <label for="exampleInputEmail1" className='article_title'><b>PostDate : *</b></label>
               <input type="date" class="form-control article_EnterTitle" placeholder="Enter post date :-" onChange={(event) => {
                 setPostDate(event.target.value);
               }} required />
             </div>
 
             <div >
-              <img src={AddArticleGIF} class="addArticleGIF" alt="Income image" />
+              <div className="w3-content w3-display-container">
+                <img className="mySlides" src="addArticleGIF" style={{ width: '100%' }} />
+                <img className="mySlides" src="AddArticleGIF_1" style={{ width: '100%' }} />
+
+                <button className="w3-button w3-black w3-display-left" onClick={() => plusDivs(-1)}>
+                  &#10094;
+                </button>
+                <button className="w3-button w3-black w3-display-right" onClick={() => plusDivs(1)}>
+                  &#10095;
+                </button>
+              </div>
+
+
+              {/* <img src={AddArticleGIF} class="addArticleGIF" alt="Income image" /> */}
               <div className='DIVADDIMGFIELD'>
                 <div class="form-group" >
-                  <label for="exampleInputEmail1" className='ADDarticleDOC_title '>Article * :</label>
-                  <input type="file" class="form-control articleADD_image_field" onChange={onChangeFile} />
+                  <label for="exampleInputEmail1" className='ADDarticleDOC_title '><b>Article : *</b></label>
+                  <input type="file" class="form-control articleADD_image_field" onChange={onChangeFile} required />
                 </div>
               </div>
             </div>
 
             <br></br>
 
-            <button type="submit" class="btn btn-success confimBtnAddArticle">Confirm</button>
+            <button type="submit" class="btn btn-success confimBtnAddArticle"  >Confirm</button>
             <button type="button" class="mx-4 my-4 btn btn-danger confimBtnAddArticle">Cancel </button>
 
           </form>
