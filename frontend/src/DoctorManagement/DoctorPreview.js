@@ -97,18 +97,16 @@ function Doctor() {
    doc.text(newdat,450,108);
     doc.autoTable({
        //fields name
-          head: [['User Name', 'Email', 'Contact Nu']],
+          head: [['Name Of the Thrapist', 'Email', 'Type','Gender','Specialization For ']],
           body:  Doctor.map(function(items){
                           return( 
                          [ 
-                          items.firstName , 
-                          items.lastName,
+                          items.firstName + "" + items.lastName , 
                           items.email,
-                          // items.nameOfClosest,
-                          // items.closestContactNo,
-                          // items.closestEmail,
-                          // items.quizName,
-                          // items.results,
+                          items.type,
+                           items.gender,
+                          items.specialization,
+                          
                         ] 
                              
                                     
