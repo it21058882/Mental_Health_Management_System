@@ -1,7 +1,13 @@
-/*// import React, { useState, useEffect } from 'react'
-// import axios from 'axios';
-// import { useParams } from "react-router-dom";
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from "react-router-dom";
+import Radio from '@mui/material/Radio';
+import FormControl from '@mui/material/FormControl';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import AddArticleGIF_2 from '../Assets/Images/addArticleback5.jpg';
+import AddArticleGIF from '../Assets/Images/addArticleback2.jpg';
+import Swal from 'sweetalert2'
 function ArticleUpdate() {
     const { id } = useParams();
     console.log(id);
@@ -51,10 +57,16 @@ function ArticleUpdate() {
 
         axios.put(`http://localhost:8050/article/updateArticle/${id}`, formData)
             .then(() => {
-                alert("Product updated");
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Item Deleted !!',
+                })
             })
             .catch((err) => {
-                alert(err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error !!',
+                })
             });
     };
 
@@ -64,6 +76,7 @@ function ArticleUpdate() {
 
             <h1 className='article_topic'><b>Update Articles & Books</b></h1>
             <center>  <hr className='article_hr'></hr></center>
+            <br></br>
 
 
             <div className="addArticle_div" style={{ backgroundImage: `url(${AddArticleGIF_2})` }}>
@@ -153,8 +166,9 @@ function ArticleUpdate() {
 
 
                     <img src={AddArticleGIF} class="addArticleGIF" alt="Income image" />
+                    <br></br><br></br><br></br><br></br><br></br>
                     <div className='DIVADDIMGFIELD'>
-                        <div class="form-group" >
+                        <div class="form-group " >
                             <label for="exampleInputEmail1" className='ADDarticleDOC_title '><b>Article : *</b></label>
                             <input type="file" class="form-control articleADD_image_field" onChange={onChangeFile} required />
                         </div>
@@ -162,62 +176,18 @@ function ArticleUpdate() {
 
 
                     <br></br>
-                    <button type="submit" class="btn btn-success confimBtnAddArticle"  >Update</button>
-                    <a className='btn btn-danger' href="/viewarticle" class="mx-4 my-4 btn btn-danger confimBtnAddArticle">
+
+                    <button type="submit" class="btn btn-success updateBtn" >Update</button>
+
+
+                    <a className='btn btn-danger ' href="/viewarticle" class="mx-4 my-4 btn btn-danger backBtnAddArticle">
                         Back
                     </a>
+
                 </form >
             </div>
         </div>
     );
 }
 
-//                                         }} />
-//                                 </div>
-
-//                                 <div className='form-group' style={{ marginBottom: '15px' }}>
-//                                     <label style={{ marginBottom: '5px' }} className="lable">Description</label>
-//                                     <input type="text" className="form-control" name='amount' placeholder='Enter Quantity' value={description}
-
-//                                         onChange={(e) => {
-//                                             setDescription(e.target.value);
-
-//                                         }} />
-//                                 </div>
-
-//                                 <div className='form-group' style={{ marginBottom: '15px' }}>
-//                                     <label style={{ marginBottom: '5px' }} className="lable">Author Name</label>
-//                                     <input type="number" className="form-control" name='amount' placeholder='Enter Cost Price' value={authorName}
-
-//                                         onChange={(e) => {
-//                                             setAuthorName(e.target.value);
-
-//                                         }} />
-//                                 </div>
-
-//                                 <div className='form-group' style={{ marginBottom: '15px' }}>
-//                                     <label style={{ marginBottom: '5px' }} className="lable">Post Date</label>
-//                                     <input type="number" className="form-control" name='amount' placeholder='Enter Cost Price' value={postDate}
-
-//                                         onChange={(e) => {
-//                                             setPostDate(e.target.value);
-
-//                                         }} />
-//                                 </div>
-
-
-
-//                                 <button className='btn btn-success' type='submit' href="/inventory" style={{ marginTop: '15px' }}>Confirm</button>
-
-//                                 <a className='btn btn-danger' href="/inventory" style={{ marginTop: '15px', marginLeft: "9px" }} > Back</a>
-//                             </form>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-
-//     );
-// };
-
-// export default ArticleUpdate;*/
+export default ArticleUpdate;
