@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import "./DoctorPreview.css";
+import Swal from 'sweetalert2'
+import jsPDF from "jspdf";
+import autoTable from 'jspdf-autotable'
 
 function Doctor() { 
   const [Doctor, setDoctor] = useState([]);
