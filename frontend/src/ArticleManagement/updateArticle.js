@@ -1,17 +1,6 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams } from "react-router-dom";
-import Radio from '@mui/material/Radio';
-import FormControl from '@mui/material/FormControl';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Articles from './viewArtical';
-=======
 /*// import React, { useState, useEffect } from 'react'
 // import axios from 'axios';
 // import { useParams } from "react-router-dom";
->>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
 
 function ArticleUpdate() {
     const { id } = useParams();
@@ -189,9 +178,6 @@ function ArticleUpdate() {
     );
 }
 
-<<<<<<< HEAD
-export default ArticleUpdate;
-=======
 //                                         }} />
 //                                 </div>
 
@@ -241,4 +227,3 @@ export default ArticleUpdate;
 // };
 
 // export default ArticleUpdate;*/
->>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
