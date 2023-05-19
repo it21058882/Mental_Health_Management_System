@@ -63,6 +63,16 @@ function AddQuestions() {
         console.log(res.data)
         setTableState(false);
 
+        e.target[0].value ="";
+        e.target[1].value ="";
+       e.target[2].value ="";
+      e.target[3].value ="";
+      e.target[4].value ="";
+      e.target[5].value ="";
+      e.target[6].value ="";
+      e.target[7].value ="";
+      e.target[8].value ="";
+
 
       }
     })
@@ -73,7 +83,7 @@ function AddQuestions() {
   }
 
   function publishquiz() {
-    window.location.href = '/adminviewquestions';
+    window.location.href = '/adminviewquiz';
   }
 
 
@@ -82,7 +92,9 @@ function AddQuestions() {
 
       {/* {quiztitleid} */}
 
-      <h1 class="text-center">{quiztitle}</h1>
+      
+      <div className="mt-12 mb-8"><h1 className="text-6xl font-bold text-center underline">{quiztitle}</h1></div>
+
 
       {getTableState || <section class="vh-50 gradient-custom">
         <div class="container py-5 h-50">
@@ -172,14 +184,14 @@ function AddQuestions() {
             <div class="col-xl-7">
               <div class="card shadow-2-strong card-registration" style={{ borderRadius: 15 + "px" }}>
                 <div class="card-body p-4 p-md-5">
-                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Questions</h3>
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 font-medium text-xl underline">Add Questions</h3>
                   <form onSubmit={submitQuestion}>
                     <div class="row">
                       <div class="col-md-12 mb-4 d-flex align-items-center">
 
                         <div class="form-outline datepicker w-100">
-                          <input type="text" class="form-control form-control-lg" id="Question" />
-                          <label for="Question" class="form-label">Question</label>
+                          <input type="text" class="form-control form-control-lg" id="Question" required />
+                          <label for="Question" class="form-label font-medium text-gray-600">Question</label>
                         </div>
                       </div>
 
@@ -190,33 +202,16 @@ function AddQuestions() {
                       <div class="col-md-6 mb-4">
 
                         <div class="form-outline">
-                          <input type="text" id="Answers1" class="form-control form-control-lg" />
-                          <label class="form-label" for="Answers1">Answers 1</label>
+                          <input type="text" id="Answers1" class="form-control form-control-lg " required/>
+                          <label class="form-label font-medium text-gray-600" for="Answers1 ">Answers 1</label>
                         </div>
 
                       </div>
                       <div class="col-md-6 mb-4">
 
                         <div class="form-outline">
-                          <input type="number" id="Marks1" class="form-control form-control-lg" />
-                          <label class="form-label" for="Marks1">Mark</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6 mb-4">
-
-                        <div class="form-outline">
-                          <input type="text" id="Answers2" class="form-control form-control-lg" />
-                          <label class="form-label" for="Answers2">Answers 2</label>
-                        </div>
-
-                      </div>
-                      <div class="col-md-6 mb-4">
-
-                        <div class="form-outline">
-                          <input type="number" id="Marks2" class="form-control form-control-lg" />
-                          <label class="form-label" for="Marks2">Mark</label>
+                          <input type="number" id="Marks1" class="form-control form-control-lg" required />
+                          <label class="form-label font-medium text-gray-600" for="Marks1">Mark</label>
                         </div>
                       </div>
                     </div>
@@ -224,16 +219,16 @@ function AddQuestions() {
                       <div class="col-md-6 mb-4">
 
                         <div class="form-outline">
-                          <input type="text" id="Answers3" class="form-control form-control-lg" />
-                          <label class="form-label" for="Answers3">Answers 3</label>
+                          <input type="text" id="Answers2" class="form-control form-control-lg" required/>
+                          <label class="form-label font-medium text-gray-600" for="Answers2">Answers 2</label>
                         </div>
 
                       </div>
                       <div class="col-md-6 mb-4">
 
                         <div class="form-outline">
-                          <input type="number" id="Marks3" class="form-control form-control-lg" />
-                          <label class="form-label" for="Marks3">Mark</label>
+                          <input type="number" id="Marks2" class="form-control form-control-lg" required/>
+                          <label class="form-label font-medium text-gray-600" for="Marks2">Mark</label>
                         </div>
                       </div>
                     </div>
@@ -241,16 +236,33 @@ function AddQuestions() {
                       <div class="col-md-6 mb-4">
 
                         <div class="form-outline">
-                          <input type="text" id="Answers4" class="form-control form-control-lg" />
-                          <label class="form-label" for="Answers4">Answers 4</label>
+                          <input type="text" id="Answers3" class="form-control form-control-lg" required/>
+                          <label class="form-label font-medium text-gray-600" for="Answers3">Answers 3</label>
                         </div>
 
                       </div>
                       <div class="col-md-6 mb-4">
 
                         <div class="form-outline">
-                          <input type="number" id="Marks4" class="form-control form-control-lg" />
-                          <label class="form-label" for="Marks4">Mark</label>
+                          <input type="number" id="Marks3" class="form-control form-control-lg" required />
+                          <label class="form-label font-medium text-gray-600" for="Marks3">Mark</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+
+                        <div class="form-outline">
+                          <input type="text" id="Answers4" class="form-control form-control-lg" required/>
+                          <label class="form-label font-medium text-gray-600" for="Answers4">Answers 4</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4">
+
+                        <div class="form-outline">
+                          <input type="number" id="Marks4" class="form-control form-control-lg" required/>
+                          <label class="form-label font-medium text-gray-600" for="Marks4">Mark</label>
                         </div>
                       </div>
                     </div>
@@ -260,9 +272,9 @@ function AddQuestions() {
 
 
                     <div class="mt-4 pt-2">
-                      <input class="btn btn-success btn-lg" type="submit" value="Add Question" />
+                      <input class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="submit" value="Add Question" />
 
-                      <input className='btn btn-warning btn-lg' type="button" onClick={publishquiz} value="Publish  Quiz" />
+                      <input className='float-right px-4 py-2 font-bold text-white bg-yellow-500 border border-yellow-600 rounded hover:bg-yellow-700' type="button" onClick={publishquiz} value="Publish  Quiz" />
 
                     </div>
 
