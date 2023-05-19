@@ -128,11 +128,12 @@ function Doctor() {
     <div className='container text-center'>
        <Link to={'/addDoctor/'}>
             <div>
-                <button className='addbtn'>Add A Thrapist </button>
+                <button className='addbtn'>Add New Thrapist </button> 
+                <button onClick={downloadPDF} className='pdf'>Download list </button>
             </div>
    </Link> 
-      <h1 className='text-center'>Therapist</h1>
-      <button onClick={downloadPDF}>me oyaegee </button>
+      <h1 className='text-center-heading'>Therapist</h1>
+     
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {Doctor.map((data) => {
           return (
@@ -141,7 +142,7 @@ function Doctor() {
               <Card.Body >
                 <Card.Title>Ms. {data.firstName +'' +data.lastName}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.DoctorId}</Card.Subtitle>
-                <Card.Text>
+                <Card.Text >
    
                 First Name = {data.firstName}<br/>
                 Last Name = {data.lastName}<br/>
@@ -154,11 +155,11 @@ function Doctor() {
               
                 </Card.Text>
                 
-                
+                <br></br>
                 <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
-                <Button key={`${data._id} + 1`}variant="warning" className='btn1'>Update</Button>
+                <Button key={`${data._id} + 1`} className='btn1'>Update</Button>
                 </Link>
-                <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteDoctor(data._id)}>Delete</Button>
+                <Button key={`${data._id} + 5`} className='btn2 ' onClick={() => deleteDoctor(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
           )        

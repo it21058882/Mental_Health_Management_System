@@ -37,12 +37,12 @@ function ChannelForm({}) {
 
   return (<div>
    
-    <div id="rentalform" className="#">
+    <div className="main2">
      
       <h1 ></h1>
-      <h1>Channel  </h1>
-   
-      <div className="rentaleinnercontainer">
+      <h1 class="text-3xl font-bold dark:text-black" >Channel your Doctor  </h1>
+   <br></br>
+      <div className="form">
         <div className="rentalformcont">
           <form
             className="rentalform"
@@ -80,7 +80,7 @@ function ChannelForm({}) {
               </div>
               <br />
               <div className="form-group">
-                <label className="#">Reserve Date </label>
+                <label className="#">Channeling Date </label>
                 <input type="date" className="form-control" onChange={(e) => {setDate(e.target.value)}} required/>
               </div>
               <br />
@@ -96,8 +96,8 @@ function ChannelForm({}) {
           <br />
 <br />
 <div className="form-group">
-                <label className="#">Full Name</label>
-                <input type="text" className="form-control" placeholder="Enter Full Name" onChange={(e) => {setother(e.target.value)}} required/>
+                <label className="#">Other Details </label>
+                <input type="text-area" className="form-control" placeholder="Enter Full Name" onChange={(e) => {setother(e.target.value)}} required/>
               </div>
               <br />
 
