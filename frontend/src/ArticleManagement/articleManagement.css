@@ -43,16 +43,16 @@
 .addArticle_div{
     width: 91%;
     margin-left: 5%;
-    background-color:darkseagreen;
+    background-color: azure;
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 30px;
 }
 
 .addArticleGIF{
-    width: 35%;
+    width: 45%;
     margin-top: -600px;
-    margin-left: 10%;
+    margin-left: 5%;
     border: 1px solid #555;
     border-radius: 15px;
 }

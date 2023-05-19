@@ -33,28 +33,25 @@ import ArticleFullView from "./ArticleManagement/ArticleFullView";
 import Nav from "./Ui/nav";
 import Footer from "./Ui/footer";
 
-<<<<<<< HEAD
-=======
-//import AddArticles from "./ArticleManagement/addArticle";
-//import ViewArticles from "./ArticleManagement/viewArtical";
->>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
 
 //User
 import Login from "./user/login";
 import RegisterUser from "./user/registerUser";
 
 
-<<<<<<< HEAD
 const page = createBrowserRouter([
 
+
   { path: "/admin", element: <AdminHomePage />, },
+  { path: "/userprogress", element: <UserProgress />, },
   { path: "/addquiztitle", element: <AddQuizTitle />, },
   { path: "/addquestions/:quiztitleid/:quiztitle", element: <AddQuestions />, },
   { path: "/adminviewquiz", element: <AdminQuizzesPage />, },
   { path: "/amminview/:quizid/:quiztitle", element: <AdmminViewQuestions />, },
 
   { path: "/quiz", element: <Quiz />, },
-
+  { path: "/questions/:quizid/:quiztitle", element: <Questions />, },
+  { path: "/resultsview/:username/:quiztitle/:results", element: <ResultsView />, },
 
   ////Article////////////////
   { path: "/addarticle", element: <AddArticles />, },
@@ -64,54 +61,19 @@ const page = createBrowserRouter([
   { path: "/articlefullview/:id", element: <ArticleFullView />, },
 
 
-
   ///////     User   ////////
   { path: "/", element: <Login />, },
-
+  { path: "/registerUser", element: <RegisterUser />, },
 
   //doctor.//
   { path: "/addDoctor", element: <AddDoctor />, },
   { path: "/DoctorPreview", element: <Doctor />, },
-
+  { path: "/updatedoctor/:id", element: <Updatedoctor />, },
+  { path: "/doctorpreviewuser/", element: <DoctorPreviewUser />, },
 
   ////// Ui ////////
   { path: "/home", element: <Home />, },
-=======
-const page = createBrowserRouter([ 
-  { path: "/admin", element: <AdminHomePage/>,  },
-  { path: "/userprogress", element: <UserProgress/>,  },
-  { path: "/addquiztitle", element: <AddQuizTitle/>,  },
-  { path: "/addquestions/:quiztitleid/:quiztitle", element: <AddQuestions/>,  },
-  { path: "/adminviewquiz", element: <AdminQuizzesPage/>,  },
-  { path: "/amminview/:quizid/:quiztitle", element: <AdmminViewQuestions/>,  },
-
-  { path: "/quiz", element: <Quiz/>,  },
-  { path: "/questions/:quizid/:quiztitle", element: <Questions/>,  },
-  { path: "/resultsview/:username/:quiztitle/:results", element: <ResultsView/>,  },
-
-  ////Article////////////////
-  { path: "/addarticle", element: <AddArticles/>,  },
-  { path: "/viewarticle", element: <ViewArticles/>,  },
-  { path: "/updatearticle", element: <UpdateArticles/>,  },
-
- // { path: "/addarticle", element: <AddArticles/>,  },
- // { path: "/viewarticle", element: <ViewArticles/>,  },
-
-
-  ///////     User   ////////
-  { path: "/", element: <Login/>,  },
-  { path: "/registerUser", element: <RegisterUser/>,  },
-
-
-  //doctor.//
-  {path: "/addDoctor", element: <AddDoctor/>,},
-  {path: "/DoctorPreview", element: <Doctor/>,},
-  {path: "/updatedoctor/:id", element: <Updatedoctor/>,},
-  {path: "/doctorpreviewuser/", element: <DoctorPreviewUser/>,},
-  ////// Ui ////////
-  { path: "/home", element: <Home/>,  },
-  {path: "/channelForm/:id", element: <ChannelForm/>,},
->>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
+  { path: "/channelForm/:id", element: <ChannelForm />, },
 
 ]);
 
