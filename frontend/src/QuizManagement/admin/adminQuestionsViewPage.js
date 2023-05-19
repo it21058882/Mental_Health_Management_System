@@ -141,8 +141,10 @@ function AdmminViewQuestions(){
           }
           
           return(<div>
-          {quizid}
-                    <h1 class="text-center">{quiztitle}</h1>
+          
+                    
+                    <div className="mt-10"><h1 className="text-6xl font-bold text-center underline">{quiztitle}</h1></div>
+
           <section class="vh-50 gradient-custom">
                     <div class="container py-5 h-50">
                       <div class="row justify-content-center align-items-center h-100">
@@ -153,7 +155,7 @@ function AdmminViewQuestions(){
 
 
                             <div class="row">
-                                  <div class="col-md-6 mb-4">
+                                  <div class="col-md-6 mb-4 font-medium text-xl underline">
 
                                   <h3>Manage Questions</h3>
 
@@ -243,15 +245,15 @@ function AdmminViewQuestions(){
                     </form>} */}
 
                     
-                    {!getUpdateState || <div className="editbox border border-secondary rounded">
-                    <h4 class="mb-4 pb-2 pb-md-0 mb-md-5">Update Question</h4> 
+                    {!getUpdateState || <div className="bg-white border rounded editbox border-secondary ">
+                    <h4 class="mb-4 pb-2 pb-md-0 mb-md-5 font-medium text-xl underline">Update Question</h4> 
                     <form onSubmit={submitupdateQuestion}>
                               <div class="row">
                                   <div class="col-md-12 mb-4 d-flex align-items-center">
 
                                     <div class="form-outline datepicker w-100">
                                       <input type="text" class="form-control form-control-lg" id="Question" value={getQuestion} onChange={qChange} />
-                                      <label for="Question" class="form-label">Question</label>
+                                      <label for="Question" class="form-label ">Question</label>
                                     </div>
                                   </div>
                                 
@@ -263,7 +265,7 @@ function AdmminViewQuestions(){
 
                                     <div class="form-outline">
                                       <input type="text" id="Answers1" class="form-control form-control-lg" value={getAun1} onChange={a1AunChange}/>
-                                      <label class="form-label" for="Answers1">Answers 1</label>
+                                      <label class="form-label font-medium text-gray-600" for="Answers1 ">Answers 1</label>
                                     </div>
 
                                   </div>
@@ -271,7 +273,7 @@ function AdmminViewQuestions(){
 
                                     <div class="form-outline">
                                       <input type="number" id="Marks1" class="form-control form-control-lg" value={getMark1} onChange={a1MarkChange}/>
-                                      <label class="form-label" for="Marks1">Mark</label>
+                                      <label class="form-label font-medium text-gray-600" for="Marks1 ">Mark</label>
                                     </div>
                                   </div>
                                 </div>
@@ -280,7 +282,7 @@ function AdmminViewQuestions(){
 
                                     <div class="form-outline">
                                       <input type="text" id="Answers2" class="form-control form-control-lg" value={getAun2} onChange={a2AunChange}/>
-                                      <label class="form-label" for="Answers2">Answers 2</label>
+                                      <label class="form-label font-medium text-gray-600" for="Answers2 ">Answers 2</label>
                                     </div>
 
                                   </div>
@@ -288,7 +290,7 @@ function AdmminViewQuestions(){
 
                                     <div class="form-outline">
                                       <input type="number" id="Marks2" class="form-control form-control-lg" value={getMark2} onChange={a2MarkChange}/>
-                                      <label class="form-label" for="Marks2">Mark</label>
+                                      <label class="form-label font-medium text-gray-600" for="Marks2 ">Mark</label>
                                     </div>
                                   </div>
                                 </div>
@@ -297,7 +299,7 @@ function AdmminViewQuestions(){
 
                                     <div class="form-outline">
                                       <input type="text" id="Answers3" class="form-control form-control-lg" value={getAun3} onChange={a3AunChange}/>
-                                      <label class="form-label" for="Answers3">Answers 3</label>
+                                      <label class="form-label font-medium text-gray-600" for="Answers3 ">Answers 3</label>
                                     </div>
 
                                   </div>
@@ -305,7 +307,7 @@ function AdmminViewQuestions(){
 
                                     <div class="form-outline">
                                       <input type="number" id="Marks3" class="form-control form-control-lg" value={getMark3} onChange={a3MarkChange}/>
-                                      <label class="form-label" for="Marks3">Mark</label>
+                                      <label class="form-label font-medium text-gray-600" for="Marks3 ">Mark</label>
                                     </div>
                                   </div>
                                 </div>
@@ -314,7 +316,7 @@ function AdmminViewQuestions(){
 
                                     <div class="form-outline">
                                       <input type="text" id="Answers4" class="form-control form-control-lg" value={getAun4} onChange={a4AunChange}/>
-                                      <label class="form-label" for="Answers4">Answers 4</label>
+                                      <label class="form-label font-medium text-gray-600" for="Answers4 ">Answers 4</label>
                                     </div>
 
                                   </div>
@@ -322,7 +324,7 @@ function AdmminViewQuestions(){
 
                                     <div class="form-outline">
                                       <input type="number" id="Marks4" class="form-control form-control-lg" value={getMark4} onChange={a4MarkChange}/>
-                                      <label class="form-label" for="Marks4">Mark</label>
+                                      <label class="form-label font-medium text-gray-600" for="Marks4 ">Mark</label>
                                     </div>
                                   </div>
                                 </div>
@@ -332,7 +334,7 @@ function AdmminViewQuestions(){
 
                               
                                 <div class="mt-4 pt-2">
-                                  <input class="btn btn-warning btn-lg" type="submit" value="Update Question" />
+                                  <input class="btn btn-lg  px-4 py-2 font-bold text-white bg-yellow-500 border border-yellow-600 rounded hover:bg-yellow-700" type="submit" value="Update Question" />
                                  
                                  
                                 </div>

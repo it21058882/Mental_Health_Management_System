@@ -3,7 +3,7 @@ const User = require("../model/user");
 const router = require("express").Router();
 const multer = require('multer');
 const path = require("path");
-
+const asyncHandler = require("express-async-handler");
 
 //Create storage for file uploads
 const fileStorage = multer.diskStorage({
@@ -109,16 +109,16 @@ router.put("/updateArticle/:id", uploadFile.single("article"), (req, res) => {
 router.post('/user/bucket/add', (req, res) => {
     const userId = req.user.id;
     const articleId = req.body.id;
-  
- 
+
+
     User.findByIdAndUpdate(userId, { $addToSet: { bucket: articleId } }, (err, user) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).json({ error: 'Failed to add article to bucket.' });
-      }
-      return res.json({ message: 'Article added to bucket successfully.' });
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Failed to add article to bucket.' });
+        }
+        return res.json({ message: 'Article added to bucket successfully.' });
     });
-  });
+});
 
 
 // // Set up multer upload instance for handling multiple file uploads
@@ -172,6 +172,124 @@ router.post('/user/bucket/add', (req, res) => {
 
 
 
+router.patch("/likearticle", asyncHandler(async (req, res) => {
+
+    const postId = req.body.bid;
+    const userId = req.body.id;
+
+    try {
+
+        // Find the post by its ID
+
+        const post = await Articles.findById(postId);
+
+        // Check if the user has already liked the post
+        if (post.likes.includes(userId)) {
+            // User has already liked the post, remove the like
+            post.likes.pull(userId);
+            post.isLiked = false;
+
+        } else {
+            // Add the user's ID to the likes array
+
+            post.likes.push(userId);
+            post.isLiked = true;
+
+        }
+        // Remove the user's ID from the disLikes array if present
+        post.dislikes.pull(userId);
+        post.isDisliked = false;
+
+        // Save the updated post
+        await post.save();
+
+        // Return the updated post
+        res.json({
+            post,
+            likes: post.likes.length,
+            dislikes: post.dislikes.length,
+        });
+    } catch (error) {
+        throw new Error(error.message);
+    }
+})
+);
+
+
+router.patch("/dislikearticle", asyncHandler(async (req, res) => {
+
+    const postId = req.body.bid;
+    const userId = req.body.id;
+
+
+
+
+    try {
+
+        // Find the post by its ID
+
+        const post = await Articles.findById(postId);
+
+        // Check if the user has already liked the post
+
+        if (post.likes.includes(userId)) {
+
+            // User has already liked the post, remove the like
+
+            post.likes.pull(userId);
+
+            post.isLiked = false;
+
+        }
+        // Check if the user has already disliked the post
+
+        if (post.dislikes.includes(userId)) {
+
+            // User has already disliked the post, remove the dislike
+
+            post.dislikes.pull(userId);
+
+            post.isDisliked = false;
+
+        } else {
+
+            // Add the user's ID to the disLikes array
+
+            post.dislikes.push(userId);
+
+            post.isDisliked = true;
+
+        }
+
+
+
+
+        // Save the updated post
+
+        await post.save();
+
+
+
+
+        // Return the updated post
+
+        res.json({
+
+            post,
+
+            likes: post.likes.length,
+
+            dislikes: post.dislikes.length,
+
+        });
+
+    } catch (error) {
+
+        throw new Error(error.message);
+
+    }
+})
+);
 
 
 module.exports = router;

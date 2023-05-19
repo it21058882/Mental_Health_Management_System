@@ -8,34 +8,13 @@ import Radio from '@mui/material/Radio';
 import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import AddArticleGIF from '../Assets/Images/155129411_l-1.jpg'
-import AddArticleGIF_1 from '../Assets/Images/download.jpeg'
-// import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
+import AddArticleGIF from '../Assets/Images/155129411_l-1.jpg';
+import AddArticleGIF_2 from '../Assets/Images/addArticleback5.jpg';
+
+
+
 
 export default function AddArticles() {
-
-  const [slideIndex, setSlideIndex] = useState(1);
-
-  const plusDivs = (n) => {
-    setSlideIndex((prevIndex) => prevIndex + n);
-  };
-
-  const showDivs = (n) => {
-    const slides = document.getElementsByClassName('mySlides');
-    if (n > slides.length) setSlideIndex(1);
-    if (n < 1) setSlideIndex(slides.length);
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-    slides[slideIndex - 1].style.display = 'block';
-  };
-
-  // Call showDivs when the component mounts to display the initial slide
-  useEffect(() => {
-    showDivs(slideIndex);
-  }, []);
-  //////////////////////////////////////
-
 
   //Add Article
   const [title, setTitle] = useState("");
@@ -97,7 +76,7 @@ export default function AddArticles() {
         <center>  <hr className='article_hr'></hr></center>
 
 
-        <div class="addArticle_div">
+        <div className="addArticle_div" style={{ backgroundImage: `url(${AddArticleGIF_2})` }}>
 
           <form noValidate onSubmit={sendData}>
 
@@ -159,23 +138,10 @@ export default function AddArticles() {
               <input type="date" class="form-control article_EnterTitle" placeholder="Enter post date :-" onChange={(event) => {
                 setPostDate(event.target.value);
               }} required />
-            </div>
-
-            <div >
-              <div className="w3-content w3-display-container">
-                <img className="mySlides" src="addArticleGIF" style={{ width: '100%' }} />
-                <img className="mySlides" src="AddArticleGIF_1" style={{ width: '100%' }} />
-
-                <button className="w3-button w3-black w3-display-left" onClick={() => plusDivs(-1)}>
-                  &#10094;
-                </button>
-                <button className="w3-button w3-black w3-display-right" onClick={() => plusDivs(1)}>
-                  &#10095;
-                </button>
-              </div>
 
 
-              {/* <img src={AddArticleGIF} class="addArticleGIF" alt="Income image" /> */}
+
+              <img src={AddArticleGIF} class="addArticleGIF" alt="Income image" />
               <div className='DIVADDIMGFIELD'>
                 <div class="form-group" >
                   <label for="exampleInputEmail1" className='ADDarticleDOC_title '><b>Article : *</b></label>
@@ -191,7 +157,7 @@ export default function AddArticles() {
 
           </form>
         </div>
-      </div>
+      </div >
     </div >
   )
 

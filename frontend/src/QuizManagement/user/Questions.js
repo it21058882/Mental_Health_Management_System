@@ -88,14 +88,18 @@ function Questions(){
           
 
           return(<div>
-                    <h1>{quiztitle}</h1>
+                    <h1 className="mt-10 text-5xl font-bold text-center underline">{quiztitle}</h1>
                     <br/>
                    {getQustions.map(qus =>{ return(<Question question={qus}  getMarkFormQuistion={getMark}/>)})}
 
-                    <br/>
-                    <br/>
-                    <button onClick={sublitAuns}>Submit Aunswers</button>
-                    <br/><br/>
+                    
+                    <div className="flex justify-center ">
+                    <button onClick={sublitAuns} className="px-4 py-2 m-6 font-bold text-white bg-yellow-600 rounded-full hover:bg-yellow-900">Submit Aunswers</button>
+                     </div>
+                     <div className="mb-32">
+                     <p className="m-auto text-xs text-center w-50">Our mental health is a fundamental part to our overall health and well-being. As a parent, you play a huge role in supporting your child's mental well-being. Nurturing and loving care build a strong foundation, helping your child to develop the social and emotional skills they need to lead a happy, healthy and fulfilled life.  </p>
+                     </div>
+                    
 
           </div>)
 }
