@@ -138,7 +138,7 @@ function Doctor() {
             <Card style={{ width: '25rem', margin: '3rem', padding: '2rem'}} className=''>
               <Card.Img src={data.image}/>
               <Card.Body >
-                <Card.Title>Ms. {data.firstName +'' +data.lastName}</Card.Title>
+                <Card.Title>Ms. {data.firstName +' '+data.lastName}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.DoctorId}</Card.Subtitle>
                 <Card.Text >
    

@@ -60,6 +60,7 @@ import "./DoctorPreview.css";
                     axios.post("http://localhost:8050/doctor/doctor", newDoctor)
                         .then(() => {
                             alert(" Content added successfully");
+                            window.location.href = '/DoctorPreview'
                         }).catch((err) => {
                             alert("Error adding Therapist Content");
                             console.log(err);
