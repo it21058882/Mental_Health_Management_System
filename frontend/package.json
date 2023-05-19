@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.16",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -13,6 +14,8 @@
     "bootstrap": "^5.2.3",
     "bootstrap-3-card": "^0.2.0",
     "bootstrap-buttons": "^0.0.25",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.28",
     "mdb-react-ui-kit": "^6.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",

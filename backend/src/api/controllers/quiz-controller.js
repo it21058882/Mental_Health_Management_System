@@ -160,9 +160,9 @@ const ViewQuestionsAdmin = async (req, res, next) => {
 
 
 const addResults = async (req, res, next) => {
-  console.log(req.userDetails.id);
-  console.log(req.userDetails.userName);
-  console.log(req.body);
+  // console.log(req.userDetails.id);
+  // console.log(req.userDetails.userName);
+  // console.log(req.body);
 
     try{
       const details = await User.find({"_id" : req.userDetails.id});
@@ -181,8 +181,9 @@ const addResults = async (req, res, next) => {
         quizName:req.body.quizName
       } )
     
-      newResult.save().then(()=>{
-        res.send("Successfully Added..")
+      newResult.save().then((resp)=>{
+        console.log(">>>>>>>>>>>>>>>>>>>" , resp);
+        res.send(resp)
       }).catch((err)=>{
               res.send(err);
       })

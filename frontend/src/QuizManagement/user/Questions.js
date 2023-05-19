@@ -53,8 +53,33 @@ function Questions(){
                       const marks = (getmarks.reduce((a,v) =>  a = a + v.mark , 0 ))
                       
 
-                      const fullmark = (marks /(allqus*10))*100;
+                      const fullmark = Math.floor((marks /(allqus*10))*100);
                       alert(fullmark);
+
+                    /////////////////////////////////
+
+                    const newResults = {
+                      quizId : quizid,
+                      quizName : quiztitle,
+                      results : fullmark
+                  }
+
+                  axios.post("http://localhost:8050/quiz/addresults", newResults,{
+                      headers: {
+                        'Authorization': "bearer "+localStorage.getItem('acctoken')
+                      }
+                    }).then((res)=>{
+                        if(res){
+                          console.log(res.data.userName);
+                         // alert(fullmark);
+                         window.location.href = '/resultsview/'+res.data.userName+'/'+quiztitle+'/'+fullmark ;
+                        }
+                    }).catch((err) => {
+                      console.log(err);
+                    })
+
+                    /////////////////////////////////
+                      
                 
                     }else{
                       alert("You have complete");

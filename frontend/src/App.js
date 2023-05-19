@@ -11,6 +11,9 @@ import AdminQuizzesPage from "./QuizManagement/admin/adminQuizzesPage";
 import AdmminViewQuestions from "./QuizManagement/admin/adminQuestionsViewPage";
 import Quiz from "./QuizManagement/user/Quiz";
 import Questions from "./QuizManagement/user/Questions";
+import ResultsView from "./QuizManagement/user/resulsView";
+import UserProgress from "./QuizManagement/admin/userProgress";
+
 import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 import Home from "./Ui/Home";
@@ -23,17 +26,60 @@ import ChannelForm from "./DoctorManagement/channelForm";
 import AddArticles from "./ArticleManagement/addArticle";
 import ViewArticles from "./ArticleManagement/viewArtical";
 import UpdateArticles from "./ArticleManagement/updateArticle";
+import ClientViewArticles from "./ArticleManagement/ClientViewArticle";
+import ArticleFullView from "./ArticleManagement/ArticleFullView";
 
+//NavBar and Footer
+import Nav from "./Ui/nav";
+import Footer from "./Ui/footer";
+
+<<<<<<< HEAD
+=======
 //import AddArticles from "./ArticleManagement/addArticle";
 //import ViewArticles from "./ArticleManagement/viewArtical";
+>>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
 
 //User
 import Login from "./user/login";
 import RegisterUser from "./user/registerUser";
 
 
+<<<<<<< HEAD
+const page = createBrowserRouter([
+
+  { path: "/admin", element: <AdminHomePage />, },
+  { path: "/addquiztitle", element: <AddQuizTitle />, },
+  { path: "/addquestions/:quiztitleid/:quiztitle", element: <AddQuestions />, },
+  { path: "/adminviewquiz", element: <AdminQuizzesPage />, },
+  { path: "/amminview/:quizid/:quiztitle", element: <AdmminViewQuestions />, },
+
+  { path: "/quiz", element: <Quiz />, },
+
+
+  ////Article////////////////
+  { path: "/addarticle", element: <AddArticles />, },
+  { path: "/viewarticle", element: <ViewArticles />, },
+  { path: "/updatearticle/:id", element: <UpdateArticles />, },
+  { path: "/article&book", element: <ClientViewArticles />, },
+  { path: "/articlefullview/:id", element: <ArticleFullView />, },
+
+
+
+  ///////     User   ////////
+  { path: "/", element: <Login />, },
+
+
+  //doctor.//
+  { path: "/addDoctor", element: <AddDoctor />, },
+  { path: "/DoctorPreview", element: <Doctor />, },
+
+
+  ////// Ui ////////
+  { path: "/home", element: <Home />, },
+=======
 const page = createBrowserRouter([ 
   { path: "/admin", element: <AdminHomePage/>,  },
+  { path: "/userprogress", element: <UserProgress/>,  },
   { path: "/addquiztitle", element: <AddQuizTitle/>,  },
   { path: "/addquestions/:quiztitleid/:quiztitle", element: <AddQuestions/>,  },
   { path: "/adminviewquiz", element: <AdminQuizzesPage/>,  },
@@ -41,6 +87,7 @@ const page = createBrowserRouter([
 
   { path: "/quiz", element: <Quiz/>,  },
   { path: "/questions/:quizid/:quiztitle", element: <Questions/>,  },
+  { path: "/resultsview/:username/:quiztitle/:results", element: <ResultsView/>,  },
 
   ////Article////////////////
   { path: "/addarticle", element: <AddArticles/>,  },
@@ -64,6 +111,7 @@ const page = createBrowserRouter([
   ////// Ui ////////
   { path: "/home", element: <Home/>,  },
   {path: "/channelForm/:id", element: <ChannelForm/>,},
+>>>>>>> 20db66ea44ac105f24c9eac3997121893dacca5c
 
 ]);
 
@@ -73,10 +121,10 @@ function App() {
   return (
 
     <React.StrictMode>
-
-    <RouterProvider router={page} />
-
-  </React.StrictMode>
+      <Nav />
+      <RouterProvider router={page} />
+      <Footer />
+    </React.StrictMode>
 
   );
 }
