@@ -1,4 +1,6 @@
-
+import Swal from 'sweetalert2'
+import jsPDF from "jspdf";
+import autoTable from 'jspdf-autotable'
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -8,6 +10,7 @@ import "./DoctorPreview.css";
 
 function Doctor() { 
   const [Doctor, setDoctor] = useState([]);
+  const [getResults,setResults] = useState([]);
 
   const getDoctor = () => {
     axios.get("http://localhost:8050/doctor/getdoctor")
@@ -33,6 +36,92 @@ function Doctor() {
 
   useEffect(() => { getDoctor() } );  //Shows changes of the page
 
+  //pdf
+
+  function downloadPDF(){
+    let timerInterval
+    Swal.fire({
+    title: 'Preparing your PDF',
+    html: 'Please wait <b></b> milliseconds.',
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: () => {
+        Swal.showLoading()
+        const b = Swal.getHtmlContainer().querySelector('b')
+        timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft()
+        }, 100)
+    },
+    willClose: () => {
+        clearInterval(timerInterval)
+    }
+    }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+        console.log('I was closed by the timer')
+    }
+    }).then(()=>{
+
+
+    const doc = new jsPDF('p','pt','a4');
+    var imgData ='';
+    var width = doc.internal.pageSize.getWidth();
+    var hight = doc.internal.pageSize.getHeight()
+
+   
+     var pageSize = doc.internal.pageSize;
+     // jsPDF 1.4+ uses getHeight, <1.4 uses .height
+     var pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
+     // jsPDF 1.4+ uses getWidth, <1.4 uses .width
+     var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+
+     doc.autoTable({
+         html: '#my-table',
+         startY: pageHeight - 700,
+         theme: 'grid'
+     });
+
+     var today = new Date();
+        var curr_date = today.getDate();
+        var curr_month = today.getMonth();
+        var curr_year = today.getFullYear();
+  
+        today = [curr_month + 1] + "/ " + curr_date + "/ " + curr_year;
+        var newdat = today;
+
+
+   
+   
+   /////// doc.addImage(imgData,'PNG',0,0,width,hight)
+   // doc.text("Available Supplies",20,10);
+   doc.text(newdat,450,108);
+    doc.autoTable({
+       //fields name
+          head: [['User Name', 'Email', 'Contact Nu']],
+          body:  Doctor.map(function(items){
+                          return( 
+                         [ 
+                          items.firstName , 
+                          items.lastName,
+                          items.email,
+                          // items.nameOfClosest,
+                          // items.closestContactNo,
+                          // items.closestEmail,
+                          // items.quizName,
+                          // items.results,
+                        ] 
+                             
+                                    
+                          );
+                }) 
+
+                })
+    
+
+    doc.save("User Progress.pdf");
+
+      })
+    }
   return (
 
     <div className='main'>
@@ -43,7 +132,7 @@ function Doctor() {
             </div>
    </Link> 
       <h1 className='text-center'>Therapist</h1>
-
+      <button onClick={downloadPDF}>me oyaegee </button>
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {Doctor.map((data) => {
           return (
