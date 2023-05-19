@@ -10,8 +10,7 @@ function Home(){
                     <a href="/quiz">Quiz Management</a><br/>
                     <a href="/doctorpreviewUser">Doctor Management</a><br/>
                     <a href="/">Game Management</a><br/>
-                    <a href="/">Post Management</a><br/>
-                    <a href="/article&book">Article Management</a><br/> 
+                  <a href="/article&book">Article Management</a><br/> 
 
           </div>)
 }
