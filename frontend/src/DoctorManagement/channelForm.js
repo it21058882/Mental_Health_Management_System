@@ -63,9 +63,11 @@ function ChannelForm({}) {
                axios.post("http://localhost:8050/channel/channel", newChannel)
               .then(() => {
                 alert("Package Booked Successfully");
+                window.location.href = '/doctorpreviewuser'
                
               }).catch((err) => {
                 alert("Error ");
+                window.location.href = '/doctorpreviewuser'
                 console.log(err);
               });
             }}>
