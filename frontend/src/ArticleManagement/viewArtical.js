@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react'
-=======
 /*import React, { useState, useEffect } from 'react'
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
 import { Link } from 'react-router-dom'
 import { Button } from "@mui/material";
 //import EditIcon from '@mui/icons-material/Edit';
@@ -27,15 +23,12 @@ import {
     MDBCol,
     MDBCardFooter
 } from 'mdb-react-ui-kit';
-<<<<<<< HEAD
-=======
 // import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 // import { Button } from "@mui/material";
 // import axios from 'axios';
 // import { Document, Page, pdfjs } from 'react-pdf';
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -49,10 +42,6 @@ export default function Articles() {
         console.log(event.target.value)
     }
 
-<<<<<<< HEAD
-    //For category dropdown
-=======
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
     const [selectedCategory, setSelectedCategory] = useState("");
     const handleCategorySelection = (event) => {
         setSelectedCategory(event.target.value);
@@ -76,8 +65,6 @@ export default function Articles() {
     useEffect(() => {
         function getArticles() {
             axios.get("http://localhost:8050/article/viewArticle").then((res) => {
-<<<<<<< HEAD
-=======
 //     //view all article
 //     const [Article, setArtical] = useState([]);
 //     const [pdfUrl, setPdfUrl] = useState('');
@@ -85,7 +72,6 @@ export default function Articles() {
 //     useEffect(() => {
 //         function getArticles() {
 //             axios.get("http://localhost:8050/article/viewArticle").then((res) => {
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
 
                 const articlesWithPdfUrl = res.data.map(article => {
                     return {
@@ -95,10 +81,7 @@ export default function Articles() {
                 });
 
 
-<<<<<<< HEAD
-=======
               
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
                 setArtical1_1(articlesWithPdfUrl);
                 setArtical(res.data)
             }).catch((err) => {
@@ -106,8 +89,6 @@ export default function Articles() {
             })
         }
         getArticles();
-<<<<<<< HEAD
-=======
 //                 console.log(res.articlesWithPdfUrl);
 //                 setArtical1_1(articlesWithPdfUrl);
 //                 setArtical(res.data)
@@ -116,7 +97,6 @@ export default function Articles() {
 //             })
 //         }
 //         getArticles();
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
 
     }, [Article])
 
@@ -138,59 +118,6 @@ export default function Articles() {
         }
     }
 
-<<<<<<< HEAD
-    //refreash
-    function refreshPage() {
-        window.location.reload(false);
-    }
-
-
-    //pdf generation 
-    function downloadPDF() {
-
-        var today = new Date();
-        var curr_date = today.getDate();
-        var curr_month = today.getMonth();
-        var curr_year = today.getFullYear();
-
-        today = [curr_month + 1] + "/ " + curr_date + "/ " + curr_year;
-        var newdat = today;
-
-        const doc = new jsPDF('landscape');
-        doc.text("Mental Health", 15, 5);
-        doc.text(newdat, 255, 5);
-
-        doc.text("Articles & Books", 130, 12);
-        doc.autoTable({
-            head: [['Title', 'Type', 'Category', 'Article', 'Author-Name', 'Post-Date']],
-            body: Article.filter(e =>
-
-                e.title.toLowerCase().includes(search) ||
-                e.authorName.toLowerCase().includes(search)
-
-            ).map(function (e, i) {
-                return (
-                    [e.title,
-                    e.type,
-                    e.category,
-                    e.article,
-                    e.authorName,
-                    e.postDate
-                    ]
-
-                );
-            })
-        })
-        doc.save("Articles.pdf");
-    }
-
-
-    return (
-        <div>
-
-            <div className='viewarticleBtn'>
-                <Button to="/addarticle" LinkComponent={Link} sx={{ marginLeft: 13, marginBottom: -30 }} variant="contained">Add Article</Button>
-=======
 //     //delete article
 //     const deleteArticle = (e) => {
 
@@ -330,7 +257,6 @@ export default function Articles() {
 
                     </div>
                 </div>
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
             </div>
 
             <div style={{ marginBottom: "-45px" }}>
@@ -434,9 +360,6 @@ export default function Articles() {
         </div >
     )
 
-<<<<<<< HEAD
-}
-=======
 //                                         <td>
 //                                             <a href={e.pdfUrl} target="_blank">
 //                                                 {e.article}
@@ -477,4 +400,3 @@ export default function Articles() {
 
 // }
 */
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4

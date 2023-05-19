@@ -1,19 +1,7 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams } from "react-router-dom";
-import Radio from '@mui/material/Radio';
-import FormControl from '@mui/material/FormControl';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import AddArticleGIF_2 from '../Assets/Images/addArticleback5.jpg';
-import AddArticleGIF from '../Assets/Images/addArticleback2.jpg';
-=======
 /*// import React, { useState, useEffect } from 'react'
 // import axios from 'axios';
 // import { useParams } from "react-router-dom";
 
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
 function ArticleUpdate() {
     const { id } = useParams();
     console.log(id);
@@ -184,9 +172,6 @@ function ArticleUpdate() {
     );
 }
 
-<<<<<<< HEAD
-export default ArticleUpdate;
-=======
 //                                         }} />
 //                                 </div>
 
@@ -236,4 +221,3 @@ export default ArticleUpdate;
 // };
 
 // export default ArticleUpdate;*/
->>>>>>> 82d0f9799f42de1196e41ed22e00b7be74d847d4
