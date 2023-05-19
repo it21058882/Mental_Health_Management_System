@@ -11,6 +11,9 @@ import AdminQuizzesPage from "./QuizManagement/admin/adminQuizzesPage";
 import AdmminViewQuestions from "./QuizManagement/admin/adminQuestionsViewPage";
 import Quiz from "./QuizManagement/user/Quiz";
 import Questions from "./QuizManagement/user/Questions";
+import ResultsView from "./QuizManagement/user/resulsView";
+import UserProgress from "./QuizManagement/admin/userProgress";
+
 import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
 import Home from "./Ui/Home";
@@ -34,6 +37,7 @@ import RegisterUser from "./user/registerUser";
 
 const page = createBrowserRouter([ 
   { path: "/admin", element: <AdminHomePage/>,  },
+  { path: "/userprogress", element: <UserProgress/>,  },
   { path: "/addquiztitle", element: <AddQuizTitle/>,  },
   { path: "/addquestions/:quiztitleid/:quiztitle", element: <AddQuestions/>,  },
   { path: "/adminviewquiz", element: <AdminQuizzesPage/>,  },
@@ -41,6 +45,7 @@ const page = createBrowserRouter([
 
   { path: "/quiz", element: <Quiz/>,  },
   { path: "/questions/:quizid/:quiztitle", element: <Questions/>,  },
+  { path: "/resultsview/:username/:quiztitle/:results", element: <ResultsView/>,  },
 
   ////Article////////////////
   { path: "/addarticle", element: <AddArticles/>,  },
