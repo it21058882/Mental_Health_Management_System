@@ -1,16 +1,40 @@
 .addbtn{
-    background-color: rgba(49, 248, 49, 0.099);
+    background-color: rgba(112, 182, 112, 0.636);
     border-radius: 50px;
     padding: 10px 20px;
     bottom: 10%;
     float: right;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 22px;
+  
 }
+
+.pdf{
+    padding-left: 2pc;
+    border-radius: 50px;
+    padding: 10px 20px;
+    bottom: 10%;
+    float: right;
+    font-weight:600;
+    font-size: 22px;
+    background-color:antiquewhite;
+    float: left;
+    
+
+}
+
 
 .main{
     padding-top: 3pc;
 } 
+
+.text-center-heading{
+    font-weight: bold;
+    font-size: 60px;
+    margin-left: auto;
+    margin-right: auto 
+
+}
 
 
 .main2{
@@ -19,7 +43,6 @@ padding-left: 3pc;
 padding-right: 11pc;
 
 }
-
 
 
 .form{
@@ -55,5 +78,83 @@ padding-right: 11pc;
 
 .btn1{
    
-    background-color: rgb(103, 169, 153);
+    background-color: rgb(250, 179, 1);
+    float: right;
+    padding-right: 1pc;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    text-align: center;
+    color: rgba(6, 7, 6, 0.664);
+    font-weight: 800;
+    
+    
 }
+
+.btn2{
+   
+    background-color: rgba(255, 3, 3, 0.726);
+    float: left;
+    padding-right: 1pc;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-size: 22px;
+    text-align: center;
+    color: rgba(6, 7, 6, 0.664);
+    font-weight: 800;
+    
+}
+
+.btn3{
+    background-color: rgba(34, 194, 87, 0.514);
+    padding-right: 1pc;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    text-align: center;
+    color: rgba(6, 7, 6, 0.664);
+    font-weight: 800;
+      
+}
+.btn4{
+
+    background-color: rgba(34, 194, 87, 0.514);
+    padding-right: 1pc;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    text-align: center;
+    color: rgba(6, 7, 6, 0.664);
+    font-weight: 800;  
+    border-radius: 30px;
+    padding-left: 40px;
+}
+
+.btn1:hover {
+    background-color:rgba(217, 168, 6, 0.89)
+    }
+
+    
+.btn3:hover {
+    background-color:rgb(250, 179, 1)
+    }
+
+    btn2:hover{
+        background-color:rgb(145, 3, 3)
+    }
+
+   
+
+    .form1{
+
+        box-sizing: border-box;
+        font-size: 20px;
+      padding: 1rem;
+      padding-left: 3rem;
+      padding-right: 10rem;
+      border-radius: 1rem;
+      background-color: hsl(146, 44%, 86%);
+      border: transparent;
+      font-weight:500;
+      grid-template-columns: 1fr 1fr;
+      font-size: 30px;
+      font-weight: 380;
+     
+    }

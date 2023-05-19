@@ -129,13 +129,14 @@ function UserProgress(){
                           <div class="card shadow-2-strong card-registration" style={{borderRadius: 15+"px"}}>
                             <div class="card-body p-4 p-md-5">
                             
-
+                          
 
                             <div class="row">
                                   <div class="col-md-6 mb-4">
 
-                                  <h3>User Progress</h3>
-                                  <button onClick={downloadPDF}>Download data set</button>
+                                  
+                                  <h4 class="mb-3 font-medium text-xl underline">User Progress</h4>
+                                  <button onClick={downloadPDF} className="px-3 py-2 font-bold text-white bg-red-800 border border-yellow-600 rounded hover:bg-yellow-700">Download data set     <i class="bi bi-arrow-down-circle"></i></button>
                                   </div>
                                   <div class="col-md-6 mb-4">
 

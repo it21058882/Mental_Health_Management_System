@@ -35,10 +35,10 @@ function AddQuizTitle (){
           }
 
           return(
-                   <div>
+                   <div className="h-[600px]">
 
-                              <h1 class="text-center">Add Quiz</h1>
-
+                            
+                              <div className="mt-12"><h1 className="text-6xl font-bold text-center underline">Add Quiz</h1></div>
 
                     <section class="vh-50 gradient-custom">
                     <div class="container py-5 h-20">
@@ -48,7 +48,7 @@ function AddQuizTitle (){
                             <div class="card-body p-4 p-md-5">
                               <div className='row1'> 
                               <div class=" col-md-5 card-body">
-                              <h3 class="card-title">Quiz Name</h3>
+                              <h3 class="card-title text-3xl font-bold">Quiz Name</h3>
                               <input  class="form-control inputcss" placeholder='Quiz Title' onChange={titleinsert}/>
                               <hr></hr>
                               <button class="btn btn-success mt-4" onClick={submitTitle}>Create a Quiz</button>

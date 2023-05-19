@@ -38,7 +38,8 @@ import "./DoctorPreview.css";
     return (
       <div className='main2'>
         <div className='#'>
-            <h1>Enter Therapist Details</h1>
+            <h1 class="text-3xl font-bold dark:text-black">Enter Therapist Details</h1>
+            <br></br>
             <div className="form">
                 <br />
                 <form onSubmit={async(e) => {
@@ -59,6 +60,7 @@ import "./DoctorPreview.css";
                     axios.post("http://localhost:8050/doctor/doctor", newDoctor)
                         .then(() => {
                             alert(" Content added successfully");
+                            window.location.href = '/DoctorPreview'
                         }).catch((err) => {
                             alert("Error adding Therapist Content");
                             console.log(err);
@@ -93,7 +95,7 @@ import "./DoctorPreview.css";
               Psychologist
               </option>
               <option value="Counselor ">Counselor </option>
-              <option value="Other">Other</option>
+              <option value="Other">Counselor-Free</option>
             </select>
              </div>
                 <br />
