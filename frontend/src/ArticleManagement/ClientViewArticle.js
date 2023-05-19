@@ -215,12 +215,12 @@ export default function Articles() {
                                     <Card>
                                         <CardBody style={{ background: "#ffff" }}>
                                             <center>
-                                                <embed
+                                                {/* <embed
                                                     src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${e.article}`)}
                                                     type="application/pdf"
                                                     width="100%"
                                                     height="400px"
-                                                />
+                                                /> */}
                                                 <hr />
                                                 <CardTitle style={{ fontSize: "25px", color: "#4CAF50", textTransform: 'uppercase' }}><u><h3>{e.title}</h3></u></CardTitle>
                                                 <CardText style={{ fontSize: "14px" }}>{e.description}</CardText>

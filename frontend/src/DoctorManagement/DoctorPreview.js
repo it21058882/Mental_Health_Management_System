@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 import Swal from 'sweetalert2'
 import jsPDF from "jspdf";
 import autoTable from 'jspdf-autotable'
+=======
+>>>>>>> 8e8547aa5df582e84df60d91312bd0d2c5bb16cf
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -153,7 +156,11 @@ function Doctor() {
               
                 </Card.Text>
                 
+<<<<<<< HEAD
                 <br></br>
+=======
+                
+>>>>>>> 8e8547aa5df582e84df60d91312bd0d2c5bb16cf
                 <Link key={`${data._id} + 4`} to={"/updateDoctor/"+data._id}> 
                 <Button key={`${data._id} + 1`} className='btn1'>Update</Button>
                 </Link>
