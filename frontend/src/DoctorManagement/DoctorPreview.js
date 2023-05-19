@@ -1,9 +1,21 @@
+<<<<<<< HEAD
 // import Card from 'react-bootstrap/Card';
 // import axios from 'axios';
 // import { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom';
 // import Button from 'react-bootstrap/Button';
 // import "./DoctorPreview.css";
+=======
+import Card from 'react-bootstrap/Card';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import "./DoctorPreview.css";
+import Swal from 'sweetalert2'
+import jsPDF from "jspdf";
+import autoTable from 'jspdf-autotable'
+>>>>>>> 45f24f13e76f4fcdc961811179b3ae946dd3ffe9
 
 // function Doctor() { 
 //   const [Doctor, setDoctor] = useState([]);
