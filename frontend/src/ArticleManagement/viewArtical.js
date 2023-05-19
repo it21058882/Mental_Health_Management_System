@@ -8,6 +8,12 @@ import Radio from '@mui/material/Radio';
 import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import AddArticleGIF_3 from '../Assets/Images/addArticleback3.jpg';
+import Swal from 'sweetalert2'
+import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
+import jsPDF from 'jspdf'
+import 'jspdf-autotable'
+
 import {
     MDBCard,
     MDBCardBody,
@@ -105,7 +111,10 @@ export default function Articles() {
                 alert("Article delete", refreshPage())
             })
         } else {
-            e.preventDefault();
+            Swal.fire({
+                icon: 'success',
+                title: 'Item Deleted !!',
+            })
         }
     }
 
@@ -249,6 +258,105 @@ export default function Articles() {
                     </div>
                 </div>
             </div>
+
+            <div style={{ marginBottom: "-45px" }}>
+            <div className='generatebutton'><button onClick={downloadPDF} type="button2" class="btn btn-info" style={{ backgroundColor: "#2E2EFF" }}><SimCardDownloadIcon />Generate Report</button></div>
+
+                <input
+                    onChange={searchItem}
+                    className='form-control searchbararticle'
+                    type='search'
+                    placeholder='Search ....'
+                    name='searchQuery'>
+                </input>
+                <div className='dropdownarticle' style={{ width: '20%' }}>
+                    <select className='form-control' value={selectedCategory} onChange={handleCategorySelection}  >
+                        <option value="">Select Category</option>
+                        <option value="Depression">Depression</option>
+                        <option value="Self-Care and Well-being">Self-Care and Well-being</option>
+                        <option value="Relationship and Communication">Relationship and Communication</option>
+                        <option value="Stress Management">Stress Management</option>
+                        <option value="Mindfulness and Meditation">Mindfulness and Meditation</option>
+                        <option value="Anxiety">Anxiety</option>
+                    </select>
+                </div></div>
+            <RadioGroup
+                aria-labelledby="demo-controlled-radio-buttons-group"
+                name="controlled-radio-buttons-group" className='radioBtnarticle'
+                value={selectedType} onChange={handleTypeSelection} style={{ marginLeft: "65%", marginTop: "-10px" }}
+            >
+                <FormControlLabel value="Book" control={<Radio />} label="Book" />
+                <FormControlLabel value="Article" control={<Radio />} label="Article" />
+            </RadioGroup>
+
+
+
+
+            <h1 className='article_topic'><b>Articles & Books</b></h1>
+            <center>  <hr className='article_hr'></hr></center>
+            <div class="addArticle_div" style={{ backgroundImage: `url(${AddArticleGIF_3})` }}>
+
+                <br></br>
+
+                <MDBRow className='row-cols-1 row-cols-md-2 g-4'>
+                    {Article.filter(e =>
+
+                        (selectedCategory === "" || e.category === selectedCategory) ||
+                            e.title.toLowerCase().includes(search) ||
+                            e.authorName.includes(search) ||
+                            selectedType === "" ? true : e.type === selectedType
+
+                    ).map(e => (
+                        <MDBCol>
+                            <MDBCard style={{ background: "#fffaa" }} >
+                                <MDBCardBody style={{ background: "#fffb" }} >
+                                    <center>
+                                        <embed src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${e.article}`)} type="application/pdf" width="100%" height="400px" />
+                                        <hr></hr>
+                                        <div style={{ backgroundColor: ' #fffaa', borderRadius: '10px' }}>
+                                            <Link to={"/articlefullview/" + e._id}><MDBCardTitle style={{ fontSize: "25px", color: "#000000", textTransform: 'uppercase' }}><u>{e.title}</u></MDBCardTitle></Link>
+                                            <MDBCardText style={{ fontSize: "17px" }}>
+                                                {e.description}
+                                            </MDBCardText>
+                                            <MDBCardText style={{ fontSize: "15px" }}>
+                                                Author Name - {e.authorName}
+                                            </MDBCardText>
+                                            <MDBCardText style={{ fontSize: "15px" }}>
+                                                Category - {e.category}
+                                            </MDBCardText>
+                                            <MDBCardText style={{ fontSize: "15px" }}>
+                                                Type - {e.type}
+                                            </MDBCardText>
+                                            <MDBCardFooter style={{ borderRadius: '10px', backgroundColor: ' #8c8c8c' }}>
+                                                <small className='text-muted' style={{ fontSize: "15px" }}>{e.postDate}</small>
+                                            </MDBCardFooter>
+                                        </div>
+
+                                        <div style={{
+                                            marginLeft: "400px", marginTop: "10px"
+                                        }}>
+
+                                            <Link to={"/updatearticle/" + e._id} >
+                                                <Button style={{
+                                                    backgroundColor: "#75E6DA", marginRight: "20px"
+                                                }} variant="contained" >Update</Button>
+                                            </Link>
+
+                                            <Button color="error" onClick={() => { deleteArticle(e) }} variant="contained" >
+                                                Delete
+                                            </Button>
+                                        </div>
+                                    </center>
+                                </MDBCardBody>
+                            </MDBCard>
+                        </MDBCol>
+                    ))}
+
+                </MDBRow>
+
+            </div>
+
+
         </div >
     )
 

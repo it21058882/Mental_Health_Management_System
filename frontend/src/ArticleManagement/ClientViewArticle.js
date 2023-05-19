@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Button } from "@mui/material";
-//import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 import { Document, Page, pdfjs } from 'react-pdf';
 import Radio from '@mui/material/Radio';
 import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { Card, CardBody, CardTitle, CardText, CardFooter, Col, Row } from 'reactstrap';
+import AddArticleGIF_3 from '../Assets/Images/clientviewarticle.jpeg';
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined";
+import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
+import { Box, styled } from "@mui/system";
+
 import {
     MDBCard,
     MDBCardBody,
@@ -17,6 +24,15 @@ import {
     MDBCol,
     MDBCardFooter
 } from 'mdb-react-ui-kit';
+
+import {
+
+
+
+    Typography,
+    IconButton,
+
+} from "@mui/material";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -29,6 +45,10 @@ export default function Articles() {
         setSearch(event.target.value);
         console.log(event.target.value)
     }
+
+    //////////////////
+    const { id } = useParams();
+
 
     //For category dropdown
     const [selectedCategory, setSelectedCategory] = useState("");
@@ -78,25 +98,80 @@ export default function Articles() {
         window.location.reload(false);
     }
 
+    /////////////////////////////////////////////////////////////////
+
+    const [isLiked, setIsLiked] = useState();
+    const [isDisliked, setIsDisliked] = useState();
+
+    const handleLikeButton = async (bid) => {
+        try {
+            const response = await axios.patch("http://localhost:8050/article/likearticle", {
+                id: id,
+                bid: bid,
+            });
+
+            setIsLiked(response.data.post.isLiked);
+
+            setIsDisliked(response.data.post.isDisliked);
+
+            console.log(response);
+
+        } catch (error) {
+
+            console.log(error);
+
+        }
+
+    };
+
+    const handleDislikeButton = async (bid) => {
+
+        try {
+
+            const response = await axios.patch("http://localhost:8050/article/dislikearticle", {
+
+                id: id,
+
+                bid: bid,
+
+            });
+
+            setIsLiked(response.data.post.isLiked);
+
+            setIsDisliked(response.data.post.isDisliked);
+
+            console.log(response);
+
+        } catch (error) {
+
+            console.log(error);
+
+        }
+
+    };
+
 
 
     return (
         <div>
-
-            <div className="order_bground" style={{ zIndex: 98 }} >
-
+            <div className="order_bground" style={{ zIndex: 98 }}>
 
                 <div style={{ marginBottom: "-45px" }}>
 
                     <input
                         onChange={searchItem}
-                        className='form-control searchbararticle'
-                        type='search'
-                        placeholder='Search ....'
-                        name='searchQuery'>
-                    </input>
-                    <div className='dropdownarticle'>
-                        <select className='form-control' value={selectedCategory} onChange={handleCategorySelection}  >
+                        className="form-control searchbararticle"
+                        type="search"
+                        placeholder="Search ...."
+                        name="searchQuery"
+                    />
+                    <div className="dropdownarticle">
+                        <select
+                            className="form-control"
+                            value={selectedCategory}
+                            onChange={handleCategorySelection}
+                            style={{ marginLeft: '250%', width: '200%', marginBottom: '-20px' }}
+                        >
                             <option value="">Select Category</option>
                             <option value="Depression">Depression</option>
                             <option value="Self-Care and Well-being">Self-Care and Well-being</option>
@@ -105,75 +180,158 @@ export default function Articles() {
                             <option value="Mindfulness and Meditation">Mindfulness and Meditation</option>
                             <option value="Anxiety">Anxiety</option>
                         </select>
-                    </div></div>
+                    </div>
+                </div>
                 <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group" className='radioBtnarticle'
-                    value={selectedType} onChange={handleTypeSelection} style={{ marginLeft: "52%", marginTop: "-10px" }}
+                    name="controlled-radio-buttons-group"
+                    className="radioBtnarticle"
+                    value={selectedType}
+                    onChange={handleTypeSelection}
+                    style={{ background: '#fff', marginLeft: "85%", marginTop: "10px", marginBottom: '-20px', width: '10%' }}
                 >
                     <FormControlLabel value="Book" control={<Radio />} label="Book" />
                     <FormControlLabel value="Article" control={<Radio />} label="Article" />
                 </RadioGroup>
 
-
-
-                <div className='all_container'>
-
-                    <h1 className='article_topic'><b>Articles & Books</b></h1>
-                    <center>  <hr className='article_hr'></hr></center>
-                    <div class="addArticle_div">
-
-                        <br></br>
-
-                        <MDBRow className='row-cols-1 row-cols-md-2 g-4'>
-                            {Article.filter(e =>
-                                (selectedCategory === "" || e.category === selectedCategory) ||
-                                e.title.toLowerCase().includes(search) ||
-                                e.authorName.includes(search) ||
-
-                                e.type === selectedType
-
-                            ).map(e => (
-                                <MDBCol>
-                                    <MDBCard >
-                                        <MDBCardBody>
+                <div className="all_container">
+                    <h1 className="article_topic">
+                        <b>Articles & Books</b>
+                    </h1>
+                    <center>
+                        <hr className="article_hr" />
+                    </center>
+                    <div class="addArticle_div" style={{ backgroundImage: `url(${AddArticleGIF_3})` }}>
+                        <br />
+                        <Row className="row-cols-1 row-cols-md-2 g-4">
+                            {Article.filter(
+                                (e) =>
+                                    (selectedCategory === "" || e.category === selectedCategory) ||
+                                        e.title.toLowerCase().includes(search) ||
+                                        e.authorName.includes(search) ||
+                                        selectedType === "" ? true : e.type === selectedType
+                            ).map((e) => (
+                                <Col>
+                                    <Card>
+                                        <CardBody style={{ background: "#ffff" }}>
                                             <center>
-                                                <embed src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${e.article}`)} type="application/pdf" width="100%" height="400px" />
-                                                <hr></hr>
-                                                <MDBCardTitle style={{ fontSize: "25px" }}>{e.title}</MDBCardTitle>
-                                                <MDBCardText style={{ fontSize: "17px" }}>
-                                                    {e.description}
-                                                </MDBCardText>
-                                                <MDBCardText style={{ fontSize: "15px" }}>
+                                                {/* <embed
+                                                    src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${e.article}`)}
+                                                    type="application/pdf"
+                                                    width="100%"
+                                                    height="400px"
+                                                /> */}
+                                                <hr />
+                                                <CardTitle style={{ fontSize: "25px", color: "#4CAF50", textTransform: 'uppercase' }}><u><h3>{e.title}</h3></u></CardTitle>
+                                                <CardText style={{ fontSize: "14px" }}>{e.description}</CardText>
+                                                <CardText style={{ fontSize: "15px" }}>
                                                     Author Name - {e.authorName}
-                                                </MDBCardText>
-                                                <MDBCardText style={{ fontSize: "15px" }}>
+                                                </CardText>
+                                                <CardText style={{ fontSize: "15px" }}>
                                                     Category - {e.category}
-                                                </MDBCardText>
-                                                <MDBCardText style={{ fontSize: "15px" }}>
-                                                    Type - {e.type}
-                                                </MDBCardText>
-                                                <MDBCardFooter style={{ borderRadius: '10px' }}>
-                                                    <small className='text-muted' style={{ fontSize: "10px" }}>{e.postDate}</small>
-                                                </MDBCardFooter>
+                                                </CardText>
+                                                <CardText style={{ fontSize: "15px" }}>Type - {e.type}</CardText>
+                                                <CardFooter style={{ borderRadius: "10px" }}>
+                                                    <small className="text-muted" style={{ fontSize: "10px" }}>
+                                                        {e.postDate}
+                                                    </small>
+                                                </CardFooter>
+                                                {/* ///////////////////////////////////////////////////////////// */}
+                                                <Box display={"flex"} justifyContent={"space-between"}>
 
-                                                <Link to={"/articlefullview/" + e._id} >
-                                                        <Button style={{
-                                                            backgroundColor: "#B4B731", marginRight: "20px"
-                                                        }} variant="contained" >view</Button>
-                                                    </Link>
+                                                    <Box display={"flex"} alignItems={"center"}>
 
-                                            </center>  </MDBCardBody>
-                                    </MDBCard>
-                                </MDBCol>
+                                                        <IconButton
+
+                                                            onClick={() => handleLikeButton(e._id)}
+
+                                                            style={{
+
+                                                                color: e.isLiked ? "blue" : "inherit",
+
+                                                                transition: "color 0.5s ease",
+
+                                                            }}
+
+                                                        >
+
+                                                            {e.isLiked ? (
+
+                                                                <ThumbUpIcon />
+
+                                                            ) : (
+
+                                                                <ThumbUpOffAltOutlinedIcon />
+
+                                                            )}
+
+                                                        </IconButton>
+
+
+
+
+                                                        <Typography fontSize={20} fontWeight={800} ml={1}>
+
+                                                            {e.likes.length}
+
+                                                        </Typography>
+
+                                                    </Box>
+
+                                                    <Box display={"flex"} alignItems={"center"}>
+
+                                                        <Typography fontSize={20} fontWeight={800} ml={1}>
+
+                                                            {e.dislikes.length}
+
+                                                        </Typography>
+
+                                                        <IconButton
+
+                                                            onClick={() => handleDislikeButton(e._id)}
+
+                                                            style={{
+
+                                                                color: e.isDisliked ? "red" : "inherit",
+
+                                                                transition: "color 0.5s ease",
+
+                                                            }}
+
+                                                        >
+
+                                                            {e.isDisliked ? (
+
+                                                                <ThumbDownIcon />
+
+                                                            ) : (
+
+                                                                <ThumbDownOutlinedIcon />
+
+                                                            )}
+
+                                                        </IconButton>
+
+                                                    </Box>
+                                                </Box>
+                                                {/* ///////////////////////////////////////////////////////////// */}
+                                                <a
+                                                    className="btn btn-danger"
+                                                    href={"/articlefullview/" + e._id}
+                                                    style={{ backgroundColor: "#B4B731", width: "200px" }}
+                                                >
+                                                    VIEW
+                                                </a>
+                                            </center>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
                             ))}
-
-                        </MDBRow>
-
+                        </Row>
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     )
 
 }

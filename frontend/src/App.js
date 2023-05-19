@@ -20,61 +20,59 @@ import Home from "./Ui/Home";
 import Updatedoctor from "./DoctorManagement/updateDoctor";
 import DoctorPreviewUser from "./DoctorManagement/DoctorPreviewUser";
 import ChannelForm from "./DoctorManagement/channelForm";
-
-
+import DoctorFront from "./DoctorManagement/DoctorFront";
 //Articles
 import AddArticles from "./ArticleManagement/addArticle";
 import ViewArticles from "./ArticleManagement/viewArtical";
 import UpdateArticles from "./ArticleManagement/updateArticle";
-//import ClientViewArticles from "./ArticleManagement/ClientViewArticle";
-//import ArticleFullView from "./ArticleManagement/ArticleFullView";
+import ClientViewArticles from "./ArticleManagement/ClientViewArticle";
+import ArticleFullView from "./ArticleManagement/ArticleFullView";
 
 //NavBar and Footer
 import Nav from "./Ui/nav";
 import Footer from "./Ui/footer";
 
-//import AddArticles from "./ArticleManagement/addArticle";
-//import ViewArticles from "./ArticleManagement/viewArtical";
 
 //User
 import Login from "./user/login";
 import RegisterUser from "./user/registerUser";
 
 
-const page = createBrowserRouter([ 
-  { path: "/admin", element: <AdminHomePage/>,  },
-  { path: "/userprogress", element: <UserProgress/>,  },
-  { path: "/addquiztitle", element: <AddQuizTitle/>,  },
-  { path: "/addquestions/:quiztitleid/:quiztitle", element: <AddQuestions/>,  },
-  { path: "/adminviewquiz", element: <AdminQuizzesPage/>,  },
-  { path: "/amminview/:quizid/:quiztitle", element: <AdmminViewQuestions/>,  },
+const page = createBrowserRouter([
 
-  { path: "/quiz", element: <Quiz/>,  },
-  { path: "/questions/:quizid/:quiztitle", element: <Questions/>,  },
-  { path: "/resultsview/:username/:quiztitle/:results", element: <ResultsView/>,  },
+
+  { path: "/admin", element: <AdminHomePage />, },
+  { path: "/userprogress", element: <UserProgress />, },
+  { path: "/addquiztitle", element: <AddQuizTitle />, },
+  { path: "/addquestions/:quiztitleid/:quiztitle", element: <AddQuestions />, },
+  { path: "/adminviewquiz", element: <AdminQuizzesPage />, },
+  { path: "/amminview/:quizid/:quiztitle", element: <AdmminViewQuestions />, },
+
+  { path: "/quiz", element: <Quiz />, },
+  { path: "/questions/:quizid/:quiztitle", element: <Questions />, },
+  { path: "/resultsview/:username/:quiztitle/:results", element: <ResultsView />, },
 
   ////Article////////////////
-  { path: "/addarticle", element: <AddArticles/>,  },
-  { path: "/viewarticle", element: <ViewArticles/>,  },
-  { path: "/updatearticle", element: <UpdateArticles/>,  },
-
- // { path: "/addarticle", element: <AddArticles/>,  },
- // { path: "/viewarticle", element: <ViewArticles/>,  },
+  { path: "/addarticle", element: <AddArticles />, },
+  { path: "/viewarticle", element: <ViewArticles />, },
+  { path: "/updatearticle/:id", element: <UpdateArticles />, },
+  { path: "/article&book", element: <ClientViewArticles />, },
+  { path: "/articlefullview/:id", element: <ArticleFullView />, },
 
 
   ///////     User   ////////
-  { path: "/", element: <Login/>,  },
-  { path: "/registerUser", element: <RegisterUser/>,  },
-
+  { path: "/", element: <Login />, },
+  { path: "/registerUser", element: <RegisterUser />, },
 
   //doctor.//
-  {path: "/addDoctor", element: <AddDoctor/>,},
-  {path: "/DoctorPreview", element: <Doctor/>,},
-  {path: "/updatedoctor/:id", element: <Updatedoctor/>,},
-  {path: "/doctorpreviewuser/", element: <DoctorPreviewUser/>,},
+  { path: "/addDoctor", element: <AddDoctor />, },
+  { path: "/DoctorPreview", element: <Doctor />, },
+  { path: "/updatedoctor/:id", element: <Updatedoctor />, },
+  { path: "/doctorpreviewuser/", element: <DoctorPreviewUser />, },
+
   ////// Ui ////////
-  { path: "/home", element: <Home/>,  },
-  {path: "/channelForm/:id", element: <ChannelForm/>,},
+  { path: "/home", element: <Home />, },
+  { path: "/channelForm/:id", element: <ChannelForm />, },
 
 ]);
 

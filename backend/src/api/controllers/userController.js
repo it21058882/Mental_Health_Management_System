@@ -155,9 +155,60 @@ import "dotenv/config";
 
 
  const UpdateUser = async (req, res, next) => {
-    res.send("dfhgfh")
+    const userID = req.userDetails.id;
+  const updata= {
+        firstName: req.body.firstName,
+        lastname : req.body.lastname,
+        userName : req.body.userName,
+        contactNo : req.body.contactNo,
+        nameOfClosest : req.body.nameOfClosest,
+        closestEmail : req.body.closestEmail,
+        closestContactNo : req.body.closestContactNo,
+        
+    };
+
+    try{
+        const result = await user.updateOne({_id:userID},{$set : updata})
+        res.send(result +   "   ----------    Updated")
+        console.log(result)
+    }catch(err){
+            res.send(err)
+    }
+
+
     
 
+ }
+
+
+ const ProfileView = async (req, res, next) => {
+
+    const userID = req.userDetails.id;
+
+          try{
+                    const userd = await user.find({"_id": userID});
+                    console.log(userd)
+                    res.send(userd);
+          } catch(err){
+            console.log(err);
+          }
+
+ }
+
+ const ProfileDelete = async (req, res, next) => {
+
+    const userID = req.userDetails.id;
+
+    try{
+        const data = await user.deleteOne({"_id":userID})
+        if(data){
+            res.send("user deleted");
+        }
+      
+       }catch(err){
+        res.send(err)
+  }
+    
  }
   
 
@@ -166,3 +217,5 @@ import "dotenv/config";
   exports.Register = Register;
   exports.Login = Login;
   exports.UpdateUser = UpdateUser;
+  exports.ProfileView = ProfileView;
+  exports.ProfileDelete = ProfileDelete;

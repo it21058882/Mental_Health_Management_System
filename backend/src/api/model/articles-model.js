@@ -28,7 +28,27 @@ const ArticleShema = new Schema({
     postDate: {
         type: String,
         required: true,
-    }
+    },
+    likes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "user",
+        },
+    ],
+    dislikes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "user",
+        },
+    ],
+    isLiked: {
+        type: Boolean,
+        default: false,
+    },
+    isDisliked: {
+        type: Boolean,
+        default: false,
+    },
 })
 
 

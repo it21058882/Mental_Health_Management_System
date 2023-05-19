@@ -129,7 +129,7 @@ function UserProgress(){
                           <div class="card shadow-2-strong card-registration" style={{borderRadius: 15+"px"}}>
                             <div class="card-body p-4 p-md-5">
                             
-
+                          
 
                             <div class="row">
                                   <div class="col-md-6 mb-4">

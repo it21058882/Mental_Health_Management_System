@@ -54,7 +54,7 @@ function Doctor() {
         </input>
 
 
-        <h1 className='text-center'>Therapist</h1>
+        <h1 className='text-center-heading'>Therapist</h1>
 
         <div className='container d-flex flex-wrap' style={{ width: '80%' }}>
           {/* {Doctor.filter(data => data.firstName.)
@@ -74,7 +74,7 @@ function Doctor() {
           <Card style={{ width: '25rem', margin: '3rem', padding: '1rem' }}>
             <Card.Img src={data.image} />
             <Card.Body >
-              <Card.Title>Ms. {data.firstName + '' + data.lastName}</Card.Title>
+              <Card.Title>Ms. {data.firstName + ' ' + data.lastName}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{data.DoctorId}</Card.Subtitle>
               <Card.Text>
 
@@ -89,9 +89,9 @@ function Doctor() {
 
               </Card.Text>
 
-
+<br></br>
               <Link key={`${data._id} + 4`} to={"/channelForm/" + data._id}>
-                <Button key={`${data._id} + 1`} variant="warning">Channel</Button>
+                <Button key={`${data._id} + 1`} className='btn3'>Channel</Button>
               </Link>
 
             </Card.Body>
