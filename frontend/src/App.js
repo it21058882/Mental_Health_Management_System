@@ -73,6 +73,7 @@ const page = createBrowserRouter([
   { path: "/DoctorPreview", element: <Doctor />, },
   { path: "/updatedoctor/:id", element: <Updatedoctor />, },
   { path: "/doctorpreviewuser/", element: <DoctorPreviewUser />, },
+  { path : "DoctorFront" , element : <DoctorFront />,},
 
   ////// Ui ////////
   { path: "/home", element: <Home />, },

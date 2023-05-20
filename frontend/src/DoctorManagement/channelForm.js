@@ -19,21 +19,7 @@ function ChannelForm({}) {
   
 
 
-/*  const getDoctor=()=>{
-    axios.get("http://localhost:8050/doctor/"+id).then((res)=>{
- 
-          
-      setDoctor(res.data);
-            
-          })
-          .catch((err) => {
-              alert(err.message);
-          });
-      }
-      
 
-
-      useEffect(()=> getDoctor(),[]);*/
 
   return (<div>
    
