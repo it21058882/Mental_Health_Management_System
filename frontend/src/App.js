@@ -36,6 +36,8 @@ import Footer from "./Ui/footer";
 //User
 import Login from "./user/login";
 import RegisterUser from "./user/registerUser";
+import UserProfile from "./user/profile";
+import EditProfile from "./user/editProfile";
 
 
 const page = createBrowserRouter([
@@ -63,6 +65,8 @@ const page = createBrowserRouter([
   ///////     User   ////////
   { path: "/", element: <Login />, },
   { path: "/registerUser", element: <RegisterUser />, },
+  { path: "/userprofile", element: <UserProfile />, },
+  { path: "/editprofile", element: <EditProfile />, },
 
   //doctor.//
   { path: "/addDoctor", element: <AddDoctor />, },

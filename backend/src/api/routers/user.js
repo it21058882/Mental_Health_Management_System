@@ -8,7 +8,7 @@ const {Register,Login,UpdateUser,ProfileView,ProfileDelete} = require("../contro
 router.post("/register", Register);
 router.post("/login",Login);
 router.patch("/updateuser",auth,UpdateUser);
-router.get("/ProfileView",auth,ProfileView);
-router.delete("/ProfileDelete",auth,ProfileDelete);
+router.get("/ProfileView/:userId",ProfileView);
+router.delete("/ProfileDelete/:userId",ProfileDelete);
 
 module.exports = router;
