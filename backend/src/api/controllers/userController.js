@@ -125,7 +125,8 @@ import "dotenv/config";
                     const acsessToken = jwt.sign(supp, process.env.FOR_TOKEN, { expiresIn: '1h' });
                       
                     const data ={
-                        acsessToken
+                        acsessToken,
+                        userID
                     }
 
                     res.send(data);
@@ -183,7 +184,8 @@ import "dotenv/config";
 
  const ProfileView = async (req, res, next) => {
 
-    const userID = req.userDetails.id;
+    const userID = req.params.userId;
+    console.log(userID)
 
           try{
                     const userd = await user.find({"_id": userID});
@@ -197,7 +199,7 @@ import "dotenv/config";
 
  const ProfileDelete = async (req, res, next) => {
 
-    const userID = req.userDetails.id;
+    const userID = req.params.userId;
 
     try{
         const data = await user.deleteOne({"_id":userID})
