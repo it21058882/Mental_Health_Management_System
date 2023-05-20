@@ -27,6 +27,7 @@ function Nav() {
                   </a>
                 </li>
                 <li>
+                  {/* <a className="text-white" href="http://localhost:3001/"> */}
                   <a className="text-white" href="http://localhost:3001/">
                     Fun Games
                   </a>
@@ -37,6 +38,7 @@ function Nav() {
                   </a>
                 </li>
                 <li>
+                  {/* <a className="text-white" href="/userprofile"> */}
                   <a className="text-white" href="/userprofile">
                     Profile
                   </a>
