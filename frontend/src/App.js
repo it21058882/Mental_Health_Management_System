@@ -16,7 +16,7 @@ import UserProgress from "./QuizManagement/admin/userProgress";
 
 import AddDoctor from "./DoctorManagement/addDoctor";
 import Doctor from "./DoctorManagement/DoctorPreview";
-import Home from "./Ui/Home";
+import Home from "./components/Home/Home";
 import Updatedoctor from "./DoctorManagement/updateDoctor";
 import DoctorPreviewUser from "./DoctorManagement/DoctorPreviewUser";
 import ChannelForm from "./DoctorManagement/channelForm";
