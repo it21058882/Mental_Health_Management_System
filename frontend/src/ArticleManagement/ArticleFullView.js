@@ -79,7 +79,7 @@ function ArticleFullView() {
 
         <div className='DIVADDIMGFIELD' style={{ marginTop: '-510px', marginLeft: '30px' }}>
           {article && (
-            <embed src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${article}`)} type="application/pdf" width="50%" height="600px" />
+           <embed src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${article}`)} type="application/pdf" width="50%" height="600px" />
           )}
         </div>
         <br></br>

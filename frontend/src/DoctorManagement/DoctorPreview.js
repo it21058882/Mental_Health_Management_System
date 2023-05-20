@@ -134,7 +134,7 @@ function Doctor() {
    </Link> 
       <h1 className='text-center-heading'>Therapist</h1>
      
-      <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
+      <div className='container flex-wrap d-flex' style={{ width: '80%'}}>
         {Doctor.map((data) => {
           return (
             <Card style={{ width: '25rem', margin: '3rem', padding: '2rem'}} className=''>

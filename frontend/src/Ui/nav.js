@@ -14,10 +14,10 @@ function Nav() {
 
   return (
     <div>
-      <nav className="bg-gray-900 px-2">
+      <nav className="px-2 bg-gray-900">
         <div className="container mx-auto">
           <div className="flex items-center justify-between h-16">
-            <a className="text-white text-xl font-bold" href="/">
+            <a className="text-xl font-bold text-white" href="/">
               HAPPYlife
             </a>
             <div className="flex items-center">
@@ -53,22 +53,22 @@ function Nav() {
                   </a>
                 </li>
               </ul>
-              <form className="ml-4 flex">
+              <form className="flex ml-4">
                 <input
-                  className="form-input rounded-l-lg border-2 border-gray-500 focus:outline-none focus:border-gray-700"
+                  className="border-2 border-gray-500 rounded-l-lg form-input focus:outline-none focus:border-gray-700"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 />
                 <button
-                  className="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-r-lg"
+                  className="px-4 py-2 font-bold text-white bg-gray-700 rounded-r-lg hover:bg-gray-800"
                   type="submit"
                 >
                   Search
                 </button>
               </form>
               <a href="/">
-                <button onClick={logout} className="ml-4 py-2 px-4 bg-gray-700 hover:bg-gray-800 text-white font-bold rounded-lg">
+                <button onClick={logout} className="px-4 py-2 ml-4 font-bold text-white bg-gray-700 rounded-lg hover:bg-gray-800">
                   Logout
                 </button>
               </a>
