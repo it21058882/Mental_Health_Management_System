@@ -126,7 +126,8 @@ import "dotenv/config";
                       
                     const data ={
                         acsessToken,
-                        userID
+                        userID,
+                        userType
                     }
 
                     res.send(data);

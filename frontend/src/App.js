@@ -23,10 +23,10 @@ import ChannelForm from "./DoctorManagement/channelForm";
 import DoctorFront from "./DoctorManagement/DoctorFront";
 //Articles
 import AddArticles from "./ArticleManagement/addArticle";
-import ViewArticles from "./ArticleManagement/viewArtical";
+//import ViewArticles from "./ArticleManagement/viewArtical";
 import UpdateArticles from "./ArticleManagement/updateArticle";
-import ClientViewArticles from "./ArticleManagement/ClientViewArticle";
-import ArticleFullView from "./ArticleManagement/ArticleFullView";
+//import ClientViewArticles from "./ArticleManagement/ClientViewArticle";
+//import ArticleFullView from "./ArticleManagement/ArticleFullView";
 
 //NavBar and Footer
 import Nav from "./Ui/nav";
@@ -56,10 +56,10 @@ const page = createBrowserRouter([
 
   ////Article////////////////
   { path: "/addarticle", element: <AddArticles />, },
-  { path: "/viewarticle", element: <ViewArticles />, },
+  //{ path: "/viewarticle", element: <ViewArticles />, },
   { path: "/updatearticle/:id", element: <UpdateArticles />, },
-  { path: "/article&book", element: <ClientViewArticles />, },
-  { path: "/articlefullview/:id", element: <ArticleFullView />, },
+  //{ path: "/article&book", element: <ClientViewArticles />, },
+  //{ path: "/articlefullview/:id", element: <ArticleFullView />, },
 
 
   ///////     User   ////////

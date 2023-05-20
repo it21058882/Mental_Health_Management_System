@@ -18,12 +18,21 @@ function Login() {
 
             const token = res.data.acsessToken;
             const uID = res.data.userID;
+            const type = res.data.userType;
+            console.log(type)
             if (token) {
-                console.log(res.data.acsessToken)
+                //console.log(res.data.acsessToken)
                 localStorage.setItem('acctoken', token)
                 localStorage.setItem('userID', uID)
-                alert(res.data.acsessToken)
+
+                if(type === "admin"){
+                   
+                window.location.href = '/admin';
+                }else{
+                   
                 window.location.href = '/home';
+                }
+                
 
 
             } else {
