@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Nav from "../../Ui/nav";
 
 function ResultsView(){
           const {username,quiztitle,results} = useParams();
@@ -57,6 +58,7 @@ function ResultsView(){
 
           
           return(<div className="m-14 shadow-current">
+            <Nav />
           <div className="w-[800px] m-auto bg-yellow-50  rounded-3xl ">
           
           

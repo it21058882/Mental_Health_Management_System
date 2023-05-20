@@ -14,6 +14,7 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined";
 import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import { Box, styled } from "@mui/system";
+import Nav from "../Ui/nav";
 
 import {
     MDBCard,
@@ -154,18 +155,19 @@ export default function Articles() {
 
     return (
         <div>
+            <Nav />
             <div className="order_bground" style={{ zIndex: 98 }}>
 
                 <div style={{ marginBottom: "-45px" }}>
 
                     <input
                         onChange={searchItem}
-                        className="form-control searchbararticle"
+                        className="form-control searchbararticleClient"
                         type="search"
                         placeholder="Search ...."
                         name="searchQuery"
                     />
-                    <div className="dropdownarticle">
+                    <div className="dropdownarticleClient">
                         <select
                             className="form-control"
                             value={selectedCategory}
@@ -185,7 +187,7 @@ export default function Articles() {
                 <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    className="radioBtnarticle"
+                    className="radioBtnarticleclient"
                     value={selectedType}
                     onChange={handleTypeSelection}
                     style={{ background: '#fff', marginLeft: "85%", marginTop: "10px", marginBottom: '-20px', width: '10%' }}
@@ -201,6 +203,7 @@ export default function Articles() {
                     <center>
                         <hr className="article_hr" />
                     </center>
+                    <br></br>
                     <div class="addArticle_div" style={{ backgroundImage: `url(${AddArticleGIF_3})` }}>
                         <br />
                         <Row className="row-cols-1 row-cols-md-2 g-4">
@@ -208,22 +211,24 @@ export default function Articles() {
                                 (e) =>
                                     (selectedCategory === "" || e.category === selectedCategory) ||
                                         e.title.toLowerCase().includes(search) ||
-                                        e.authorName.includes(search) ||
-                                        selectedType === "" ? true : e.type === selectedType
+                                        e.authorName.includes(search) 
+                                        // ||
+                                        // selectedType === "" ? true : e.type === selectedType
                             ).map((e) => (
                                 <Col>
                                     <Card>
-                                        <CardBody style={{ background: "#ffff" }}>
+                                        <CardBody style={{ background: "#ffff", borderRadius:'20px' }}>
                                             <center>
-                                                {/* <embed
+                                                <embed
                                                     src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${e.article}`)}
                                                     type="application/pdf"
                                                     width="100%"
                                                     height="400px"
-                                                /> */}
+                                                />
                                                 <hr />
                                                 <CardTitle style={{ fontSize: "25px", color: "#4CAF50", textTransform: 'uppercase' }}><u><h3>{e.title}</h3></u></CardTitle>
                                                 <CardText style={{ fontSize: "14px" }}>{e.description}</CardText>
+                                                <br></br>
                                                 <CardText style={{ fontSize: "15px" }}>
                                                     Author Name - {e.authorName}
                                                 </CardText>
@@ -231,6 +236,7 @@ export default function Articles() {
                                                     Category - {e.category}
                                                 </CardText>
                                                 <CardText style={{ fontSize: "15px" }}>Type - {e.type}</CardText>
+                                                <br></br>
                                                 <CardFooter style={{ borderRadius: "10px" }}>
                                                     <small className="text-muted" style={{ fontSize: "10px" }}>
                                                         {e.postDate}

@@ -51,9 +51,8 @@
 
 .addArticleGIF{
     width: 45%;
-    margin-top: -600px;
+    margin-top: -500px;
     margin-left: 5%;
-    border: 1px solid #555;
     border-radius: 15px;
 }
 
@@ -61,14 +60,64 @@
     margin-top: -85px;
 }
 
-.confimBtnAddArticle{
+.backBtnAddArticle{
+    width: 40%;
+    margin-top: 130px;
+}
+
+.updateBtn{
     width: 19%;
     margin-left: 55%;
+    background-color: darkgreen;
+}
+
+.generatebutton{
+    margin-left: 85%;
+    margin-bottom: -20px;
+    
+}
+
+.searchbararticleAdmin{
+    width: 30%;
+    margin-top: 10%;
+    margin-bottom: -60px;
+    margin-left: 5%;
+}
+
+.addarticlebtn{
+    margin-left: 87%;
+    margin-top: 2%;
+    margin-bottom: -200px;
+
 }
 
 .viewarticleBtn{
     margin-left: 80%;
-    width: 250px;
+    margin-bottom: 20px;
+}
+
+.cancleBtnAddArticle{
+    width: 19%;
+    margin-top: 72%;
+    background-color: brown;
+}
+
+
+.updateArticleFiled{
+    margin-top: 8%;
+}
+
+.viewPageUpdateBtn{
+    width: 25%;
+}
+
+.viewPageDeleteBtn{
+    width: 25%;
+}
+
+.backBtnAddArticle{
+    width: 19%;
+    margin-top: 72%;
 }
 
 .searchbararticle{
@@ -78,6 +127,13 @@
     margin-bottom: -70px;
 }
 
+.searchbararticleClient{
+    width: 30%;
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-bottom: -60px;
+}
+
 .radiobtn{
     margin-left: 365px;
 }
@@ -85,11 +141,25 @@
 .dropdownarticle{
     margin-left: 38%;
     width: 10%;
-    margin-top: 33px;
+    margin-top: 22px;
+}
+
+.dropdownarticleClient{
+    width: 10%;
+    margin-top: 23px;
+    margin-left: 15%;
 }
 
 .radioBtnarticle{
     margin-top: -200px;
 }
 
+.radioBtnarticleclient{
+    margin-top: -200px;
+    margin-right: 100px;
+}
+
+.addarticle{
+    margin-top: 7%;
+}
 

@@ -6,10 +6,12 @@ import Swal from 'sweetalert2'
 import '../ArticleManagement/articleManagement.css'
 import Radio from '@mui/material/Radio';
 import FormControl from '@mui/material/FormControl';
+import Nav from "../Ui/AdminNavBar";
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import AddArticleGIF from '../Assets/Images/155129411_l-1.jpg';
 import AddArticleGIF_2 from '../Assets/Images/addArticleback5.jpg';
+
 
 
 
@@ -45,14 +47,18 @@ export default function AddArticles() {
     axios.post("http://localhost:8050/article/add", Add_Article).then(function (res) {
       if (res) {
         Swal.fire({
-          position: 'top-end',
           icon: 'success',
-          showConfirmButton: false,
-          timer: 1900
+          title: 'Item Added !!',
         }, refreshPage())
-        console.log(res.data)
-        sendData(false);
+
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error !!',
+        }, refreshPage())
       }
+
+
     })
 
   }
@@ -65,6 +71,8 @@ export default function AddArticles() {
 
   return (
     <div>
+      <Nav />
+
 
       <div className="DashBG" style={{ zIndex: 98 }}>
 
@@ -74,6 +82,7 @@ export default function AddArticles() {
 
         <h1 className='article_topic'><b>Add Articles & Books</b></h1>
         <center>  <hr className='article_hr'></hr></center>
+        <br></br>
 
 
         <div className="addArticle_div" style={{ backgroundImage: `url(${AddArticleGIF_2})` }}>
@@ -125,6 +134,7 @@ export default function AddArticles() {
             </div>
             <br></br>
 
+
             <div class="form-group" >
               <label for="exampleInputEmail1" className='article_title'><b>Author : *</b></label>
               <input type="text" class="form-control article_EnterTitle" placeholder="Enter Author name :-" onChange={(event) => {
@@ -140,24 +150,27 @@ export default function AddArticles() {
               }} required />
 
 
-
               <img src={AddArticleGIF} class="addArticleGIF" alt="Income image" />
               <div className='DIVADDIMGFIELD'>
-                <div class="form-group" >
-                  <label for="exampleInputEmail1" className='ADDarticleDOC_title '><b>Article : *</b></label>
-                  <input type="file" class="form-control articleADD_image_field" onChange={onChangeFile} required />
+                <div className='addarticle'>
+                  <div class="form-group" >
+                    <label for="exampleInputEmail1" className='ADDarticleDOC_title '><b>Article : *</b></label>
+                    <input type="file" class="form-control articleADD_image_field" onChange={onChangeFile} required />
+                  </div>
                 </div>
               </div>
             </div>
 
             <br></br>
+            <div className='addarticlebtnsgroup'>
 
-            <button type="submit" class="btn btn-success confimBtnAddArticle"  >Confirm</button>
-            <button type="button" class="mx-4 my-4 btn btn-danger confimBtnAddArticle">Cancel </button>
-
+              <button type="submit" class="btn btn-success updateBtn"  >Confirm</button>
+              <button type="button" class="mx-4 my-4 btn btn-danger cancleBtnAddArticle">Cancel </button>
+            </div>
           </form>
         </div>
       </div >
+
     </div >
   )
 

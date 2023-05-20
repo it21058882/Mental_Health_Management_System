@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import "./DoctorPreview.css";
+import Swal from 'sweetalert2'
+import jsPDF from "jspdf";
+import Nav from "../Ui/AdminNavBar";
+import autoTable from 'jspdf-autotable'
 
 function Doctor() { 
   const [Doctor, setDoctor] = useState([]);
@@ -120,6 +124,7 @@ function Doctor() {
   return (
 
     <div className='main'>
+      <Nav />
     <div className='container text-center'>
        <Link to={'/addDoctor/'}>
             <div>
@@ -129,7 +134,7 @@ function Doctor() {
    </Link> 
       <h1 className='text-center-heading'>Therapist</h1>
      
-      <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
+      <div className='container flex-wrap d-flex' style={{ width: '80%'}}>
         {Doctor.map((data) => {
           return (
             <Card style={{ width: '25rem', margin: '3rem', padding: '2rem'}} className=''>

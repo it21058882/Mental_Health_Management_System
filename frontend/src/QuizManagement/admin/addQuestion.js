@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Swal from 'sweetalert2'
+import Nav from "../../Ui/AdminNavBar";
 function AddQuestions() {
 
   const [getQuestions, setQuestions] = useState([]);
@@ -89,6 +90,7 @@ function AddQuestions() {
 
   return (
     <div>
+       <Nav />
 
       {/* {quiztitleid} */}
 

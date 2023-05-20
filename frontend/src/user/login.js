@@ -17,11 +17,22 @@ function Login() {
         axios.post("http://localhost:8050/user/login", loginInfo).then((res) => {
 
             const token = res.data.acsessToken;
+            const uID = res.data.userID;
+            const type = res.data.userType;
+            console.log(type)
             if (token) {
-                console.log(res.data.acsessToken)
+                //console.log(res.data.acsessToken)
                 localStorage.setItem('acctoken', token)
-                alert(res.data.acsessToken)
+                localStorage.setItem('userID', uID)
+
+                if(type === "admin"){
+                   
+                window.location.href = '/admin';
+                }else{
+                   
                 window.location.href = '/home';
+                }
+                
 
 
             } else {
@@ -75,7 +86,7 @@ function Login() {
                                 <input type="submit" value="Log In" class="bg-green-700 text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" />
                             </form>
                             <div class="text-center pt-12 pb-12">
-                                <p>Don't have an account? <a href="register.html" class="underline font-semibold">Register here.</a></p>
+                                <p>Don't have an account? <a href="/registerUser" class="underline font-semibold">Register here.</a></p>
                             </div>
 
                         </div>

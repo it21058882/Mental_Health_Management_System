@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Nav from "../Ui/AdminNavBar";
 import { useParams } from 'react-router-dom';
 
 import "./DoctorPreview.css";
@@ -68,6 +69,7 @@ function Updatedoctor() {
     return (
 
         <div className='main2'>
+            <Nav />
         <div className='#'>
             <h1>Update Package Details </h1>
             <div className="form">

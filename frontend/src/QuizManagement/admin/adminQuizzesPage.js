@@ -1,4 +1,5 @@
 import axios from "axios";
+import Nav from "../../Ui/AdminNavBar";
 import React, { useEffect, useState } from "react";
 
 // ES6 Modules or TypeScript
@@ -90,6 +91,7 @@ function AdminQuizzesPage(){
           }
           
           return(<div className="h-full">
+             <Nav />
                     
                     <div class="input-group w-[700px] pr-52 pt-12 float-right">
   <input type="text" class="form-control" onChange={searchfun} placeholder= "Search Quiz name" aria-label="Search Quiz name" aria-describedby="basic-addon2"/>
