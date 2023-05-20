@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Nav from "../../Ui/AdminNavBar";
 import axios from "axios";
 
 
@@ -36,6 +37,7 @@ function AddQuizTitle (){
 
           return(
                    <div className="h-[600px]">
+                     <Nav />
 
                             
                               <div className="mt-12"><h1 className="text-6xl font-bold text-center underline">Add Quiz</h1></div>

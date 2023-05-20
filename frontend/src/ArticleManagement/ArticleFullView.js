@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Nav from "../Ui/nav";
 import AddArticleGIF_3 from '../Assets/Images/fullviewarticle.jpg';
 
 
@@ -37,6 +38,7 @@ function ArticleFullView() {
 
   return (
     <div style={{ backgroundImage: `url(${AddArticleGIF_3})` }}>
+      <Nav />
       <form>
 
         <div className="form-group" style={{ padding: '30px' }}>

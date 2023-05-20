@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import Nav from "../../Ui/nav";
 
 import Question from "../component/Question";
 
@@ -88,6 +89,7 @@ function Questions(){
           
 
           return(<div>
+             <Nav />
                     <h1 className="mt-10 text-5xl font-bold text-center underline">{quiztitle}</h1>
                     <br/>
                    {getQustions.map(qus =>{ return(<Question question={qus}  getMarkFormQuistion={getMark}/>)})}

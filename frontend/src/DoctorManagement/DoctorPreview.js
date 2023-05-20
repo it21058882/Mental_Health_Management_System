@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import "./DoctorPreview.css";
 import Swal from 'sweetalert2'
 import jsPDF from "jspdf";
+import Nav from "../Ui/AdminNavBar";
 import autoTable from 'jspdf-autotable'
 
 function Doctor() { 
@@ -123,6 +124,7 @@ function Doctor() {
   return (
 
     <div className='main'>
+      <Nav />
     <div className='container text-center'>
        <Link to={'/addDoctor/'}>
             <div>

@@ -6,10 +6,12 @@ import Swal from 'sweetalert2'
 import '../ArticleManagement/articleManagement.css'
 import Radio from '@mui/material/Radio';
 import FormControl from '@mui/material/FormControl';
+import Nav from "../Ui/AdminNavBar";
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import AddArticleGIF from '../Assets/Images/155129411_l-1.jpg';
 import AddArticleGIF_2 from '../Assets/Images/addArticleback5.jpg';
+
 
 
 
@@ -69,6 +71,8 @@ export default function AddArticles() {
 
   return (
     <div>
+      <Nav />
+
 
       <div className="DashBG" style={{ zIndex: 98 }}>
 
@@ -129,7 +133,7 @@ export default function AddArticles() {
               }} required></textarea>
             </div>
             <br></br>
-            
+
 
             <div class="form-group" >
               <label for="exampleInputEmail1" className='article_title'><b>Author : *</b></label>
@@ -166,6 +170,7 @@ export default function AddArticles() {
           </form>
         </div>
       </div >
+
     </div >
   )
 

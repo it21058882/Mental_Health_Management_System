@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import AddArticleGIF_3 from '../Assets/Images/addArticleback3.jpg';
+import Nav from "../Ui/AdminNavBar";
 import Swal from 'sweetalert2'
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import jsPDF from 'jspdf'
@@ -91,7 +92,7 @@ export default function Articles() {
                     icon: 'success',
                     title: 'Item Deleted !!',
                 })
-                 refreshPage()
+                refreshPage()
             })
         } else {
             refreshPage()
@@ -148,7 +149,7 @@ export default function Articles() {
         <div>
 
 
-
+            <Nav />
             <div style={{ marginBottom: "-45px" }}>
 
                 <div className='addarticlebtn'>
@@ -202,7 +203,7 @@ export default function Articles() {
 
                     ).map(e => (
                         <MDBCol>
-                           <MDBCard style={{ background: "#fffaa" }}>
+                            <MDBCard style={{ background: "#fffaa" }}>
                                 <MDBCardBody style={{ background: "#fffb" }} >
                                     <center>
                                         <embed src={require(`C:/Users/Thisara/Desktop/SLIIT/Y3S1/ITPM/Project/Mental_Health_Management_System/backend/src/api/Uploads/DOC/${e.article}`)} type="application/pdf" width="100%" height="400px" />
@@ -228,16 +229,16 @@ export default function Articles() {
                                             </MDBCardFooter>
                                         </div>
                                         <br></br>
-                                     
 
-                                            <Link to={"/updatearticle/" + e._id} >
-                                                <Button variant="contained" className='viewPageUpdateBtn' >Update</Button>
-                                            </Link>
 
-                                            <Button className='viewPageDeleteBtn' color="error" onClick={() => { deleteArticle(e) }} variant="contained" >
-                                                Delete
-                                            </Button>
-                                    
+                                        <Link to={"/updatearticle/" + e._id} >
+                                            <Button variant="contained" className='viewPageUpdateBtn' >Update</Button>
+                                        </Link>
+
+                                        <Button className='viewPageDeleteBtn' color="error" onClick={() => { deleteArticle(e) }} variant="contained" >
+                                            Delete
+                                        </Button>
+
                                     </center>
                                 </MDBCardBody>
                             </MDBCard>

@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import AddArticleGIF_2 from '../Assets/Images/addArticleback5.jpg';
+import Nav from "../Ui/AdminNavBar";
 import AddArticleGIF from '../Assets/Images/addArticleback2.jpg';
 import Swal from 'sweetalert2'
 function ArticleUpdate() {
@@ -72,6 +73,8 @@ function ArticleUpdate() {
 
     return (
         <div>
+             <Nav />
+            
             <br></br>
 
             <h1 className='article_topic'><b>Update Articles & Books</b></h1>

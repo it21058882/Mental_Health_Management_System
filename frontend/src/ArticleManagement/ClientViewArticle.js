@@ -14,6 +14,7 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined";
 import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import { Box, styled } from "@mui/system";
+import Nav from "../Ui/nav";
 
 import {
     MDBCard,
@@ -154,6 +155,7 @@ export default function Articles() {
 
     return (
         <div>
+            <Nav />
             <div className="order_bground" style={{ zIndex: 98 }}>
 
                 <div style={{ marginBottom: "-45px" }}>

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Swal from 'sweetalert2'
 import jsPDF from "jspdf";
+import Nav from "../../Ui/AdminNavBar";
 import autoTable from 'jspdf-autotable'
 
 function UserProgress(){
@@ -118,6 +119,7 @@ function UserProgress(){
                   }
 
           return(<div>
+             <Nav />
        
 
           

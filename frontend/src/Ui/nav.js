@@ -1,6 +1,17 @@
 import React from "react";
 
 function Nav() {
+
+  function logout() {
+    localStorage.setItem('acctoken', "")
+
+    localStorage.setItem('userID', "")
+
+    window.location.href = '/';
+  }
+
+
+
   return (
     <div>
       <nav className="px-2 bg-gray-900">
@@ -12,7 +23,7 @@ function Nav() {
             <div className="flex items-center">
               <ul className="flex space-x-4">
                 <li>
-                  <a className="text-white" href="/Home">
+                  <a className="text-white" href="/home">
                     Home
                   </a>
                 </li>
@@ -23,11 +34,11 @@ function Nav() {
                 </li>
                 <li>
                   <a className="text-white" href="/doctorpreviewUser">
-                    Doctor 
+                    Doctor
                   </a>
                 </li>
                 <li>
-                  <a className="text-white" href="/">
+                  <a className="text-white" href="">
                     Fun Games
                   </a>
                 </li>
@@ -56,16 +67,16 @@ function Nav() {
                   Search
                 </button>
               </form>
-              <a href="#">
-                <button className="px-4 py-2 ml-4 font-bold text-white bg-gray-700 rounded-lg hover:bg-gray-800">
+              <a href="/">
+                <button onClick={logout} className="px-4 py-2 ml-4 font-bold text-white bg-gray-700 rounded-lg hover:bg-gray-800">
                   Logout
                 </button>
               </a>
             </div>
           </div>
         </div>
-      </nav>
-    </div>
+      </nav >
+    </div >
   );
 }
 

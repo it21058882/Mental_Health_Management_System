@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios";
+import Nav from "../Ui/AdminNavBar";
 import "./DoctorPreview.css";
 
 
@@ -37,6 +38,7 @@ import "./DoctorPreview.css";
 
     return (
       <div className='main2'>
+        <Nav />
         <div className='#'>
             <h1 class="text-3xl font-bold dark:text-black">Enter Therapist Details</h1>
             <br></br>
