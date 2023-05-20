@@ -1,6 +1,17 @@
 import React from "react";
 
 function Nav() {
+
+  function logout() {
+    localStorage.setItem('acctoken', "")
+
+    localStorage.setItem('userID', "")
+
+    window.location.href = '/';
+  }
+
+
+
   return (
     <div>
       <nav className="bg-gray-900 px-2">
@@ -12,7 +23,7 @@ function Nav() {
             <div className="flex items-center">
               <ul className="flex space-x-4">
                 <li>
-                  <a className="text-white" href="/viewerHome.jsp">
+                  <a className="text-white" href="/home">
                     Home
                   </a>
                 </li>
@@ -23,11 +34,11 @@ function Nav() {
                 </li>
                 <li>
                   <a className="text-white" href="/doctorpreviewUser">
-                    Doctor 
+                    Doctor
                   </a>
                 </li>
                 <li>
-                  <a className="text-white" href="/">
+                  <a className="text-white" href="">
                     Fun Games
                   </a>
                 </li>
@@ -37,7 +48,7 @@ function Nav() {
                   </a>
                 </li>
                 <li>
-                  <a className="text-white" href="#">
+                  <a className="text-white" href="/userprofile">
                     Profile
                   </a>
                 </li>
@@ -56,16 +67,16 @@ function Nav() {
                   Search
                 </button>
               </form>
-              <a href="#">
-                <button className="ml-4 py-2 px-4 bg-gray-700 hover:bg-gray-800 text-white font-bold rounded-lg">
+              <a href="/">
+                <button onClick={logout} className="ml-4 py-2 px-4 bg-gray-700 hover:bg-gray-800 text-white font-bold rounded-lg">
                   Logout
                 </button>
               </a>
             </div>
           </div>
         </div>
-      </nav>
-    </div>
+      </nav >
+    </div >
   );
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Nav from "../../Ui/nav";
 
 function Quiz(){
 
@@ -37,6 +38,7 @@ function Quiz(){
            }
            
           return(<div className="h-full">
+               <Nav />
 
 
                             <div class="input-group w-[700px] pr-52 pt-12 float-right">

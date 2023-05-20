@@ -86,9 +86,10 @@ function App() {
   return (
 
     <React.StrictMode>
-      <Nav />
+      {/* <Nav /> */}
       <RouterProvider router={page} />
       <Footer />
+
     </React.StrictMode>
 
   );

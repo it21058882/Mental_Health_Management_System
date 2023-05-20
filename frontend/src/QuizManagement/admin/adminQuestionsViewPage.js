@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Nav from "../../Ui/AdminNavBar";
 import Swal from 'sweetalert2'
 function AdmminViewQuestions(){
           const [getQustions,setQuestions] = useState([]);
@@ -141,7 +142,7 @@ function AdmminViewQuestions(){
           }
           
           return(<div>
-          
+           <Nav />
                     
                     <div className="mt-10"><h1 className="text-6xl font-bold text-center underline">{quiztitle}</h1></div>
 
