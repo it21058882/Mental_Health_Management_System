@@ -16,6 +16,7 @@ be made in a user friendly and a simple manner to ensure minimal distraction and
 engagement so that we can provide accurate feedback and relevant details for the user. The website will you the data from the users to accurately 
 predict and develop the website to increase efficiency of the website. As students of SLIIT we have consulted a medical doctor and have used 
 his input to develop the website. We believe that good mental health and proper well-being will raise the standards of living for people in Sri Lanka and all over the world. Because of this website collects personal data from users, we will not sell any of the data to third parties.
+<br>
 In here Our Main functions are  <br>
 1.User Management System <br>
 2.Thrapist Management System <br> 
