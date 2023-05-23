@@ -1,11 +1,11 @@
 # Mental_Health_Management_System
-Mental Health Management System
-Team Number - 08
-Project Group - 
-#Group Leader - IT21024740 - Makawita M.G.M.P (it21024740)#
-Member 2 - IT21025662 - Kalupahana N.H (it21025662)
-Member 3 - IT21058882 - Kariyawasam K.H.M.S (it21058882)
-Member 4 - IT21067938 - Randeni K.M.T.D (it21067938)
+Mental Health Management System </br>
+Team Number - 08 </br>
+Project Group - </br>
+Group Leader - IT21024740 - Makawita M.G.M.P (it21024740) </br>
+Member 2 - IT21025662 - Kalupahana N.H (it21025662) </br> 
+Member 3 - IT21058882 - Kariyawasam K.H.M.S (it21058882) </br>
+Member 4 - IT21067938 - Randeni K.M.T.D (it21067938) </br>
 
 Mental health and wellbeing is one of the key points for a good standard of living. Our project is developing a website that aims to reduce the 
 mental health issues and promote wellbeing. The website will comprise of a Q&A, Articles regarding mental health, Mediation, Therapies and 
