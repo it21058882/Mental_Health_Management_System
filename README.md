@@ -3,7 +3,6 @@
 <b> Mental Health Management System </br>
 Team Number - 08 </br>
 Project Group - </br>
-<br>
 Group Leader - IT21024740 - Makawita M.G.M.P (it21024740) </br>
 Member 2 - IT21025662 - Kalupahana N.H (it21025662) </br> 
 Member 3 - IT21058882 - Kariyawasam K.H.M.S (it21058882) </br>
